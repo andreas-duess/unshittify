@@ -20,12 +20,20 @@
     { "pattern": "unshittify.dev", "custom_domain": true },
     { "pattern": "www.unshittify.dev", "custom_domain": true }
   ],
+  "ratelimits": [
+    { "name": "SUBMIT_LIMITER", "namespace_id": "1001", "simple": { "limit": 3, "period": 60 } },
+    { "name": "GLOBAL_LIMITER", "namespace_id": "1003", "simple": { "limit": 15, "period": 60 } }
+  ],
   "observability": { "enabled": true },
   "env": {
     // Preview on *.workers.dev, no custom domain: npx wrangler deploy --env preview
     "preview": {
       "workers_dev": true,
       "routes": [],
+      "ratelimits": [
+        { "name": "SUBMIT_LIMITER", "namespace_id": "1002", "simple": { "limit": 3, "period": 60 } },
+        { "name": "GLOBAL_LIMITER", "namespace_id": "1004", "simple": { "limit": 15, "period": 60 } }
+      ],
       "send_email": [
         { "name": "SUBMISSIONS", "destination_address": "andreas@duess.com" }
       ],

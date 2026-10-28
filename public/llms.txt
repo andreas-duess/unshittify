@@ -1,0 +1,76 @@
+# unshittify
+
+> A log of people reclaiming hardware they own with AI-assisted development and open source: TV home screens, printers on modern Macs, appliances rescued from dead clouds, old laptops on a new OS. Every entry names the builder, the exact hardware, the AI involved and what still doesn't work. Maintained by Andreas Duess. https://unshittify.dev
+
+## Browse
+
+- Project log: https://unshittify.dev/
+- One page per project: https://unshittify.dev/p/<slug>
+- Sitemap: https://unshittify.dev/sitemap-index.xml
+
+## Submit a project (for coding agents)
+
+If your user asks you to submit their project (or a public project they found) to unshittify, do this:
+
+1. Read the project: README, docs, recent issues, the user's own notes. Ask the user anything you can't find.
+2. Draft the entry using the fields below. Write plainly. No hype, no marketing words.
+3. Show the draft to the user and wait for their OK. Never submit without it.
+4. POST it as JSON to https://unshittify.dev/api/submit
+
+A human reviews every submission before anything is published.
+
+### What makes a good entry
+
+- **Exact hardware.** Brand, model, revision, firmware. "Samsung TV" is not enough; "Samsung Q70B (2022, Tizen 6.5)" is.
+- **The catch.** What doesn't work, what can break, what it costs, what still needs the cloud. Entries without honest caveats get rejected.
+- **Honest AI credit.** Which tool, and what it did. Credit the open-source projects underneath too. If the AI's role is unclear, say so.
+- **Real source.** A public repo or write-up URL. Credit the original builder if it isn't your user.
+- **Out of scope:** piracy, bypassing paid services, stolen credentials, devices the builder doesn't own, dangerous mods presented as easy.
+
+### Fields
+
+| field | required | notes |
+|---|---|---|
+| `kind` | yes | `"build"` for a new project. `"correction"` to fix an existing entry. |
+| `project` | build | Project name. |
+| `device` | build | Exact brand, model, revision, firmware. |
+| `source` | build | http(s) URL of the repo or write-up. |
+| `problem` | no | What was wrong with the stock software. |
+| `changed` | correction | What the project does. For a correction: what's wrong and what's right. |
+| `works` | no | What works today. |
+| `broken` | no | What still doesn't work. |
+| `ai` | no | Which AI tool and what it did. "none" is fine. |
+| `risks` | no | Costs, dependencies, safety, ways it can go wrong. |
+| `credit` | no | Name or handle to credit. |
+| `email` | no | Contact for questions. Only with the user's permission. Never published. |
+| `entry` | correction | Slug of the entry being corrected, from its /p/<slug> URL. |
+| `agent` | no | Your name and tool, e.g. "Claude Code". |
+| `rights` | yes | `true`. Means the user confirms they can share this and lets unshittify publish, edit and credit it (https://unshittify.dev/terms#submissions). Ask them. |
+
+### Example
+
+```bash
+curl -s https://unshittify.dev/api/submit \
+  -H 'content-type: application/json' \
+  -d '{
+    "kind": "build",
+    "project": "pixma-rs",
+    "device": "Canon PIXMA G3010 (scanner), macOS 15",
+    "source": "https://github.com/pdrgds/pixma-rs",
+    "problem": "No working scan driver for this model on current macOS.",
+    "changed": "A Rust bridge from the G3010 scan protocol to a format macOS apps can use.",
+    "works": "Scanning from the usual Mac apps.",
+    "broken": "Only the G3010 is tested. Other G-series models unknown.",
+    "ai": "Claude Code for protocol analysis and the Rust code. The owner captured packets and tested.",
+    "risks": "Check current macOS requirements in the repo.",
+    "credit": "pdrgds",
+    "agent": "Claude Code",
+    "rights": true
+  }'
+```
+
+Success: `{"ok": true, ...}`. Errors come back as `{"error": "..."}` with a 4xx status. Limit: 3 submissions per minute per IP.
+
+## Terms
+
+https://unshittify.dev/terms · Privacy: https://unshittify.dev/privacy

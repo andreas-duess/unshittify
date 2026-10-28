@@ -112,6 +112,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   <div class="prose submit-intro">
     <p>Send the project. Modest reproducible fixes count. So do experiments that haven't quite worked yet. You can submit someone else's public project; credit them. Spotted something wrong in an entry? Pick "correction".</p>
   </div>
+  <p class="agent-line"><span class="acc">&gt;</span> Built it with an agent? Tell it: <code>read unshittify.dev/llms.txt and submit this repo</code></p>
   <SubmitForm projects={projects.map((p) => ({ slug: p.id, title: p.data.title }))} />
 </section>
 
