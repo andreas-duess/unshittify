@@ -20,5 +20,19 @@
     { "pattern": "unshittify.dev", "custom_domain": true },
     { "pattern": "www.unshittify.dev", "custom_domain": true }
   ],
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "env": {
+    // Preview on *.workers.dev, no custom domain: npx wrangler deploy --env preview
+    "preview": {
+      "workers_dev": true,
+      "routes": [],
+      "send_email": [
+        { "name": "SUBMISSIONS", "destination_address": "andreas@duess.com" }
+      ],
+      "vars": {
+        "FROM_ADDRESS": "form@unshittify.dev",
+        "TO_ADDRESS": "andreas@duess.com"
+      }
+    }
+  }
 }
