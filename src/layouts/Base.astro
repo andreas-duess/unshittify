@@ -1,4 +1,5 @@
 ---
+import { GA_ID } from '../lib/meta';
 interface Props {
   title?: string;
   description?: string;
@@ -8,6 +9,7 @@ const {
   description = 'A field log of people reclaiming hardware with AI-assisted development and open source. TVs, printers, appliances, wearables, old Macs. Sources and caveats on every entry.',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
 ---
 <!doctype html>
 <html lang="en">
@@ -17,12 +19,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
+<meta property="og:site_name" content="unshittify">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:type" content="website">
 <meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="unshittify: You bought it. Make it yours.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={ogImage}>
 <meta name="theme-color" content="#0a0b0c">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" href="/sitemap-index.xml">
 <link rel="preload" href="/fonts/jbm-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
@@ -44,7 +58,66 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 </main>
 <footer class="wrap foot">
   <p>Independent projects, credited to their builders. Product names belong to their owners; inclusion is not endorsement or affiliation.</p>
-  <p class="dim">No cookies, no analytics.</p>
+  <p class="credit">Maintained by <a href="https://duess.com">Andreas Duess</a></p>
+  <nav class="foot-links" aria-label="Legal">
+    <a href="/privacy">privacy</a>
+    <a href="/terms">terms</a>
+    <a href="/cookies">cookies</a>
+    {GA_ID && <button type="button" class="linkish" data-consent-open>cookie settings</button>}
+  </nav>
 </footer>
+
+{GA_ID && (
+  <div class="consent" id="consent" hidden role="dialog" aria-label="Cookie consent">
+    <p><span class="acc">$</span> analytics --consent? We use Google Analytics to count visits. It sets cookies only if you accept. <a href="/cookies">details</a></p>
+    <div class="consent-actions">
+      <button type="button" class="btn" data-consent="granted">accept</button>
+      <button type="button" class="btn ghost" data-consent="denied">reject</button>
+    </div>
+  </div>
+)}
+
+{GA_ID && (
+  <script is:inline define:vars={{ GA_ID }}>
+    (function () {
+      var KEY = 'unshittify-consent';
+      var box = document.getElementById('consent');
+      var get = function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
+      var set = function (v) { try { localStorage.setItem(KEY, v); } catch (e) {} };
+      var loaded = false;
+      function loadGA() {
+        if (loaded) return; loaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true });
+        var s = document.createElement('script');
+        s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+      }
+      function clearGA() {
+        document.cookie.split(';').forEach(function (c) {
+          var n = c.split('=')[0].trim();
+          if (n.indexOf('_ga') === 0) {
+            var h = location.hostname.split('.').slice(-2).join('.');
+            document.cookie = n + '=; Max-Age=0; path=/; domain=.' + h;
+            document.cookie = n + '=; Max-Age=0; path=/';
+          }
+        });
+      }
+      var choice = get();
+      if (choice === 'granted') loadGA(); else if (!choice) box.hidden = false;
+      document.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.matches('[data-consent]')) {
+          var v = t.getAttribute('data-consent');
+          set(v); box.hidden = true;
+          if (v === 'granted') loadGA(); else { clearGA(); if (loaded) location.reload(); }
+        }
+        if (t.matches('[data-consent-open]')) box.hidden = false;
+      });
+    })();
+  </script>
+)}
 </body>
 </html>

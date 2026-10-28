@@ -15,7 +15,7 @@ const FIELDS = [
   ['project', 'project'],
   ['device', 'device'],
   ['problem', 'problem'],
-  ['changed', 'changed / correction'],
+  ['changed', 'changed / correction / message'],
   ['works', 'works'],
   ['broken', 'still broken'],
   ['source', 'source'],
@@ -56,11 +56,12 @@ async function submit(req: Request, env: Env): Promise<Response> {
   const t = Number(get('t'));
   if (get('website') || (t && Date.now() - t < 3000)) return done(true);
 
-  const kind = get('kind') === 'correction' ? 'correction' : 'build';
-  if (get('rights') !== 'yes') return done(false, 'please confirm you can share this');
+  const k = get('kind');
+  const kind = k === 'correction' || k === 'message' ? k : 'build';
+  if (kind !== 'message' && get('rights') !== 'yes') return done(false, 'please confirm you can share this');
   if (kind === 'build' && (!get('project') || !get('device') || !get('source')))
     return done(false, 'project, device and source link are required');
-  if (kind === 'correction' && !get('changed')) return done(false, 'describe the correction');
+  if (kind !== 'build' && !get('changed')) return done(false, kind === 'message' ? 'write a message' : 'describe the correction');
 
   const email = get('email');
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : undefined;
@@ -71,7 +72,7 @@ async function submit(req: Request, env: Env): Promise<Response> {
   const html = `<div style="font-family:ui-monospace,Menlo,monospace;font-size:14px;line-height:1.5">` +
     lines.map(([l, v]) => `<p><b>${esc(l)}</b><br>${esc(v).replace(/\n/g, '<br>')}</p>`).join('') + `</div>`;
 
-  const title = kind === 'build' ? get('project') : `correction: ${get('entry') || 'general'}`;
+  const title = kind === 'build' ? get('project') : kind === 'message' ? `message${validEmail ? ' from ' + validEmail : ''}` : `correction: ${get('entry') || 'general'}`;
 
   try {
     await env.SUBMISSIONS.send({

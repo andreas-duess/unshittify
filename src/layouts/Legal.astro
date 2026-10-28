@@ -1,0 +1,13 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; updated: string }
+const { title, updated } = Astro.props;
+---
+<Base title={`${title} | unshittify`}>
+<article class="wrap legal">
+  <p class="prompt"><a href="/" class="dim">~</a><span class="acc">/</span>{title.toLowerCase().replace(/ /g, '-')}</p>
+  <h1 class="detail-h">{title}</h1>
+  <p class="note">Last updated {updated}</p>
+  <div class="prose legal-body"><slot /></div>
+</article>
+</Base>

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ProjectFields from '../components/ProjectFields.astro';
 import EvidenceTag from '../components/EvidenceTag.astro';
-import { CATEGORIES, EVIDENCE, SNAPSHOT, pad } from '../lib/meta';
+import { CATEGORIES, EVIDENCE, pad } from '../lib/meta';
 import SubmitForm from '../components/SubmitForm.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
@@ -15,11 +15,6 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   <h1>You bought it.<br>Make it yours.</h1>
   <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
   <p class="lede">Most were built with a coding assistant on top of years of open-source work.</p>
-  <dl class="stats">
-    <div><dt>entries</dt><dd id="stat-count">{projects.length}</dd></div>
-    <div><dt>snapshot</dt><dd>{SNAPSHOT}</dd></div>
-    <div><dt>tested by us</dt><dd>0</dd></div>
-  </dl>
 </section>
 
 <section id="log" class="wrap">
@@ -139,7 +134,6 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
   const rows = [...document.querySelectorAll<HTMLLIElement>('#list > li')];
   const empty = document.getElementById('empty')!;
-  const count = document.getElementById('stat-count')!;
   let cat = 'all';
   const run = () => {
     const term = q.value.trim().toLowerCase();
@@ -150,7 +144,6 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
       if (show) n++;
     }
     empty.hidden = n > 0;
-    count.textContent = String(n);
   };
   for (const c of chips) c.addEventListener('click', () => {
     chips.forEach((x) => x.classList.toggle('on', x === c));

@@ -6,6 +6,7 @@ const { projects } = Astro.props;
   <fieldset class="kind" aria-label="Type">
     <label><input type="radio" name="kind" value="build" checked> new build</label>
     <label><input type="radio" name="kind" value="correction"> correction</label>
+    <label><input type="radio" name="kind" value="message"> message</label>
   </fieldset>
 
   <div class="grid">
@@ -25,7 +26,7 @@ const { projects } = Astro.props;
       <textarea name="problem" rows="3" maxlength="2000"></textarea>
     </label>
     <label class="f wide">
-      <span class="only-build">what you changed</span><span class="only-fix">what's wrong, and what's right <span class="req">*</span></span>
+      <span class="only-build">what you changed</span><span class="only-fix">what's wrong, and what's right <span class="req">*</span></span><span class="only-msg">message <span class="req">*</span></span>
       <textarea name="changed" rows="4" maxlength="4000"></textarea>
     </label>
     <label class="f only-build">works today
@@ -34,7 +35,7 @@ const { projects } = Astro.props;
     <label class="f only-build">still broken
       <textarea name="broken" rows="3" maxlength="2000"></textarea>
     </label>
-    <label class="f wide">source link <span class="req only-build">*</span>
+    <label class="f wide not-msg">source link <span class="req only-build">*</span>
       <input name="source" type="url" maxlength="500" placeholder="https://github.com/… or write-up URL">
     </label>
     <label class="f only-build">ai involved
@@ -43,7 +44,7 @@ const { projects } = Astro.props;
     <label class="f only-build">costs, deps, risks
       <input name="risks" maxlength="500">
     </label>
-    <label class="f">credit as
+    <label class="f not-msg">credit as
       <input name="credit" maxlength="120" placeholder="name or handle">
     </label>
     <label class="f">email <span class="dim">(optional, for questions)</span>
@@ -56,7 +57,7 @@ const { projects } = Astro.props;
   </div>
   <input type="hidden" name="t" value="">
 
-  <label class="check"><input type="checkbox" name="rights" value="yes" required> I have the right to share this. Submitting doesn't guarantee publication.</label>
+  <label class="check not-msg"><input type="checkbox" name="rights" value="yes" required> <span>By submitting, I confirm I have the right to share this, and I give unshittify the right to publish, edit and credit it as set out in the <a href="/terms#submissions">terms</a>. Submitting doesn't guarantee publication.</span></label>
   <p class="note">Strip passwords, tokens and other people's personal info.</p>
 
   <div class="actions">
@@ -74,9 +75,11 @@ const { projects } = Astro.props;
   const setKind = (k: string) => {
     form.dataset.kind = k;
     const build = k === 'build';
+    (form.querySelector(`input[name="kind"][value="${k}"]`) as HTMLInputElement).checked = true;
     for (const n of ['project', 'device']) (form.elements.namedItem(n) as HTMLInputElement).required = build;
     (form.elements.namedItem('source') as HTMLInputElement).required = build;
     (form.elements.namedItem('changed') as HTMLTextAreaElement).required = !build;
+    (form.elements.namedItem('rights') as HTMLInputElement).required = k !== 'message';
   };
   form.addEventListener('change', (e) => {
     const el = e.target as HTMLInputElement;
@@ -84,12 +87,13 @@ const { projects } = Astro.props;
   });
 
   // /?fix=<slug>#submit preselects a correction for that entry.
-  const fix = new URLSearchParams(location.search).get('fix');
+  // /?kind=message#submit opens the message mode.
+  const qs = new URLSearchParams(location.search);
+  const fix = qs.get('fix');
   if (fix) {
-    (form.querySelector('input[value="correction"]') as HTMLInputElement).checked = true;
     (form.elements.namedItem('entry') as HTMLSelectElement).value = fix;
     setKind('correction');
-  } else setKind('build');
+  } else setKind(qs.get('kind') === 'message' ? 'message' : 'build');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
