@@ -17,4 +17,4 @@ export const SNAPSHOT = '2026-10-28';
 export const pad = (n: number) => String(n).padStart(3, '0');
 
 // Google Analytics 4 measurement ID (G-XXXXXXX). Empty = no analytics, no consent banner.
-export const GA_ID = '';
+export const GA_ID = 'G-BNFZF5QMMS';
