@@ -1,6 +1,7 @@
 ---
 id: 3
 title: "Clean Your TV"
+seoTitle: "Clean Your TV: debloat Android TV and Google TV with a coding agent"
 device: "Android TV / Google TV sets"
 category: tv
 ai: "claude code"

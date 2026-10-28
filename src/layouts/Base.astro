@@ -3,10 +3,14 @@ import { GA_ID } from '../lib/meta';
 interface Props {
   title?: string;
   description?: string;
+  ogType?: 'website' | 'article';
+  jsonld?: Record<string, unknown>[];
 }
 const {
   title = 'unshittify | make the hardware you own useful again',
-  description = 'A field log of people reclaiming hardware with AI-assisted development and open source. TVs, printers, appliances, wearables, old Macs. Sources and caveats on every entry.',
+  description = 'A log of people undoing enshittification on hardware they own, with Claude Code, other AI tools and open source. TVs, printers, smart home devices after the cloud dies, old Macs. Source and caveats on every entry.',
+  ogType = 'website',
+  jsonld = [],
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og.png', Astro.site);
@@ -22,7 +26,8 @@ const ogImage = new URL('/og.png', Astro.site);
 <meta property="og:site_name" content="unshittify">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
-<meta property="og:type" content="website">
+<meta property="og:type" content={ogType}>
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content={canonical}>
 <meta property="og:image" content={ogImage}>
 <meta property="og:image:width" content="1200">
@@ -38,6 +43,11 @@ const ogImage = new URL('/og.png', Astro.site);
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" href="/sitemap-index.xml">
+<link rel="alternate" type="application/rss+xml" title="unshittify: new entries" href="/feed.xml">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
+<meta name="author" content="Andreas Duess">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+{jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
 <link rel="preload" href="/fonts/jbm-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
@@ -62,6 +72,9 @@ const ogImage = new URL('/og.png', Astro.site);
     <a href="/privacy">privacy</a>
     <a href="/terms">terms</a>
     <a href="/cookies">cookies</a>
+    <a href="/enshittification">enshittification</a>
+    <a href="/feed.xml">rss</a>
+    <a href="/llms.txt">llms.txt</a>
     {GA_ID && <button type="button" class="linkish" data-consent-open>cookie settings</button>}
   </nav>
 </footer>

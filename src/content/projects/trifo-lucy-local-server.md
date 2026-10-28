@@ -1,6 +1,7 @@
 ---
 id: 6
 title: "Trifo Lucy local server"
+seoTitle: "Trifo Lucy robot vacuum: local control after the cloud went quiet"
 device: "Trifo Lucy robot vacuum"
 category: home
 ai: "claude"

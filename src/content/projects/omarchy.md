@@ -1,6 +1,7 @@
 ---
 id: 16
 title: "Omarchy"
+seoTitle: "Omarchy on older Intel Macs: what works and what to check first"
 device: "Older Intel Macs → Arch Linux desktop"
 category: computer
 ai: "coding agents"

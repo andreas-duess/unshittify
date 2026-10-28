@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, MAINTAINER } from '../lib/meta';
+
+const faq = [
+  ['What does enshittification mean?',
+   'Cory Doctorow coined the word in 2022. It describes how platforms decay: first they are good to their users, then they squeeze users to favour business customers, then they squeeze business customers to keep the value for themselves.'],
+  ['Does enshittification apply to hardware?',
+   'Yes. Hardware is sold once, but its software keeps changing. Home screens fill with ads, cloud services shut down, apps get abandoned and operating system support ends. The device still works physically while the software makes it worse.'],
+  ['Can you undo enshittification on a device you own?',
+   'Often, partly. People replace launchers, write local servers for devices whose cloud died, write missing drivers and install new operating systems. Each entry on unshittify lists what the fix restores and what still does not work.'],
+  ['Is it legal to modify a device you own?',
+   'It depends on where you live, the device terms and the software licences involved. Owning a device is a strong starting point but not a blanket answer. unshittify lists owner-controlled projects only and does not offer legal advice.'],
+  ['Do I need to be a programmer?',
+   'Not always. Coding assistants such as Claude Code now let owners read unfamiliar code, decode protocols and build replacements. Some projects still need soldering or command-line work. Pick one you can undo.'],
+] as const;
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Enshittification: what it means for the hardware you own, and how people undo it',
+    url: `${SITE}/enshittification`,
+    author: MAINTAINER,
+    publisher: { '@type': 'Organization', name: 'unshittify', url: SITE },
+    dateModified: '2026-10-28',
+    about: { '@type': 'Thing', name: 'Enshittification', sameAs: 'https://en.wikipedia.org/wiki/Enshittification' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+];
+---
+<Base
+  title="Enshittification: what it means for your hardware, and how to undo it | unshittify"
+  description="Enshittification, the word Cory Doctorow coined for how platforms decay, applied to hardware you own: ad-filled TV home screens, dead clouds, abandoned apps, ended OS support. Plus real projects that undo it."
+  ogType="article"
+  jsonld={jsonld}>
+<article class="wrap legal">
+  <p class="prompt"><a href="/" class="dim">~</a><span class="acc">/</span>enshittification</p>
+  <h1 class="detail-h">Enshittification</h1>
+  <p class="note">What it means for the hardware you own, and how people undo it. Updated 2026-10-28.</p>
+
+  <div class="prose legal-body">
+    <p>Writer <a href="https://pluralistic.net/">Cory Doctorow</a> coined <a href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a> in 2022 to describe how online platforms decay. First they are good to users. Then they squeeze users to please business customers. Then they squeeze the business customers too. The word stuck because people recognised it everywhere.</p>
+    <p>Hardware gets the same treatment. You pay once, but the software on the device keeps changing after you have paid, and the changes don't always favour you. The plastic and silicon still work. The software is what got worse.</p>
+
+    <h2>Four ways hardware gets worse after you buy it</h2>
+
+    <h3>1. The cloud goes away</h3>
+    <p>Devices that depend on a company server stop working when the server stops. The fix is a local replacement for the missing service.</p>
+    <ul>
+      <li><a href="/p/trifo-lucy-local-server">Trifo Lucy local server</a>: a robot vacuum controlled from a home server</li>
+      <li><a href="/p/hello-sense-revival">Hello Sense revival</a>: a sleep tracker rebuilt after its company closed</li>
+      <li><a href="/p/smarter-coffee-for-home-assistant">Smarter Coffee for Home Assistant</a>: a coffee machine whose app went obsolete</li>
+      <li><a href="/p/smartthings-washer-driver">SmartThings washer driver</a>: a Samsung washer cut off from its old app</li>
+      <li><a href="/p/sommet">Sommet</a>: Suunto watches after Movescount shut down</li>
+    </ul>
+
+    <h3>2. The home screen becomes a shop window</h3>
+    <p>Smart TV interfaces fill with promoted content and apps you never asked for. The fix is a different launcher or a careful debloat.</p>
+    <ul>
+      <li><a href="/p/clean-your-tv">Clean Your TV</a>: agent-guided debloat for Android TV and Google TV</li>
+      <li><a href="/p/arn0">Arn0</a>: a custom home screen for a Samsung Q70B</li>
+    </ul>
+
+    <h3>3. Support ends</h3>
+    <p>Drivers stop at an old OS version and operating systems drop older machines. The fix is new software for hardware that still works.</p>
+    <ul>
+      <li><a href="/p/hp-laser-on-apple-silicon">HP Laser on Apple Silicon</a>: printers with no current Mac driver</li>
+      <li><a href="/p/pixma-rs">pixma-rs</a>: a Canon scanner macOS doesn't support</li>
+      <li><a href="/p/omarchy">Omarchy</a>: older Intel Macs on Linux</li>
+    </ul>
+
+    <h3>4. One app, one way</h3>
+    <p>Some devices only work through the manufacturer's app, on its terms. The fix is another way in.</p>
+    <ul>
+      <li><a href="/p/respira">Respira</a>: an embroidery machine driven from a computer</li>
+      <li><a href="/p/yotwo">Yotwo</a>: a Yoto player pointed at your own audiobook library</li>
+      <li><a href="/p/cat-printer-no-stock-app">Cat printer, no stock app</a>: a thermal printer over Bluetooth</li>
+      <li><a href="/p/personal-sonos-controller">Personal Sonos controller</a>: Sonos controls arranged the owner's way</li>
+    </ul>
+
+    <p>Not every case is bad faith. Companies close, priorities change, old products get dropped. The entries on this site describe what broke and what fixed it, and leave motives out.</p>
+
+    <h2>Why this is happening now</h2>
+    <p>Undoing it used to take a team with reverse-engineering experience. Coding assistants changed that. Owners now use <a href="/ai/claude-code">Claude Code</a>, <a href="/ai/chatgpt">ChatGPT</a> and similar tools to read protocols, decompile apps and write replacement software, on top of years of open-source work by people who did it the hard way.</p>
+
+    <h2>Questions</h2>
+    {faq.map(([q, a]) => (<><h3>{q}</h3><p>{a}</p></>))}
+
+    <p><a class="btn" href="/#log">see all projects</a></p>
+  </div>
+</article>
+</Base>

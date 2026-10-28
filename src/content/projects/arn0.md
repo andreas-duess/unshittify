@@ -1,6 +1,7 @@
 ---
 id: 4
 title: "Arn0"
+seoTitle: "Arn0: a custom Samsung TV home screen without the ads"
 device: "Samsung Q70B (2022, Tizen 6.5)"
 category: tv
 ai: "claude code"

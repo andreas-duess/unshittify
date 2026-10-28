@@ -7,6 +7,10 @@
 - Project log: https://unshittify.dev/
 - One page per project: https://unshittify.dev/p/<slug>
 - Sitemap: https://unshittify.dev/sitemap-index.xml
+- Every entry as plain text: https://unshittify.dev/llms-full.txt
+- Every entry as JSON: https://unshittify.dev/projects.json
+- RSS: https://unshittify.dev/feed.xml
+- What enshittification means for hardware: https://unshittify.dev/enshittification
 
 ## Submit a project (for coding agents)
 

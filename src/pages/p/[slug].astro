@@ -3,22 +3,55 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProjectFields from '../../components/ProjectFields.astro';
 import EvidenceTag from '../../components/EvidenceTag.astro';
-import { CATEGORIES, EVIDENCE, pad } from '../../lib/meta';
+import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER, pad, pageTitle } from '../../lib/meta';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects', (p) => !p.data.draft);
-  return projects.map((p) => ({ params: { slug: p.id }, props: { p } }));
+  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+  return projects.map((p) => ({
+    params: { slug: p.id },
+    props: { p, related: projects.filter((o) => o.id !== p.id && o.data.category === p.data.category).slice(0, 4) },
+  }));
 }
 
-const { p } = Astro.props;
+const { p, related } = Astro.props;
 const d = p.data;
 const { Content } = await render(p);
 const reviewed = d.reviewed.toISOString().slice(0, 10);
+const summary = (p.body ?? '').trim().split(/\n\s*\n/)[0];
+const url = `${SITE}/p/${p.id}`;
+const cat = CATEGORY_PAGES[d.category];
+const description = `${summary} AI: ${d.aiRole.split('. ')[0]}. Caveats: ${d.caveats.split('. ')[0]}.`.slice(0, 300);
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: pageTitle(d),
+    description: summary,
+    url,
+    dateModified: reviewed,
+    inLanguage: 'en',
+    author: MAINTAINER,
+    publisher: { '@type': 'Organization', name: 'unshittify', url: SITE },
+    about: { '@type': 'Product', name: d.device },
+    isBasedOn: d.links.map((l) => l.url),
+    keywords: [d.title, d.device, d.ai, CATEGORIES[d.category], 'right to repair', 'enshittification'].join(', '),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'unshittify', item: SITE },
+      { '@type': 'ListItem', position: 2, name: cat.h1, item: `${SITE}/c/${cat.slug}` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
 ---
-<Base title={`${d.title} | unshittify`} description={`${d.title}: ${d.device}. ${p.body?.trim().split('. ')[0]}.`}>
+<Base title={`${pageTitle(d)} | unshittify`} description={description} ogType="article" jsonld={jsonld}>
 <article class="wrap detail">
-  <p class="prompt"><a href="/#log" class="dim">~/log</a><span class="acc">/</span>{p.id}</p>
-  <p class="detail-meta"><span class="id">{pad(d.id)}</span> <span class="dim">{CATEGORIES[d.category]}</span></p>
+  <p class="prompt"><a href="/#log" class="dim">~/log</a><span class="acc">/</span><a href={`/c/${cat.slug}`} class="dim">{cat.slug}</a><span class="acc">/</span>{p.id}</p>
+  <p class="detail-meta"><span class="id">{pad(d.id)}</span> <a class="dim" href={`/c/${cat.slug}`}>{CATEGORIES[d.category]}</a></p>
   <h1 class="detail-h">{d.title}</h1>
   <p class="detail-device">{d.device}</p>
   <p class="detail-src"><a class="btn src-btn" href={d.links[0].url} rel="noopener">open {d.links[0].label} ↗</a> <span class="dim">{new URL(d.links[0].url).hostname.replace(/^www\./, '')}</span></p>
@@ -26,7 +59,7 @@ const reviewed = d.reviewed.toISOString().slice(0, 10);
   <dl class="stats">
     <div><dt>ai</dt><dd>{d.ai}</dd></div>
     <div><dt>evidence</dt><dd><EvidenceTag kind={d.evidence} /></dd></div>
-    <div><dt>reviewed</dt><dd>{reviewed}</dd></div>
+    <div><dt>reviewed</dt><dd><time datetime={reviewed}>{reviewed}</time></dd></div>
   </dl>
 
   <div class="detail-body">
@@ -35,5 +68,16 @@ const reviewed = d.reviewed.toISOString().slice(0, 10);
   </div>
 
   <p class="note detail-foot">{EVIDENCE[d.evidence]} Not tested by unshittify. Added by {d.submittedBy}. Wrong or out of date? <a href={`/?fix=${p.id}#submit`}>Send a correction</a>.</p>
+
+  {related.length > 0 && (
+    <nav class="related" aria-label="Related projects">
+      <h2>more in <a href={`/c/${cat.slug}`}>{CATEGORIES[d.category]}</a></h2>
+      <ul>
+        {related.map((r) => (
+          <li><a href={`/p/${r.id}`}><b>{r.data.title}</b> <span class="dim">{r.data.device}</span></a></li>
+        ))}
+      </ul>
+    </nav>
+  )}
 </article>
 </Base>

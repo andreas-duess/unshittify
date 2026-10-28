@@ -1,2 +1,6 @@
+# Search engines and AI crawlers are welcome. Everything here is meant to be read and cited.
 User-agent: *
 Allow: /
+Disallow: /api/
+
+Sitemap: https://unshittify.dev/sitemap-index.xml

@@ -1,6 +1,7 @@
 ---
 id: 5
 title: "Photo frame dashboard"
+seoTitle: "Photo frame hack: turning a cheap Android frame into a home dashboard"
 device: "Skylight + cheap Android photo frames"
 category: tv
 ai: "coding agents"

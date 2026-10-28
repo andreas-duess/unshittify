@@ -1,6 +1,7 @@
 ---
 id: 10
 title: "HP Laser on Apple Silicon"
+seoTitle: "HP Laser 100 printers on Apple Silicon Macs: open-source driver fix"
 device: "HP Laser 100-series printers"
 category: make
 ai: "claude code"

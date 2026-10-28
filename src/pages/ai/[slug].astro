@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import HubList from '../../components/HubList.astro';
+import { AI_PAGES, SITE } from '../../lib/meta';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+  return Object.entries(AI_PAGES).map(([slug, page]) => ({
+    params: { slug },
+    props: { slug, page, items: projects.filter((p) => (page.match as readonly string[]).includes(p.data.ai.toLowerCase())) },
+  }));
+}
+const { slug, page, items } = Astro.props;
+const jsonld = [{
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: page.h1,
+  description: page.intro,
+  url: `${SITE}/ai/${slug}`,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/p/${p.id}`, name: p.data.title })),
+  },
+}];
+---
+<Base title={`${page.title} | unshittify`} description={`${page.intro} ${items.length} projects, each with the source and what still doesn't work.`} jsonld={jsonld}>
+<section class="wrap hub">
+  <p class="prompt"><a href="/#log" class="dim">~/log</a><span class="acc">/</span>ai/{slug}</p>
+  <h1 class="detail-h">{page.h1}</h1>
+  <p class="lede">{page.intro}</p>
+  <p class="note">{items.length} projects. The AI credit is what each builder states; the open-source work underneath is credited on every entry.</p>
+  <HubList items={items} />
+</section>
+</Base>

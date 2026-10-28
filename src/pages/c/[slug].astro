@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import HubList from '../../components/HubList.astro';
+import { CATEGORY_PAGES, SITE } from '../../lib/meta';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+  return Object.entries(CATEGORY_PAGES).map(([key, page]) => ({
+    params: { slug: page.slug },
+    props: { page, items: projects.filter((p) => p.data.category === key) },
+  }));
+}
+const { page, items } = Astro.props;
+const url = `${SITE}/c/${page.slug}`;
+const jsonld = [{
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: page.h1,
+  description: page.intro,
+  url,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/p/${p.id}`, name: p.data.title })),
+  },
+}];
+---
+<Base title={`${page.title} | unshittify`} description={`${page.intro} ${items.length} projects with source links and caveats.`} jsonld={jsonld}>
+<section class="wrap hub">
+  <p class="prompt"><a href="/#log" class="dim">~/log</a><span class="acc">/</span>{page.slug}</p>
+  <h1 class="detail-h">{page.h1}</h1>
+  <p class="lede">{page.intro}</p>
+  <HubList items={items} />
+</section>
+</Base>

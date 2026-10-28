@@ -9,6 +9,8 @@ const projects = defineCollection({
   schema: z.object({
     id: z.number().int().positive(),
     title: z.string(),
+    // Optional search title for the <title> tag; defaults to "title: device".
+    seoTitle: z.string().optional(),
     device: z.string(),
     category: z.enum(['tv', 'make', 'home', 'audio', 'computer']),
     ai: z.string(),

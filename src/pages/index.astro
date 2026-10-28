@@ -3,18 +3,37 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ProjectFields from '../components/ProjectFields.astro';
 import EvidenceTag from '../components/EvidenceTag.astro';
-import { CATEGORIES, EVIDENCE, pad } from '../lib/meta';
+import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER, pad } from '../lib/meta';
 import SubmitForm from '../components/SubmitForm.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'unshittify',
+    url: SITE,
+    description: 'A log of people undoing enshittification on hardware they own, with AI-assisted development and open source.',
+    inLanguage: 'en',
+    author: MAINTAINER,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Hardware reclaimed with AI and open source',
+    numberOfItems: projects.length,
+    itemListElement: projects.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/p/${p.id}`, name: `${p.data.title}: ${p.data.device}` })),
+  },
+];
 ---
-<Base>
+<Base jsonld={jsonld}>
 
 <section class="hero wrap">
   <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshittify --list --all<span class="cursor" aria-hidden="true"></span></p>
   <h1>You bought it.<br>Make it yours.</h1>
   <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
-  <p class="lede">Most were built with a coding assistant on top of years of open-source work.</p>
+  <p class="lede">Most were built with a coding assistant on top of years of open-source work. Call it undoing <a href="/enshittification">enshittification</a>, one device at a time.</p>
+  <p class="hubs"><span class="dim">browse:</span> {Object.entries(CATEGORY_PAGES).map(([k, c]) => <a href={`/c/${c.slug}`}>{CATEGORIES[k as keyof typeof CATEGORIES]}</a>)}<a href="/ai/claude-code">claude code</a></p>
 </section>
 
 <section id="log" class="wrap">
