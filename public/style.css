@@ -174,3 +174,27 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 
 .foot { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 24px; padding-bottom: 48px; font-size: 12px; color: var(--dim); }
 .foot p { margin: 0 0 6px; max-width: 80ch; }
+
+/* search hint */
+.hint { font: inherit; font-size: 11px; color: var(--dim); border: 1px solid var(--line-2); padding: 0 6px; line-height: 18px; }
+@media (hover: none) { .hint { display: none; } }
+
+/* permalink inside an expanded row */
+.perma { margin: 14px 0 0; font-size: 12px; }
+.perma a { color: var(--dim); }
+.perma a::before { content: "# "; color: var(--acc); }
+
+/* project page */
+.detail { padding-top: 48px; }
+.detail .prompt a { text-decoration: none; }
+.detail-meta { font-size: 12px; margin: 0 0 8px; }
+.detail-h { font-size: clamp(32px, 7vw, 56px); margin-bottom: 8px; }
+.detail-device { color: var(--dim); margin: 0; }
+.detail .stats dd .ev { font-size: 11px; }
+.detail-body { margin-top: 36px; max-width: 80ch; }
+.detail-body dl { display: grid; grid-template-columns: 10ch 1fr; gap: 10px 16px; margin: 28px 0; font-size: 14px; border-top: 1px solid var(--line); padding-top: 20px; }
+.detail-body dt { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; padding-top: 3px; }
+.detail-body dd { margin: 0; }
+.detail-foot { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 16px; }
+@media (max-width: 720px) { .detail-body dl { grid-template-columns: 1fr; gap: 2px; } .detail-body dd { margin-bottom: 10px; } }
+#log { padding-bottom: 32px; }

@@ -1,0 +1,6 @@
+---
+interface Props { kind: 'public' | 'report' | 'experimental' }
+const { kind } = Astro.props;
+const cls = { public: 'ev-pub', report: 'ev-rep', experimental: 'ev-exp' }[kind];
+---
+<span class={`ev ${cls}`}>{kind}</span>

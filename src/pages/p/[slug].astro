@@ -1,0 +1,38 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectFields from '../../components/ProjectFields.astro';
+import EvidenceTag from '../../components/EvidenceTag.astro';
+import { CATEGORIES, EVIDENCE, SUBMIT_EMAIL, pad } from '../../lib/meta';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', (p) => !p.data.draft);
+  return projects.map((p) => ({ params: { slug: p.id }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const d = p.data;
+const { Content } = await render(p);
+const reviewed = d.reviewed.toISOString().slice(0, 10);
+---
+<Base title={`${d.title} | unshitify`} description={`${d.title}: ${d.device}. ${p.body?.trim().split('. ')[0]}.`}>
+<article class="wrap detail">
+  <p class="prompt"><a href="/#log" class="dim">~/log</a><span class="acc">/</span>{p.id}</p>
+  <p class="detail-meta"><span class="id">{pad(d.id)}</span> <span class="dim">{CATEGORIES[d.category]}</span></p>
+  <h1 class="detail-h">{d.title}</h1>
+  <p class="detail-device">{d.device}</p>
+
+  <dl class="stats">
+    <div><dt>ai</dt><dd>{d.ai}</dd></div>
+    <div><dt>evidence</dt><dd><EvidenceTag kind={d.evidence} /></dd></div>
+    <div><dt>reviewed</dt><dd>{reviewed}</dd></div>
+  </dl>
+
+  <div class="detail-body">
+    <div class="prose"><Content /></div>
+    <ProjectFields p={d} />
+  </div>
+
+  <p class="note detail-foot">{EVIDENCE[d.evidence]} Not tested by unshitify. Added by {d.submittedBy}. Wrong or out of date? <a href={`mailto:${SUBMIT_EMAIL}?subject=Correction:%20${encodeURIComponent(d.title)}`}>Send a correction</a>.</p>
+</article>
+</Base>

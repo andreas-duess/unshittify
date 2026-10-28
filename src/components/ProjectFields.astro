@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { p: CollectionEntry<'projects'>['data'] }
+const { p } = Astro.props;
+---
+<dl>
+  <dt>ai</dt><dd>{p.aiRole}</dd>
+  <dt>caveats</dt><dd>{p.caveats}</dd>
+  <dt>evidence</dt><dd>{p.evidenceNote}</dd>
+</dl>
+<p class="links">{p.links.map((l) => <a href={l.url}>{l.label}</a>)}</p>

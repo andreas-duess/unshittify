@@ -1,0 +1,50 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'unshitify | make the hardware you own useful again',
+  description = 'A field log of people reclaiming hardware with AI-assisted development and open source. TVs, printers, appliances, wearables, old Macs. Sources and caveats on every entry.',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonical}>
+<meta name="theme-color" content="#0a0b0c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="sitemap" href="/sitemap-index.xml">
+<link rel="preload" href="/fonts/jbm-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="/" aria-label="unshitify home"><span class="mark-glyph">[u]</span> unshitify</a>
+    <nav aria-label="Main">
+      <a href="/#log">log</a>
+      <a href="/#method">method</a>
+      <a href="/#about">about</a>
+      <a href="/#submit">submit</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <slot />
+</main>
+<footer class="wrap foot">
+  <p>Independent projects, credited to their builders. Product names belong to their owners; inclusion is not endorsement or affiliation.</p>
+  <p class="dim">No cookies. No trackers. Static HTML.</p>
+</footer>
+</body>
+</html>

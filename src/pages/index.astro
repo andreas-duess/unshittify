@@ -1,0 +1,180 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectFields from '../components/ProjectFields.astro';
+import EvidenceTag from '../components/EvidenceTag.astro';
+import { CATEGORIES, EVIDENCE, SNAPSHOT, SUBMIT_EMAIL, pad } from '../lib/meta';
+
+const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+---
+<Base>
+
+<section class="hero wrap">
+  <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshitify --list --all<span class="cursor" aria-hidden="true"></span></p>
+  <h1>You bought it.<br>Make it yours.</h1>
+  <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
+  <p class="lede">Most were built with a coding assistant on top of years of open-source work. Every entry names the person, the model, the AI involved, and what still doesn't work.</p>
+  <dl class="stats">
+    <div><dt>entries</dt><dd id="stat-count">{projects.length}</dd></div>
+    <div><dt>snapshot</dt><dd>{SNAPSHOT}</dd></div>
+    <div><dt>tested by us</dt><dd>0</dd></div>
+  </dl>
+</section>
+
+<section id="log" class="wrap">
+  <div class="sec-head">
+    <h2><span class="acc">01</span> // the log</h2>
+    <p class="note">A public repo is a starting point, not a safety certificate. Check the project's current docs before you buy hardware or flash anything.</p>
+  </div>
+
+  <div class="controls">
+    <label class="search">
+      <span class="acc" aria-hidden="true">&gt;</span>
+      <input id="q" type="search" placeholder="grep device, brand, project…" autocomplete="off" spellcheck="false" aria-label="Search projects">
+      <kbd class="hint" aria-hidden="true">/</kbd>
+    </label>
+    <div class="chips" role="group" aria-label="Filter by category">
+      <button class="chip on" data-cat="all">all</button>
+      {Object.entries(CATEGORIES).map(([k, v]) => <button class="chip" data-cat={k}>{v}</button>)}
+    </div>
+  </div>
+
+  <div class="thead" aria-hidden="true">
+    <span>id</span><span>project / device</span><span>ai</span><span>evidence</span>
+  </div>
+
+  <ol class="log" id="list">
+    {projects.map(async (p) => {
+      const d = p.data;
+      return (
+        <li data-cat={d.category} id={p.id}>
+          <details>
+            <summary>
+              <span class="id">{pad(d.id)}</span>
+              <span class="name"><b>{d.title}</b><i>{d.device}</i></span>
+              <span class="ai">{d.ai}</span>
+              <EvidenceTag kind={d.evidence} />
+            </summary>
+            <div class="body">
+              <p>{p.body?.trim().split(/\n\s*\n/)[0]}</p>
+              <ProjectFields p={d} />
+              <p class="perma"><a href={`/p/${p.id}`}>/p/{p.id}</a></p>
+            </div>
+          </details>
+        </li>
+      );
+    })}
+  </ol>
+  <p class="empty" id="empty" hidden>0 matches. Try a broader device name.</p>
+</section>
+
+<section id="method" class="wrap">
+  <div class="sec-head">
+    <h2><span class="acc">02</span> // method</h2>
+    <p class="note">Start with the product, not the promise.</p>
+  </div>
+  <ol class="steps">
+    <li><b>Pick one problem.</b> A better home screen. A missing driver. A local controller. Small goals are easy to verify.</li>
+    <li><b>Match the hardware.</b> Exact model, revision, firmware, OS. Same brand and same shape is not enough.</li>
+    <li><b>Read the source.</b> Docs, open issues, known limits, reports from people on your hardware. Maintained tool, experiment, or a story with no release?</li>
+    <li><b>Plan the rollback.</b> Back up first. Know what changes and how to undo it. Leave the device you depend on daily for last.</li>
+    <li><b>Use AI to understand.</b> Have the assistant explain the code, flag its assumptions, propose tests. Review before it touches a device or private data.</li>
+    <li><b>Write it up.</b> Model, what worked, what failed, what you'd change. Then send it here.</li>
+  </ol>
+</section>
+
+<section id="about" class="wrap">
+  <div class="sec-head">
+    <h2><span class="acc">03</span> // about</h2>
+    <p class="note">Useful things should stay useful.</p>
+  </div>
+  <div class="cols">
+    <div class="prose">
+      <p>unshitify logs people making the products they own work for them: replacing interfaces, restoring functions after an app or cloud disappears, giving old hardware a new job.</p>
+      <p>Coding assistants let one determined owner do what used to take a team. The work is still real. People capture packets, solder, debug and get it wrong. Open-source maintainers built most of what these projects stand on. Every entry names them.</p>
+      <p>Three questions per entry: what did the owner get back, what can someone else reproduce, what's the catch.</p>
+    </div>
+    <div class="lists">
+      <h3><span class="ok">+</span> in scope</h3>
+      <ul>
+        <li>Documented improvements to hardware someone owns</li>
+        <li>Working alternatives to abandoned or restrictive software</li>
+        <li>New jobs for old hardware</li>
+        <li>Open-source routes to longer life, AI or not</li>
+        <li>Labelled experiments that teach something</li>
+      </ul>
+      <h3><span class="no">−</span> out of scope</h3>
+      <ul>
+        <li>Piracy, stolen credentials, other people's devices</li>
+        <li>"Clean launcher = no tracking" claims</li>
+        <li>"AI did it all" stories that erase the people and projects underneath</li>
+        <li>Dangerous mods sold as weekend wins</li>
+      </ul>
+    </div>
+  </div>
+  <div class="legend">
+    <h3>evidence labels</h3>
+    <dl>
+      {Object.entries(EVIDENCE).map(([k, v]) => <><dt><EvidenceTag kind={k as keyof typeof EVIDENCE} /></dt><dd>{v}</dd></>)}
+    </dl>
+    <p class="note">None of these mean "tested by unshitify". We haven't tested any of it.</p>
+  </div>
+</section>
+
+<section id="submit" class="wrap">
+  <div class="sec-head">
+    <h2><span class="acc">04</span> // submit</h2>
+    <p class="note">Made something useful again?</p>
+  </div>
+  <div class="cols">
+    <div class="prose">
+      <p>Send the project. Modest reproducible fixes count. So do experiments that haven't quite worked yet. You can submit someone else's public project; credit them.</p>
+      <p><a class="btn" href={`mailto:${SUBMIT_EMAIL}?subject=Project%20submission`}>{SUBMIT_EMAIL}</a></p>
+      <p class="note">Corrections go to the same address. Strip passwords, tokens and other people's personal info before sending.</p>
+    </div>
+    <pre class="template" aria-label="Submission template">project:
+device:      <span class="dim"># exact model + revision</span>
+problem:
+changed:
+works:
+broken:
+source:      <span class="dim"># repo / write-up URL</span>
+ai:          <span class="dim"># which tool, what it did</span>
+risks:       <span class="dim"># cost, deps, safety</span>
+credit:</pre>
+  </div>
+</section>
+
+<script>
+  const q = document.getElementById('q') as HTMLInputElement;
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
+  const rows = [...document.querySelectorAll<HTMLLIElement>('#list > li')];
+  const empty = document.getElementById('empty')!;
+  const count = document.getElementById('stat-count')!;
+  let cat = 'all';
+  const run = () => {
+    const term = q.value.trim().toLowerCase();
+    let n = 0;
+    for (const r of rows) {
+      const show = (cat === 'all' || r.dataset.cat === cat) && (!term || r.textContent!.toLowerCase().includes(term));
+      r.hidden = !show;
+      if (show) n++;
+    }
+    empty.hidden = n > 0;
+    count.textContent = String(n);
+  };
+  for (const c of chips) c.addEventListener('click', () => {
+    chips.forEach((x) => x.classList.toggle('on', x === c));
+    cat = c.dataset.cat!;
+    run();
+  });
+  q.addEventListener('input', run);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
+    if (e.key === 'Escape' && document.activeElement === q) { q.value = ''; run(); q.blur(); }
+  });
+  // Open the entry named in the URL hash (old-style deep links).
+  const target = location.hash && document.getElementById(location.hash.slice(1));
+  if (target) target.querySelector('details')?.setAttribute('open', '');
+</script>
+</Base>
