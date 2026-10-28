@@ -21,7 +21,7 @@ Categories, evidence labels, snapshot date and the submit address: `src/lib/meta
 
 ## Hosting
 
-Cloudflare Worker with static assets, andreas@introduce.com Cloudflare account. `wrangler.jsonc` holds the config.
+Cloudflare Worker with static assets, andreas@duess.com Cloudflare account. `wrangler.jsonc` holds the config.
 `npm run build && npx wrangler deploy`. Local test with the form working: `npm run build && npx wrangler dev`.
 
 ## Submit form
