@@ -6,7 +6,7 @@ category: home
 ai: "claude"
 evidence: public
 aiRole: "Claude helped develop the driver. Running on the creator's own machine."
-caveats: "One confirmed model; other generations use other protocols. Smart Control still has to be enabled on the machine. Local device link does not mean the whole SmartThings setup is offline."
+caveats: "One confirmed model; other generations use other protocols. Smart Control still has to be enabled on the machine. The washer link is local, but the rest of SmartThings may still use the cloud."
 evidenceNote: "Public project + creator account."
 links:
   - { label: "repo", url: "https://github.com/McArhony/smartthings-samsung-drc-washer" }

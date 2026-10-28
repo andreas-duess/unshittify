@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ProjectFields from '../components/ProjectFields.astro';
 import EvidenceTag from '../components/EvidenceTag.astro';
-import { CATEGORIES, EVIDENCE, SNAPSHOT, SUBMIT_EMAIL, pad } from '../lib/meta';
+import { CATEGORIES, EVIDENCE, SNAPSHOT, pad } from '../lib/meta';
+import SubmitForm from '../components/SubmitForm.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
 ---
@@ -13,7 +14,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshitify --list --all<span class="cursor" aria-hidden="true"></span></p>
   <h1>You bought it.<br>Make it yours.</h1>
   <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
-  <p class="lede">Most were built with a coding assistant on top of years of open-source work. Every entry names the person, the model, the AI involved, and what still doesn't work.</p>
+  <p class="lede">Most were built with a coding assistant on top of years of open-source work.</p>
   <dl class="stats">
     <div><dt>entries</dt><dd id="stat-count">{projects.length}</dd></div>
     <div><dt>snapshot</dt><dd>{SNAPSHOT}</dd></div>
@@ -24,7 +25,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
 <section id="log" class="wrap">
   <div class="sec-head">
     <h2><span class="acc">01</span> // the log</h2>
-    <p class="note">A public repo is a starting point, not a safety certificate. Check the project's current docs before you buy hardware or flash anything.</p>
+    <p class="note">A public repo means the code exists. Whether it's safe is a separate question. Read the project's current docs before you buy hardware or flash anything.</p>
   </div>
 
   <div class="controls">
@@ -40,7 +41,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   </div>
 
   <div class="thead" aria-hidden="true">
-    <span>id</span><span>project / device</span><span>ai</span><span>evidence</span>
+    <span>id</span><span>project / device</span><span>ai</span><span>evidence</span><span>source</span>
   </div>
 
   <ol class="log" id="list">
@@ -54,6 +55,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
               <span class="name"><b>{d.title}</b><i>{d.device}</i></span>
               <span class="ai">{d.ai}</span>
               <EvidenceTag kind={d.evidence} />
+              <a class="src" href={d.links[0].url} rel="noopener">{d.links[0].label}<span aria-hidden="true"> ↗</span></a>
             </summary>
             <div class="body">
               <p>{p.body?.trim().split(/\n\s*\n/)[0]}</p>
@@ -71,7 +73,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
 <section id="method" class="wrap">
   <div class="sec-head">
     <h2><span class="acc">02</span> // method</h2>
-    <p class="note">Start with the product, not the promise.</p>
+    <p class="note">Start small and keep a way back.</p>
   </div>
   <ol class="steps">
     <li><b>Pick one problem.</b> A better home screen. A missing driver. A local controller. Small goals are easy to verify.</li>
@@ -91,8 +93,8 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   <div class="cols">
     <div class="prose">
       <p>unshitify logs people making the products they own work for them: replacing interfaces, restoring functions after an app or cloud disappears, giving old hardware a new job.</p>
-      <p>Coding assistants let one determined owner do what used to take a team. The work is still real. People capture packets, solder, debug and get it wrong. Open-source maintainers built most of what these projects stand on. Every entry names them.</p>
-      <p>Three questions per entry: what did the owner get back, what can someone else reproduce, what's the catch.</p>
+      <p>Coding assistants let one stubborn owner do what used to take a team. It's still hard work. People capture packets, solder, debug and get it wrong a lot. Open-source maintainers built most of what these projects stand on. Every entry names them.</p>
+      <p>For each entry we ask what the owner got back, whether someone else could repeat it, and what the catch is.</p>
     </div>
     <div class="lists">
       <h3><span class="ok">+</span> in scope</h3>
@@ -126,23 +128,10 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
     <h2><span class="acc">04</span> // submit</h2>
     <p class="note">Made something useful again?</p>
   </div>
-  <div class="cols">
-    <div class="prose">
-      <p>Send the project. Modest reproducible fixes count. So do experiments that haven't quite worked yet. You can submit someone else's public project; credit them.</p>
-      <p><a class="btn" href={`mailto:${SUBMIT_EMAIL}?subject=Project%20submission`}>{SUBMIT_EMAIL}</a></p>
-      <p class="note">Corrections go to the same address. Strip passwords, tokens and other people's personal info before sending.</p>
-    </div>
-    <pre class="template" aria-label="Submission template">project:
-device:      <span class="dim"># exact model + revision</span>
-problem:
-changed:
-works:
-broken:
-source:      <span class="dim"># repo / write-up URL</span>
-ai:          <span class="dim"># which tool, what it did</span>
-risks:       <span class="dim"># cost, deps, safety</span>
-credit:</pre>
+  <div class="prose submit-intro">
+    <p>Send the project. Modest reproducible fixes count. So do experiments that haven't quite worked yet. You can submit someone else's public project; credit them. Spotted something wrong in an entry? Pick "correction".</p>
   </div>
+  <SubmitForm projects={projects.map((p) => ({ slug: p.id, title: p.data.title }))} />
 </section>
 
 <script>

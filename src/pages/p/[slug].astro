@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ProjectFields from '../../components/ProjectFields.astro';
 import EvidenceTag from '../../components/EvidenceTag.astro';
-import { CATEGORIES, EVIDENCE, SUBMIT_EMAIL, pad } from '../../lib/meta';
+import { CATEGORIES, EVIDENCE, pad } from '../../lib/meta';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects', (p) => !p.data.draft);
@@ -21,6 +21,7 @@ const reviewed = d.reviewed.toISOString().slice(0, 10);
   <p class="detail-meta"><span class="id">{pad(d.id)}</span> <span class="dim">{CATEGORIES[d.category]}</span></p>
   <h1 class="detail-h">{d.title}</h1>
   <p class="detail-device">{d.device}</p>
+  <p class="detail-src"><a class="btn src-btn" href={d.links[0].url} rel="noopener">open {d.links[0].label} ↗</a> <span class="dim">{new URL(d.links[0].url).hostname.replace(/^www\./, '')}</span></p>
 
   <dl class="stats">
     <div><dt>ai</dt><dd>{d.ai}</dd></div>
@@ -33,6 +34,6 @@ const reviewed = d.reviewed.toISOString().slice(0, 10);
     <ProjectFields p={d} />
   </div>
 
-  <p class="note detail-foot">{EVIDENCE[d.evidence]} Not tested by unshitify. Added by {d.submittedBy}. Wrong or out of date? <a href={`mailto:${SUBMIT_EMAIL}?subject=Correction:%20${encodeURIComponent(d.title)}`}>Send a correction</a>.</p>
+  <p class="note detail-foot">{EVIDENCE[d.evidence]} Not tested by unshitify. Added by {d.submittedBy}. Wrong or out of date? <a href={`/?fix=${p.id}#submit`}>Send a correction</a>.</p>
 </article>
 </Base>

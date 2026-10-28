@@ -8,4 +8,7 @@ const { p } = Astro.props;
   <dt>caveats</dt><dd>{p.caveats}</dd>
   <dt>evidence</dt><dd>{p.evidenceNote}</dd>
 </dl>
-<p class="links">{p.links.map((l) => <a href={l.url}>{l.label}</a>)}</p>
+<p class="links">
+  <a class="btn src-btn" href={p.links[0].url} rel="noopener">open {p.links[0].label} ↗</a>
+  {p.links.slice(1).map((l) => <a href={l.url} rel="noopener">{l.label}</a>)}
+</p>

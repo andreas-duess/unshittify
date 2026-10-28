@@ -107,7 +107,7 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .chip.on { color: var(--bg); background: var(--fg); border-color: var(--fg); }
 
 /* log table */
-.thead, .log summary { display: grid; grid-template-columns: 4ch 1fr 15ch 13ch; gap: 16px; align-items: baseline; }
+.thead, .log summary { display: grid; grid-template-columns: 4ch 1fr 14ch 13ch 15ch; gap: 16px; align-items: baseline; }
 .thead { font-size: 11px; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; padding: 0 12px 8px; border-bottom: 1px solid var(--line); }
 .log { list-style: none; margin: 0; padding: 0; }
 .log > li { border-bottom: 1px solid var(--line); }
@@ -132,12 +132,13 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .body dt { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; padding-top: 3px; }
 .body dd { margin: 0; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; font-size: 13px; }
-.links a::before { content: "→ "; color: var(--acc); }
+.links a:not(.btn)::before { content: "→ "; color: var(--acc); }
+.links { align-items: center; }
 
 @media (max-width: 720px) {
   .thead { display: none; }
-  .log summary { grid-template-columns: 3.5ch 1fr auto; grid-template-areas: "id name ev" ". ai ai"; gap: 2px 12px; padding: 14px 4px; }
-  .id { grid-area: id; } .name { grid-area: name; } .ev { grid-area: ev; } .ai { grid-area: ai; }
+  .log summary { grid-template-columns: 3.5ch 1fr auto; grid-template-areas: "id name ev" ". ai src"; gap: 4px 12px; padding: 14px 4px; }
+  .id { grid-area: id; } .name { grid-area: name; } .ev { grid-area: ev; } .ai { grid-area: ai; } .src { grid-area: src; justify-self: end; }
   .ai::before { content: "ai: "; }
   .body { padding: 2px 4px 20px calc(3.5ch + 16px); }
   .body dl { grid-template-columns: 1fr; gap: 2px; }
@@ -198,3 +199,45 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .detail-foot { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 16px; }
 @media (max-width: 720px) { .detail-body dl { grid-template-columns: 1fr; gap: 2px; } .detail-body dd { margin-bottom: 10px; } }
 #log { padding-bottom: 32px; }
+
+/* source links */
+.src {
+  font-size: 12px; text-decoration: none; white-space: nowrap; justify-self: start;
+  color: var(--acc); border: 1px solid var(--acc); padding: 1px 8px;
+}
+.src:hover { color: var(--bg); background: var(--acc); }
+.src-btn { font-size: 13px; padding: 7px 14px; }
+.detail-src { margin: 22px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 12.5px; }
+
+/* submit form */
+.submit-intro { margin-bottom: 20px; }
+.form { border: 1px solid var(--line); padding: 20px; background: var(--panel); }
+.form .grid { display: grid; gap: 14px 20px; }
+@media (min-width: 760px) { .form .grid { grid-template-columns: 1fr 1fr; } .form .wide { grid-column: 1 / -1; } }
+.f { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); }
+.f input, .f textarea, .f select { display: block; margin-top: 6px; }
+.f .dim { text-transform: none; letter-spacing: 0; }
+.req { color: var(--acc); }
+.form input:not([type=radio]):not([type=checkbox]), .form textarea, .form select {
+  font: inherit; font-size: 14px; text-transform: none; letter-spacing: 0; color: var(--fg);
+  background: var(--bg); border: 1px solid var(--line-2); border-radius: 0; padding: 9px 11px; width: 100%;
+}
+.form textarea { resize: vertical; min-height: 4.5em; }
+.form input:focus, .form textarea:focus, .form select:focus { outline: none; border-color: var(--acc); }
+.form ::placeholder { color: var(--dim); opacity: .7; }
+.kind { border: 0; padding: 0; margin: 0 0 18px; display: flex; gap: 6px; }
+.kind label { font-size: 12px; border: 1px solid var(--line-2); padding: 5px 10px; cursor: pointer; color: var(--dim); }
+.kind label:hover { color: var(--fg); border-color: var(--fg); }
+.kind label:has(input:checked) { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.kind input { position: absolute; opacity: 0; pointer-events: none; }
+.kind label:has(input:focus-visible) { outline: 2px solid var(--acc); outline-offset: 2px; }
+.form[data-kind=build] .only-fix, .form[data-kind=correction] .only-build { display: none; }
+.form:not([data-kind]) .only-fix { display: none; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; margin: 20px 0 6px; cursor: pointer; }
+.check input { accent-color: var(--acc); margin-top: 4px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 18px; }
+.form button.btn { font: inherit; font-weight: 500; cursor: pointer; border-radius: 0; }
+.form button.btn:disabled { opacity: .5; cursor: wait; }
+.status { font-size: 13px; color: var(--dim); }
+.status.ok { color: var(--ok); } .status.err { color: var(--acc); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

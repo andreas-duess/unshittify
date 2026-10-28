@@ -6,7 +6,7 @@ category: audio
 ai: "claude code"
 evidence: public
 aiRole: "Claude Code for firmware and hardware mapping, on top of open-yoto and Adafruit work."
-caveats: "Beta. Install can mean opening the case and soldering. Does not unlock Yoto's paid catalogue. No Bluetooth headphones in the documented version."
+caveats: "Beta. Install can mean opening the case and soldering. Yoto's paid catalogue stays locked. No Bluetooth headphones in the documented version."
 evidenceNote: "Public project. Creator runs it daily on two players."
 links:
   - { label: "repo", url: "https://github.com/tomekent/yotwo" }

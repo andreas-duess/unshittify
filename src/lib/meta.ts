@@ -13,6 +13,5 @@ export const EVIDENCE = {
 } as const;
 
 export const SNAPSHOT = '2026-10-28';
-export const SUBMIT_EMAIL = 'submit@unshitify.com';
 
 export const pad = (n: number) => String(n).padStart(3, '0');

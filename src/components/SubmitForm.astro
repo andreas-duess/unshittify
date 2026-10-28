@@ -1,0 +1,116 @@
+---
+interface Props { projects: { slug: string; title: string }[] }
+const { projects } = Astro.props;
+---
+<form class="form" id="submit-form" method="post" action="/api/submit">
+  <fieldset class="kind" aria-label="Type">
+    <label><input type="radio" name="kind" value="build" checked> new build</label>
+    <label><input type="radio" name="kind" value="correction"> correction</label>
+  </fieldset>
+
+  <div class="grid">
+    <label class="f only-fix">entry
+      <select name="entry">
+        <option value="">select…</option>
+        {projects.map((p) => <option value={p.slug}>{p.title}</option>)}
+      </select>
+    </label>
+    <label class="f only-build">project <span class="req">*</span>
+      <input name="project" maxlength="120" required>
+    </label>
+    <label class="f only-build">device + exact model <span class="req">*</span>
+      <input name="device" maxlength="200" placeholder="brand, model, revision, firmware" required>
+    </label>
+    <label class="f wide only-build">the problem
+      <textarea name="problem" rows="3" maxlength="2000"></textarea>
+    </label>
+    <label class="f wide">
+      <span class="only-build">what you changed</span><span class="only-fix">what's wrong, and what's right <span class="req">*</span></span>
+      <textarea name="changed" rows="4" maxlength="4000"></textarea>
+    </label>
+    <label class="f only-build">works today
+      <textarea name="works" rows="3" maxlength="2000"></textarea>
+    </label>
+    <label class="f only-build">still broken
+      <textarea name="broken" rows="3" maxlength="2000"></textarea>
+    </label>
+    <label class="f wide">source link <span class="req only-build">*</span>
+      <input name="source" type="url" maxlength="500" placeholder="https://github.com/… or write-up URL">
+    </label>
+    <label class="f only-build">ai involved
+      <input name="ai" maxlength="300" placeholder="tool + what it did, or none">
+    </label>
+    <label class="f only-build">costs, deps, risks
+      <input name="risks" maxlength="500">
+    </label>
+    <label class="f">credit as
+      <input name="credit" maxlength="120" placeholder="name or handle">
+    </label>
+    <label class="f">email <span class="dim">(optional, for questions)</span>
+      <input name="email" type="email" maxlength="200">
+    </label>
+  </div>
+
+  <div class="hp" aria-hidden="true">
+    <label>website <input name="website" tabindex="-1" autocomplete="off"></label>
+  </div>
+  <input type="hidden" name="t" value="">
+
+  <label class="check"><input type="checkbox" name="rights" value="yes" required> I have the right to share this. Submitting doesn't guarantee publication.</label>
+  <p class="note">Strip passwords, tokens and other people's personal info.</p>
+
+  <div class="actions">
+    <button class="btn" type="submit">send --submission</button>
+    <output class="status" id="form-status" aria-live="polite"></output>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('submit-form') as HTMLFormElement;
+  const status = document.getElementById('form-status')!;
+  const t = form.elements.namedItem('t') as HTMLInputElement;
+  t.value = String(Date.now());
+
+  const setKind = (k: string) => {
+    form.dataset.kind = k;
+    const build = k === 'build';
+    for (const n of ['project', 'device']) (form.elements.namedItem(n) as HTMLInputElement).required = build;
+    (form.elements.namedItem('source') as HTMLInputElement).required = build;
+    (form.elements.namedItem('changed') as HTMLTextAreaElement).required = !build;
+  };
+  form.addEventListener('change', (e) => {
+    const el = e.target as HTMLInputElement;
+    if (el.name === 'kind') setKind(el.value);
+  });
+
+  // /?fix=<slug>#submit preselects a correction for that entry.
+  const fix = new URLSearchParams(location.search).get('fix');
+  if (fix) {
+    (form.querySelector('input[value="correction"]') as HTMLInputElement).checked = true;
+    (form.elements.namedItem('entry') as HTMLSelectElement).value = fix;
+    setKind('correction');
+  } else setKind('build');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button')!;
+    btn.disabled = true;
+    status.className = 'status';
+    status.textContent = 'sending…';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(out.error || 'send failed');
+      form.reset();
+      setKind('build');
+      t.value = String(Date.now());
+      status.className = 'status ok';
+      status.textContent = '200 ok. received. thanks.';
+    } catch (err) {
+      status.className = 'status err';
+      status.textContent = `error: ${(err as Error).message}. your text is still here, try again.`;
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>

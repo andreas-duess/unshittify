@@ -21,7 +21,15 @@ Categories, evidence labels, snapshot date and the submit address: `src/lib/meta
 
 ## Hosting
 
-Cloudflare Pages, Andreas@duess.com account. Build `npm run build`, output `dist`.
+Cloudflare Worker with static assets, andreas@introduce.com Cloudflare account. `wrangler.jsonc` holds the config.
+`npm run build && npx wrangler deploy`. Local test with the form working: `npm run build && npx wrangler dev`.
+
+## Submit form
+
+`worker/index.ts` handles `POST /api/submit` and emails the submission to the address in `wrangler.jsonc`
+(send_email binding, locked to one verified destination; free on any plan). The address never reaches the page.
+Needs Email Routing on unshitify.com with that address verified. Spam guards: honeypot field and a 3-second minimum.
+Add Turnstile if spam gets through.
 
 ## Planned: members and contributor pages
 

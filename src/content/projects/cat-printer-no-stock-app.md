@@ -6,7 +6,7 @@ category: make
 ai: "chatgpt"
 evidence: report
 aiRole: "ChatGPT helped with the Bluetooth code. The write-up documents its wrong suggestions and the experiments that got past them."
-caveats: "Case study, not a universal driver. Hardware variant matters. Higher-quality modes unresolved."
+caveats: "Read it as a case study. It won't drive other cat printers as-is. Hardware variant matters. Higher-quality modes unresolved."
 evidenceNote: "Technical write-up."
 links:
   - { label: "write-up", url: "https://mertol.substack.com/p/reverse-engineering-a-cat-printer" }

@@ -6,7 +6,7 @@ category: tv
 ai: "claude code"
 evidence: experimental
 aiRole: "Built with Claude Code, per the creator."
-caveats: "One documented model. Interface layer only: not a new OS, not a privacy fix. Optional startup and Home-button changes touch undocumented settings."
+caveats: "One documented model. It replaces the home screen and nothing else. Tizen still runs underneath, and privacy is unchanged. Optional startup and Home-button changes touch undocumented settings."
 evidenceNote: "Public experimental project + creator account."
 links:
   - { label: "repo", url: "https://github.com/NelsonEU/arn0-tv" }

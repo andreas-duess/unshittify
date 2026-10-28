@@ -5,8 +5,8 @@ device: "HP Laser 100-series printers"
 category: make
 ai: "claude code"
 evidence: public
-aiRole: "Claude Code assisted. Adapts existing SpliX work; not a driver written from zero."
-caveats: "Follow the exact model and macOS list in the repo. Compatibility fix only; nothing to do with ink or subscriptions."
+aiRole: "Claude Code assisted. The fix adapts existing SpliX code rather than writing a driver from scratch."
+caveats: "Follow the exact model and macOS list in the repo. It fixes Mac compatibility. Ink and subscriptions are untouched."
 evidenceNote: "Public project with install and compatibility docs."
 links:
   - { label: "repo", url: "https://github.com/Kuberwastaken/hp-laser-1008a-macos" }

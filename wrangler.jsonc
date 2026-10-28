@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "unshitify",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  "send_email": [
+    { "name": "SUBMISSIONS", "destination_address": "andreas@introduce.com" }
+  ],
+  "vars": {
+    "FROM_ADDRESS": "form@unshitify.com",
+    "TO_ADDRESS": "andreas@introduce.com"
+  },
+  "routes": [
+    { "pattern": "unshitify.com", "custom_domain": true },
+    { "pattern": "www.unshitify.com", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

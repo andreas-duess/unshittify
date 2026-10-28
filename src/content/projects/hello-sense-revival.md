@@ -6,7 +6,7 @@ category: home
 ai: "claude"
 evidence: public
 aiRole: "Claude on the redevelopment, alongside weeks of human investigation, hardware recovery and testing."
-caveats: "Big project, not a quick install. Creator reports end-to-end function. Restored sleep scores are not medically validated."
+caveats: "Expect weeks of work. Creator reports end-to-end function. Restored sleep scores are not medically validated."
 evidenceNote: "Detailed write-up + public code."
 links:
   - { label: "write-up", url: "https://www.josephspurrier.com/ai-revives-a-dead-sleep-company" }
