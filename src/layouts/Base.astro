@@ -105,7 +105,14 @@ const ogImage = new URL('/og.png', Astro.site);
         });
       }
       var choice = get();
-      if (choice === 'granted') loadGA(); else if (!choice) box.hidden = false;
+      if (choice === 'granted') loadGA();
+      else if (!choice) {
+        // EU/EEA/UK/CH visitors opt in; everyone else gets analytics with an opt-out in the footer.
+        fetch('/api/geo', { cache: 'no-store' })
+          .then(function (r) { return r.json(); })
+          .then(function (d) { if (d.consent) box.hidden = false; else loadGA(); })
+          .catch(function () { box.hidden = false; });
+      }
       document.addEventListener('click', function (e) {
         var t = e.target;
         if (t.matches('[data-consent]')) {

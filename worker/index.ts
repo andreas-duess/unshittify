@@ -31,6 +31,7 @@ export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
     if (url.pathname === '/api/submit') return submit(req, env);
+    if (url.pathname === '/api/geo') return geo(req);
     if (url.pathname.startsWith('/api/')) return json({ error: 'not found' }, 404);
     return env.ASSETS.fetch(req);
   },
@@ -88,6 +89,21 @@ async function submit(req: Request, env: Env): Promise<Response> {
     return done(false, 'could not send right now', 502);
   }
   return done(true);
+}
+
+// Countries where analytics cookies need opt-in consent: EU, EEA, UK, Switzerland.
+const CONSENT_COUNTRIES = new Set([
+  'AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL',
+  'PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH',
+]);
+
+function geo(req: Request): Response {
+  const country = String((req as any).cf?.country ?? req.headers.get('cf-ipcountry') ?? '');
+  // Unknown country: ask for consent to be safe.
+  const consent = !country || country === 'XX' || CONSENT_COUNTRIES.has(country);
+  return new Response(JSON.stringify({ consent }), {
+    headers: { 'content-type': 'application/json', 'cache-control': 'private, no-store' },
+  });
 }
 
 const json = (body: unknown, status = 200) =>
