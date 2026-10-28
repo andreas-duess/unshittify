@@ -66,7 +66,7 @@ export const AI_PAGES = {
     h1: 'Claude Code hardware projects',
     title: 'Claude Code hardware projects: reverse engineering, drivers and firmware',
     intro: 'Projects where the builder credits Claude Code or Claude: protocol reverse engineering, replacement firmware, drivers and local servers for hardware they own.',
-    match: ['claude code', 'claude'],
+    match: ['claude'],
   },
   chatgpt: {
     h1: 'ChatGPT hardware projects',

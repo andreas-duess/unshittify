@@ -298,3 +298,8 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .related li a { display: block; padding: 10px 0; text-decoration: none; font-size: 14px; }
 .related li a:hover b { color: var(--acc); }
 .related .dim { font-size: 12.5px; margin-left: 8px; }
+
+/* mark external text links */
+.links a:not(.btn)[target="_blank"]::after,
+.prose a[target="_blank"]::after,
+.credit a[target="_blank"]::after { content: " ↗"; color: var(--dim); font-size: .85em; }

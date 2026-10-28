@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
   return Object.entries(AI_PAGES).map(([slug, page]) => ({
     params: { slug },
-    props: { slug, page, items: projects.filter((p) => (page.match as readonly string[]).includes(p.data.ai.toLowerCase())) },
+    props: { slug, page, items: projects.filter((p) => { const ai = p.data.ai.toLowerCase(); return !ai.includes('(commits)') && (page.match as readonly string[]).some((m) => ai.includes(m)); }) },
   }));
 }
 const { slug, page, items } = Astro.props;
