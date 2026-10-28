@@ -13,7 +13,7 @@ links:
   - { label: "repo", url: "https://github.com/wesbos/photo-frame-dashboard" }
   - { label: "video", url: "https://youtu.be/ZLycoUMltNI" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Wes Bos repaired a Skylight frame's connectivity, then turned cheap Android frame hardware into a household dashboard on the kitchen counter.

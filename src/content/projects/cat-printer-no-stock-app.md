@@ -11,7 +11,7 @@ evidenceNote: "Technical write-up."
 links:
   - { label: "write-up", url: "https://mertol.substack.com/p/reverse-engineering-a-cat-printer" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Mertol Kasanan reverse-engineered his printer's Bluetooth protocol after existing libraries didn't match his variant. Basic image output works.

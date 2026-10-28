@@ -76,9 +76,9 @@ async function submit(req: Request, env: Env): Promise<Response> {
   try {
     await env.SUBMISSIONS.send({
       to: env.TO_ADDRESS, // binding is also locked to this address in wrangler.jsonc
-      from: { email: env.FROM_ADDRESS, name: 'unshitify form' },
+      from: { email: env.FROM_ADDRESS, name: 'unshittify form' },
       ...(validEmail ? { replyTo: validEmail } : {}),
-      subject: `[unshitify] ${title}`.slice(0, 200),
+      subject: `[unshittify] ${title}`.slice(0, 200),
       text,
       html,
     });

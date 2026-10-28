@@ -12,7 +12,7 @@ links:
   - { label: "repo", url: "https://github.com/NelsonEU/arn0-tv" }
   - { label: "creator post", url: "https://www.reddit.com/r/ClaudeAI/comments/1xbzlih/i_replaced_my_samsung_tvs_home_screen_with_claude/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Custom home screen that puts the owner's apps and consoles first, driven by the normal remote. Developed in a browser preview, then moved to the TV.

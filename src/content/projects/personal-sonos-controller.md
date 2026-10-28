@@ -12,7 +12,7 @@ links:
   - { label: "repo", url: "https://github.com/tonypest0/sonos-controller" }
   - { label: "creator post", url: "https://www.reddit.com/r/sonos/comments/1s2qff8/i_used_claude_code_to_build_a_custom_sonos_arc/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Browser controller with volume, sound presets, schedules and the shortcuts the owner uses daily.

@@ -12,7 +12,7 @@ links:
   - { label: "repo", url: "https://github.com/Gophercs/trifo_lucy_re" }
   - { label: "creator post", url: "https://www.reddit.com/r/ClaudeAI/comments/1s1bj9h/claude_helped_me_get_root_access_to_my_robot/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 The cloud went quiet, so an owner wrote a local server and browser UI. Cleaning, docking, suction, scheduling and status work.

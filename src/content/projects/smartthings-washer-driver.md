@@ -12,7 +12,7 @@ links:
   - { label: "repo", url: "https://github.com/McArhony/smartthings-samsung-drc-washer" }
   - { label: "creator post", url: "https://www.reddit.com/r/ClaudeAI/comments/1xemw8i/samsung_decided_to_cut_my_washing_machine_from/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 The old app workflow was discontinued. The owner wrote a SmartThings Edge driver that talks to the washer locally through a compatible hub.

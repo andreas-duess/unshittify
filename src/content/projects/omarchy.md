@@ -15,7 +15,7 @@ links:
   - { label: "t2 linux support", url: "https://wiki.t2linux.org/state/" }
   - { label: "creator interview", url: "https://lexfridman.com/dhh-2-transcript/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 An opinionated Arch Linux desktop. On compatible Intel Macs it keeps the hardware in service with a different OS and workflow.

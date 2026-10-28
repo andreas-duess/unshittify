@@ -12,7 +12,7 @@ links:
   - { label: "repo", url: "https://github.com/pdrgds/pixma-rs" }
   - { label: "creator post", url: "https://www.reddit.com/r/ClaudeCode/comments/1sgqsug/i_used_claude_code_to_reverseengineer_a/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 A Rust bridge from the G3010's scan protocol to something macOS understands. Scans from the usual Mac apps.

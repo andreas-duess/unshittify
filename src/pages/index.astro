@@ -11,7 +11,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
 <Base>
 
 <section class="hero wrap">
-  <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshitify --list --all<span class="cursor" aria-hidden="true"></span></p>
+  <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshittify --list --all<span class="cursor" aria-hidden="true"></span></p>
   <h1>You bought it.<br>Make it yours.</h1>
   <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
   <p class="lede">Most were built with a coding assistant on top of years of open-source work.</p>
@@ -92,7 +92,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   </div>
   <div class="cols">
     <div class="prose">
-      <p>unshitify logs people making the products they own work for them: replacing interfaces, restoring functions after an app or cloud disappears, giving old hardware a new job.</p>
+      <p>unshittify logs people making the products they own work for them: replacing interfaces, restoring functions after an app or cloud disappears, giving old hardware a new job.</p>
       <p>Coding assistants let one stubborn owner do what used to take a team. It's still hard work. People capture packets, solder, debug and get it wrong a lot. Open-source maintainers built most of what these projects stand on. Every entry names them.</p>
       <p>For each entry we ask what the owner got back, whether someone else could repeat it, and what the catch is.</p>
     </div>
@@ -119,7 +119,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
     <dl>
       {Object.entries(EVIDENCE).map(([k, v]) => <><dt><EvidenceTag kind={k as keyof typeof EVIDENCE} /></dt><dd>{v}</dd></>)}
     </dl>
-    <p class="note">None of these mean "tested by unshitify". We haven't tested any of it.</p>
+    <p class="note">None of these mean "tested by unshittify". We haven't tested any of it.</p>
   </div>
 </section>
 

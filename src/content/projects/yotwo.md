@@ -12,7 +12,7 @@ links:
   - { label: "repo", url: "https://github.com/tomekent/yotwo" }
   - { label: "creator post", url: "https://www.reddit.com/r/audiobookshelf/comments/1x8aqxi/yotwo_an_audiobookshelf_focused_firmware_for_2nd/" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Replacement firmware that points the Yoto's physical controls at your own Audiobookshelf library. Optional NFC, local downloads.

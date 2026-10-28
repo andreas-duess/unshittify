@@ -11,7 +11,7 @@ evidenceNote: "Public project with install and compatibility docs."
 links:
   - { label: "repo", url: "https://github.com/Kuberwastaken/hp-laser-1008a-macos" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 A patched SpliX printing stack plus a USB helper gets HP Laser 100-series printers working on Apple Silicon Macs.

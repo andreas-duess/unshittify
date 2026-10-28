@@ -13,7 +13,7 @@ links:
   - { label: "machine id", url: "https://x.com/simpsoka/status/2114369647969787992" }
   - { label: "it works", url: "https://x.com/simpsoka/status/2115254318161182876" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Kath Korevec built replacement software for her PP1 and reported that it worked. Separate project from Respira.

@@ -11,7 +11,7 @@ evidenceNote: "Public project with a documented hardware test."
 links:
   - { label: "repo", url: "https://github.com/gtgaute/ha-smartercoffee" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Home Assistant integration with local control, status and Wi-Fi setup for a coffee machine whose app is obsolete.

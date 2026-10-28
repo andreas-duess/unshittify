@@ -13,7 +13,7 @@ links:
   - { label: "creator on HN", url: "https://news.ycombinator.com/item?id=46763634" }
   - { label: "brother faq", url: "https://help.brother-usa.com/app/answers/detail/a_id/185302/~/can-i-use-the-free-artspira-with-the-skitch%3F" }
 reviewed: 2026-10-28
-submittedBy: unshitify
+submittedBy: unshittify
 ---
 
 Sends embroidery designs from a computer to the PP1 and shows machine status, offline, without the phone-app workflow. Built by Jan-Henrik Bruhn.

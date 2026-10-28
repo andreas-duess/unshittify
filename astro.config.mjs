@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 // @astrojs/cloudflare adapter and mark those routes `prerender = false`.
 // The project pages stay static.
 export default defineConfig({
-  site: 'https://unshitify.com',
+  site: 'https://unshittify.dev',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [sitemap()],

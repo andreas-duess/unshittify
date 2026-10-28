@@ -1,4 +1,4 @@
-# unshitify.com
+# unshittify.dev
 
 A log of people reclaiming hardware with AI-assisted development and open source.
 
@@ -15,7 +15,7 @@ Astro 5, static output. JetBrains Mono, self-hosted. No client JS beyond search 
 One file per project in `src/content/projects/<slug>.md`. The filename is the URL: `/p/<slug>`.
 Frontmatter schema lives in `src/content.config.ts`; a build fails on a missing or wrong field.
 The body is the write-up. The log shows its first paragraph; the project page shows all of it.
-`draft: true` hides an entry. `submittedBy` is "unshitify" for editorial entries.
+`draft: true` hides an entry. `submittedBy` is "unshittify" for editorial entries.
 
 Categories, evidence labels, snapshot date and the submit address: `src/lib/meta.ts`.
 
@@ -28,7 +28,7 @@ Cloudflare Worker with static assets, andreas@duess.com Cloudflare account. `wra
 
 `worker/index.ts` handles `POST /api/submit` and emails the submission to the address in `wrangler.jsonc`
 (send_email binding, locked to one verified destination; free on any plan). The address never reaches the page.
-Needs Email Routing on unshitify.com with that address verified. Spam guards: honeypot field and a 3-second minimum.
+Needs Email Routing on unshittify.dev with that address verified. Spam guards: honeypot field and a 3-second minimum.
 Add Turnstile if spam gets through.
 
 ## Planned: members and contributor pages

@@ -18,8 +18,8 @@ const projects = defineCollection({
     evidenceNote: z.string(),
     links: z.array(z.object({ label: z.string(), url: z.string().url() })).min(1),
     reviewed: z.coerce.date(),
-    // Who added the entry. "unshitify" for editorial entries; a member handle later.
-    submittedBy: z.string().default('unshitify'),
+    // Who added the entry. "unshittify" for editorial entries; a member handle later.
+    submittedBy: z.string().default('unshittify'),
     draft: z.boolean().default(false),
   }),
 });

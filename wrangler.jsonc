@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "unshitify",
+  "name": "unshittify",
   "main": "worker/index.ts",
   "compatibility_date": "2026-10-01",
   "assets": {
@@ -13,12 +13,12 @@
     { "name": "SUBMISSIONS", "destination_address": "andreas@duess.com" }
   ],
   "vars": {
-    "FROM_ADDRESS": "form@unshitify.com",
+    "FROM_ADDRESS": "form@unshittify.dev",
     "TO_ADDRESS": "andreas@duess.com"
   },
   "routes": [
-    { "pattern": "unshitify.com", "custom_domain": true },
-    { "pattern": "www.unshitify.com", "custom_domain": true }
+    { "pattern": "unshittify.dev", "custom_domain": true },
+    { "pattern": "www.unshittify.dev", "custom_domain": true }
   ],
   "observability": { "enabled": true }
 }
