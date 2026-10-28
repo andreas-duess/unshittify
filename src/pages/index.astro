@@ -65,24 +65,10 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
   <p class="empty" id="empty" hidden>0 matches. Try a broader device name.</p>
 </section>
 
-<section id="method" class="wrap">
-  <div class="sec-head">
-    <h2><span class="acc">02</span> // method</h2>
-    <p class="note">Start small and keep a way back.</p>
-  </div>
-  <ol class="steps">
-    <li><b>Pick one problem.</b> A better home screen. A missing driver. A local controller. Small goals are easy to verify.</li>
-    <li><b>Match the hardware.</b> Exact model, revision, firmware, OS. Same brand and same shape is not enough.</li>
-    <li><b>Read the source.</b> Docs, open issues, known limits, reports from people on your hardware. Maintained tool, experiment, or a story with no release?</li>
-    <li><b>Plan the rollback.</b> Back up first. Know what changes and how to undo it. Leave the device you depend on daily for last.</li>
-    <li><b>Use AI to understand.</b> Have the assistant explain the code, flag its assumptions, propose tests. Review before it touches a device or private data.</li>
-    <li><b>Write it up.</b> Model, what worked, what failed, what you'd change. Then send it here.</li>
-  </ol>
-</section>
 
 <section id="about" class="wrap">
   <div class="sec-head">
-    <h2><span class="acc">03</span> // about</h2>
+    <h2><span class="acc">02</span> // about</h2>
     <p class="note">Useful things should stay useful.</p>
   </div>
   <div class="cols">
@@ -120,7 +106,7 @@ const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a
 
 <section id="submit" class="wrap">
   <div class="sec-head">
-    <h2><span class="acc">04</span> // submit</h2>
+    <h2><span class="acc">03</span> // submit</h2>
     <p class="note">Made something useful again?</p>
   </div>
   <div class="prose submit-intro">
