@@ -6,7 +6,7 @@ import EvidenceTag from '../components/EvidenceTag.astro';
 import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER, pad } from '../lib/meta';
 import SubmitForm from '../components/SubmitForm.astro';
 
-const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
 const jsonld = [
   {
     '@context': 'https://schema.org',

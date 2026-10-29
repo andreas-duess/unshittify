@@ -5,7 +5,7 @@ import HubList from '../../components/HubList.astro';
 import { CATEGORY_PAGES, SITE } from '../../lib/meta';
 
 export async function getStaticPaths() {
-  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
   return Object.entries(CATEGORY_PAGES).map(([key, page]) => ({
     params: { slug: page.slug },
     props: { page, items: projects.filter((p) => p.data.category === key) },

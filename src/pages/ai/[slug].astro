@@ -5,7 +5,7 @@ import HubList from '../../components/HubList.astro';
 import { AI_PAGES, SITE } from '../../lib/meta';
 
 export async function getStaticPaths() {
-  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
+  const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
   return Object.entries(AI_PAGES).map(([slug, page]) => ({
     params: { slug },
     props: { slug, page, items: projects.filter((p) => { const ai = p.data.ai.toLowerCase(); return !ai.includes('(commits)') && (page.match as readonly string[]).some((m) => ai.includes(m)); }) },
