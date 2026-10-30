@@ -38,6 +38,10 @@ const ogImage = new URL('/og.png', Astro.site);
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={ogImage}>
 <meta name="theme-color" content="#0a0b0c">
+<script is:inline>
+  // Apply a saved colour scheme before first paint.
+  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -59,12 +63,38 @@ const ogImage = new URL('/og.png', Astro.site);
       <a href="/#log">log</a>
       <a href="/#about">about</a>
       <a href="/#submit">submit</a>
+      <button class="theme" id="theme" type="button" aria-label="Colour scheme">[auto]</button>
     </nav>
   </div>
 </header>
 <main>
   <slot />
 </main>
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('theme');
+    var root = document.documentElement;
+    var sys = matchMedia('(prefers-color-scheme: dark)');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    var mode = function () { return root.dataset.theme || 'auto'; };
+    var paint = function () {
+      var m = mode();
+      btn.textContent = '[' + m + ']';
+      btn.title = m === 'auto' ? 'Colour scheme: follows your system' : 'Colour scheme: ' + m;
+      meta.content = getComputedStyle(root).getPropertyValue('--bg').trim();
+    };
+    btn.addEventListener('click', function () {
+      // From auto, go straight to the scheme you are not seeing, so every click changes something.
+      var order = sys.matches ? ['auto', 'light', 'dark'] : ['auto', 'dark', 'light'];
+      var next = order[(order.indexOf(mode()) + 1) % 3];
+      if (next === 'auto') delete root.dataset.theme; else root.dataset.theme = next;
+      try { next === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch (e) {}
+      paint();
+    });
+    sys.addEventListener('change', paint);
+    paint();
+  })();
+</script>
 <footer class="wrap foot">
   <p>Independent projects, credited to their builders. Product names belong to their owners; inclusion is not endorsement or affiliation.</p>
   <p class="credit">Maintained by <a href="https://duess.com">Andreas Duess</a></p>

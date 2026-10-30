@@ -15,8 +15,9 @@
   --sel: rgba(255, 106, 26, .28);
   color-scheme: dark;
 }
+/* Light follows the system unless the visitor picked dark; a picked light always wins. */
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --bg: #f3f2ee;
     --panel: #eae9e4;
     --line: #d6d4cd;
@@ -29,6 +30,19 @@
     --sel: rgba(217, 80, 11, .2);
     color-scheme: light;
   }
+}
+:root[data-theme="light"] {
+  --bg: #f3f2ee;
+  --panel: #eae9e4;
+  --line: #d6d4cd;
+  --line-2: #bfbdb5;
+  --fg: #121314;
+  --dim: #62666c;
+  --acc: #d9500b;
+  --ok: #1f8a4c;
+  --warn: #a46d00;
+  --sel: rgba(217, 80, 11, .2);
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -65,6 +79,9 @@ b { font-weight: 700; }
 nav { display: flex; gap: 18px; font-size: 13px; }
 nav a { text-decoration: none; color: var(--dim); }
 nav a:hover { color: var(--fg); }
+.theme { font: inherit; font-size: 13px; color: var(--dim); background: none; border: 0; padding: 0; cursor: pointer; }
+.theme:hover { color: var(--fg); }
+.theme:focus-visible { outline: 1px solid var(--acc); outline-offset: 3px; }
 @media (max-width: 480px) { nav { gap: 12px; } nav a:nth-child(2) { display: none; } }
 
 /* hero */
