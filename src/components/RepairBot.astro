@@ -1,0 +1,312 @@
+---
+// A small line-drawn robot that patrols the divider under a section head,
+// stopping for a run of small jobs before ambling on.
+---
+<div class="bot" aria-hidden="true">
+  <svg class="bot-body" viewBox="0 0 48 40" width="43" height="36">
+    <g class="bob">
+      <!-- antenna -->
+      <path d="M19 7V3.5" />
+      <circle class="acc-fill antenna" cx="19" cy="2.6" r="1.3" />
+      <!-- head -->
+      <rect x="13" y="7" width="12" height="9" rx="1" />
+      <circle class="eye" cx="21.5" cy="11.5" r="1.1" />
+      <!-- body -->
+      <rect x="12" y="17" width="14" height="11" rx="1" />
+      <path d="M15 21h5M15 24h3" class="thin" />
+      <!-- back arm -->
+      <path class="arm-back" d="M13 20l-3.5 5" />
+      <!-- working arm + tools -->
+      <g class="arm">
+        <path d="M25 20l6 5" />
+        <g class="tool t-wrench">
+          <path d="M31 25l5 5" />
+          <path d="M35 31.5l2.5-2.5 1.5 1.5-1 1 1 1-2.5 2.5z" />
+        </g>
+        <g class="tool t-hammer">
+          <path d="M31 25l4-6" />
+          <rect x="32" y="15.5" width="7" height="3.5" transform="rotate(34 35.5 17.25)" />
+        </g>
+        <g class="tool t-weld">
+          <path d="M31 25l4 9" />
+          <path d="M34 32.5l2-1" class="thin" />
+        </g>
+        <g class="tool t-screw">
+          <rect x="29.8" y="23.6" width="3" height="3.4" rx=".6" />
+          <path d="M32 27l4.5 7.5" class="thin" />
+        </g>
+        <g class="tool t-drill">
+          <path d="M29 22.5h7v3.5h-7z" />
+          <path d="M31 26v3.2" />
+          <path class="acc-stroke bit" d="M36 24.2h5" />
+        </g>
+        <g class="tool t-solder">
+          <path d="M31 25l3 6" />
+          <path d="M34 31l2.6 5.2" class="thin" />
+        </g>
+        <g class="tool t-inspect">
+          <path d="M31 25l2-2.6" />
+          <circle cx="35" cy="19.6" r="3" />
+        </g>
+        <g class="tool t-oil">
+          <path d="M29.5 23.5h5v4.5h-5z" />
+          <path d="M34.5 24.5l4-2.5" />
+        </g>
+        <g class="tool t-sweep">
+          <path d="M31 25l6 11.5" />
+          <path d="M34.5 39.5l1.6-3.5h3l1.6 3.5" />
+        </g>
+        <g class="tool t-measure">
+          <rect x="30" y="24" width="4" height="3.6" rx=".8" />
+        </g>
+      </g>
+    </g>
+    <!-- legs -->
+    <path class="leg leg-a" d="M16 28v10.5h-2" />
+    <path class="leg leg-b" d="M22 28v10.5h2" />
+
+    <!-- effects that live in the world, not in the hand -->
+    <g class="fx sparks">
+      <path d="M36 39.5l-3-3" /><path d="M36.5 39.5l1-4.5" /><path d="M37 39.5l4-2.5" /><path d="M37 39.5l5 0" />
+    </g>
+    <g class="fx laptop">
+      <path d="M30 39.5h17" />
+      <path d="M32 39.5l1.5-9h11l-1.5 9" />
+      <path class="acc-stroke code-line l1" d="M35.5 33h4" />
+      <path class="acc-stroke code-line l2" d="M35 35.5h6" />
+      <path class="acc-stroke code-line l3" d="M34.6 37.8h3" />
+    </g>
+    <g class="fx smoke">
+      <path class="thin s1" d="M37 35q-1.2-1.6 0-3.2t0-3.2" />
+      <path class="thin s2" d="M38.5 35q1.2-1.6 0-3.2t0-3.2" />
+    </g>
+    <g class="fx drips">
+      <circle class="acc-fill d1" cx="39" cy="23.5" r=".7" />
+      <circle class="acc-fill d2" cx="39" cy="23.5" r=".7" />
+    </g>
+    <g class="fx dust">
+      <path class="thin" d="M42 38.5h1.5M44.5 37h1M43.5 39.3h1.5" />
+    </g>
+    <g class="fx tape">
+      <path class="acc-stroke tape-line" d="M34 27.5L36.5 39.5H48" />
+    </g>
+    <g class="fx question">
+      <path class="acc-stroke" d="M27.5 2.2q0-2.2 2.2-2.2t2.2 2.2c0 1.6-2.2 1.6-2.2 3.4" />
+      <circle class="acc-fill" cx="29.7" cy="7.6" r=".6" />
+    </g>
+    <g class="fx check">
+      <path class="ok-stroke" d="M27 3l2 2 4-4.5" />
+    </g>
+  </svg>
+</div>
+
+<style>
+  .bot {
+    position: absolute; left: 0; bottom: -1px; width: 43px; height: 36px;
+    pointer-events: none; will-change: transform;
+  }
+  .bot-body { display: block; overflow: visible; transition: transform .2s; }
+  .bot.left .bot-body { transform: scaleX(-1); }
+  svg * { transform-box: view-box; }
+  path, rect, circle { fill: none; stroke: var(--fg); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .thin { stroke-width: 1; stroke: var(--dim); }
+  .eye { fill: var(--fg); stroke: none; transition: transform .2s; }
+  .acc-fill { fill: var(--acc); stroke: none; }
+  .acc-stroke, .sparks path { stroke: var(--acc); }
+  .ok-stroke { stroke: var(--ok); stroke-width: 1.6; }
+
+  .tool, .fx { display: none; }
+  .bot.wrench .t-wrench, .bot.hammer .t-hammer, .bot.weld .t-weld, .bot.weld .sparks,
+  .bot.code .laptop, .bot.screw .t-screw, .bot.drill .t-drill, .bot.drill .dust,
+  .bot.solder .t-solder, .bot.solder .smoke, .bot.inspect .t-inspect,
+  .bot.oil .t-oil, .bot.oil .drips, .bot.sweep .t-sweep, .bot.sweep .dust,
+  .bot.measure .t-measure, .bot.measure .tape, .bot.think .question, .bot.done .check { display: inline; }
+
+  .arm { transform-origin: 25px 20px; }
+  .arm-back { transform-origin: 13px 20px; }
+  .leg-a { transform-origin: 16px 28px; }
+  .leg-b { transform-origin: 22px 28px; }
+
+  /* walking */
+  .bot.walk .leg-a { animation: stride .5s ease-in-out infinite alternate; }
+  .bot.walk .leg-b { animation: stride .5s ease-in-out infinite alternate-reverse; }
+  .bot.walk .bob { animation: bob .25s ease-in-out infinite alternate; }
+  .bot.walk .arm { animation: swing .5s ease-in-out infinite alternate; }
+  @keyframes stride { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+  @keyframes bob { to { transform: translateY(-1px); } }
+  @keyframes swing { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+
+  /* spanner: short turning strokes */
+  .bot.wrench .arm { animation: turn .7s ease-in-out infinite; }
+  @keyframes turn { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(22deg); } }
+
+  /* hammer: lift slow, strike fast */
+  .bot.hammer .arm { animation: strike .8s cubic-bezier(.6, 0, .9, .4) infinite; }
+  .bot.hammer .bob { animation: jolt .8s infinite; }
+  @keyframes strike { 0%, 70% { transform: rotate(-45deg); } 85% { transform: rotate(38deg); } 100% { transform: rotate(-45deg); } }
+  @keyframes jolt { 84%, 88% { transform: translateY(.6px); } }
+
+  /* welder: steady hand, flickering sparks */
+  .bot.weld .arm { animation: jitter .12s steps(2) infinite; }
+  .bot.weld .eye { fill: var(--acc); }
+  .sparks path { animation: flick .18s steps(2) infinite; }
+  .sparks path:nth-child(2) { animation-delay: -.05s; }
+  .sparks path:nth-child(3) { animation-delay: -.09s; }
+  .sparks path:nth-child(4) { animation-delay: -.13s; }
+  @keyframes jitter { 0% { transform: rotate(4deg); } 50% { transform: rotate(5.5deg); } }
+  @keyframes flick { 50% { opacity: 0; } }
+
+  /* coding: typing hands, lines appear */
+  .bot.code .arm { animation: type .22s ease-in-out infinite alternate; }
+  .bot.code .arm-back { animation: type .22s ease-in-out infinite alternate-reverse; }
+  .bot.code .eye { transform: translate(.6px, .6px); }
+  .code-line { stroke-dasharray: 7; stroke-dashoffset: 7; animation: typeline 2.4s steps(6) infinite; }
+  .l2 { animation-delay: .4s; }
+  .l3 { animation-delay: .8s; }
+  @keyframes type { from { transform: rotate(18deg); } to { transform: rotate(28deg); } }
+  @keyframes typeline { 0% { stroke-dashoffset: 7; } 40%, 100% { stroke-dashoffset: 0; } }
+
+  /* screwdriver: quick quarter twists, leaning in */
+  .bot.screw .arm { animation: twist .3s ease-in-out infinite alternate; }
+  .bot.screw .bob { transform: translate(.5px, .4px); }
+  @keyframes twist { from { transform: rotate(4deg); } to { transform: rotate(11deg); } }
+
+  /* drill: whole body buzzes, bit spins */
+  .bot.drill .arm { transform: rotate(16deg); }
+  .bot.drill .bob { animation: buzz .07s steps(2) infinite; }
+  .bit { stroke-dasharray: 1.2 1; animation: spin .15s linear infinite; }
+  .bot.drill .dust { animation: flick .3s steps(2) infinite; }
+  @keyframes buzz { 50% { transform: translate(.35px, -.25px); } }
+  @keyframes spin { to { stroke-dashoffset: -2.2; } }
+
+  /* soldering: still hand, smoke curls up */
+  .bot.solder .arm { transform: rotate(12deg); }
+  .bot.solder .eye { transform: translate(.6px, .8px); }
+  .smoke path { animation: rise 1.8s ease-out infinite; }
+  .smoke .s2 { animation-delay: .9s; }
+  @keyframes rise { from { transform: translateY(1px); opacity: .9; } to { transform: translateY(-6px); opacity: 0; } }
+
+  /* magnifier: slow scan, eye follows */
+  .bot.inspect .arm { animation: scan 2.2s ease-in-out infinite; }
+  .bot.inspect .eye { animation: peer 2.2s ease-in-out infinite; }
+  @keyframes scan { 0%, 100% { transform: rotate(-18deg); } 50% { transform: rotate(30deg); } }
+  @keyframes peer { 0%, 100% { transform: translate(1px, -.6px); } 50% { transform: translate(1px, 1px); } }
+
+  /* oil can: tilt, drips */
+  .bot.oil .arm { animation: tilt 1.6s ease-in-out infinite; }
+  .drips circle { opacity: 0; animation: drip 1.1s ease-in infinite; }
+  .drips .d2 { animation-delay: .55s; }
+  @keyframes tilt { 0%, 100% { transform: rotate(-6deg); } 40%, 70% { transform: rotate(14deg); } }
+  @keyframes drip { 0% { transform: translateY(0); opacity: 1; } 90% { transform: translateY(15.5px); opacity: 1; } 100% { transform: translateY(15.5px); opacity: 0; } }
+
+  /* broom: sweep along the line */
+  .bot.sweep .arm { animation: brush .45s ease-in-out infinite alternate; }
+  .bot.sweep .dust { animation: scoot .9s linear infinite; }
+  @keyframes brush { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+  @keyframes scoot { from { transform: translateX(-2px); opacity: 1; } to { transform: translateX(4px); opacity: 0; } }
+
+  /* tape measure: pull the tape out along the line */
+  .bot.measure .arm { transform: rotate(6deg); }
+  .bot.measure .eye { transform: translate(.8px, .8px); }
+  .tape-line { stroke-dasharray: 26; stroke-dashoffset: 26; animation: pull 2.6s ease-out infinite; }
+  @keyframes pull { 0% { stroke-dashoffset: 26; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 26; } }
+
+  /* wave at the reader */
+  .bot.wave .arm { animation: hello .35s ease-in-out infinite alternate; }
+  .bot.wave .eye { transform: translateX(-2.5px); }
+  .bot.wave .antenna { animation: flick .7s steps(2) infinite; }
+  @keyframes hello { from { transform: rotate(-125deg); } to { transform: rotate(-95deg); } }
+
+  /* puzzled: scratch head, question mark */
+  .bot.think .arm { animation: scratch .25s ease-in-out infinite alternate; }
+  .bot.think .eye { transform: translate(-.5px, -1.4px); }
+  .question { animation: pop .3s ease-out; }
+  @keyframes scratch { from { transform: rotate(-110deg); } to { transform: rotate(-120deg); } }
+
+  /* done: little hop and a tick */
+  .bot.done .bob { animation: hop .45s ease-out 2; }
+  .bot.done .arm { transform: rotate(-60deg); }
+  .check { animation: pop .3s ease-out; }
+  @keyframes hop { 50% { transform: translateY(-2.5px); } }
+  @keyframes pop { from { opacity: 0; transform: translateY(2px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bot *, .bot-body { animation: none !important; transition: none; }
+  }
+</style>
+
+<script>
+  // job: [class, min ms, max ms]
+  const JOBS: [string, number, number][] = [
+    ['wrench', 2200, 3600], ['hammer', 2000, 3400], ['weld', 2400, 3800], ['code', 2600, 4200],
+    ['screw', 1800, 3000], ['drill', 1600, 2600], ['solder', 2600, 3800], ['inspect', 2200, 3400],
+    ['oil', 2200, 3300], ['sweep', 1800, 3000], ['measure', 2600, 2600],
+  ];
+  const ASIDES: [string, number, number][] = [['think', 1800, 2400], ['wave', 1600, 2000]];
+  const ALL = [...JOBS, ...ASIDES, ['done', 1000, 1000]].map((j) => j[0] as string);
+  const SPEED = 34; // px per second
+  const W = 43;
+  const rnd = (a: number, b: number) => a + Math.random() * (b - a);
+
+  for (const bot of document.querySelectorAll<HTMLElement>('.bot')) {
+    const stage = bot.parentElement!;
+    const still = matchMedia('(prefers-reduced-motion: reduce)');
+    let x = 0, target = 0, dir = 1, walking = true, until = 0, last = 0, raf = 0, visible = false;
+    let queue: [string, number, number][] = [];
+    let lastJob = '';
+
+    const max = () => Math.max(0, stage.clientWidth - W);
+    const place = () => { bot.style.transform = `translateX(${x}px)`; };
+    const set = (cls: string) => {
+      bot.classList.remove('walk', ...ALL);
+      bot.classList.add(cls);
+      bot.classList.toggle('left', dir < 0);
+    };
+
+    // A short stroll: mostly 40-170px, turning back at the edges.
+    const stroll = () => {
+      const step = rnd(40, 170);
+      let d = Math.random() < 0.5 ? -1 : 1;
+      if (x + d * step > max() || x + d * step < 0) d = -d;
+      target = Math.min(max(), Math.max(0, x + d * step));
+      dir = target >= x ? 1 : -1;
+      walking = true; set('walk');
+    };
+
+    // A stop is a run of 2-3 jobs, sometimes a puzzled pause or a wave, often a tick at the end.
+    const plan = () => {
+      const pool = JOBS.filter((j) => j[0] !== lastJob).sort(() => Math.random() - 0.5);
+      queue = pool.slice(0, Math.random() < 0.55 ? 2 : 3);
+      if (Math.random() < 0.35) queue.splice(1, 0, ASIDES[0]);
+      if (Math.random() < 0.2) queue.unshift(ASIDES[1]);
+      if (Math.random() < 0.5) queue.push(['done', 1000, 1000]);
+      lastJob = queue.filter((j) => j[0] !== 'done').at(-1)![0];
+    };
+    const next = (now: number) => {
+      const job = queue.shift();
+      if (!job) return stroll();
+      walking = false; set(job[0]);
+      until = now + rnd(job[1], job[2]);
+    };
+
+    const tick = (now: number) => {
+      const dt = Math.min(0.1, (now - (last || now)) / 1000);
+      last = now;
+      if (walking) {
+        x += dir * SPEED * dt;
+        if ((dir > 0 && x >= target) || (dir < 0 && x <= target)) { x = target; plan(); next(now); }
+        place();
+      } else if (now > until) next(now);
+      raf = visible && !document.hidden ? requestAnimationFrame(tick) : 0;
+    };
+    const run = () => { if (!raf && visible && !document.hidden && !still.matches) { last = 0; raf = requestAnimationFrame(tick); } };
+
+    x = Math.random() * max();
+    place();
+    if (still.matches) { set('wrench'); continue; }
+    stroll();
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; run(); }).observe(stage);
+    document.addEventListener('visibilitychange', run);
+    addEventListener('resize', () => { x = Math.min(x, max()); target = Math.min(target, max()); place(); });
+  }
+</script>

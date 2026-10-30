@@ -5,6 +5,7 @@ import ProjectFields from '../components/ProjectFields.astro';
 import EvidenceTag from '../components/EvidenceTag.astro';
 import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER, pad } from '../lib/meta';
 import SubmitForm from '../components/SubmitForm.astro';
+import RepairBot from '../components/RepairBot.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
 const jsonld = [
@@ -37,9 +38,10 @@ const jsonld = [
 </section>
 
 <section id="log" class="wrap">
-  <div class="sec-head">
+  <div class="sec-head has-bot">
     <h2><span class="acc">01</span> // the log</h2>
     <p class="note">A public repo means the code exists. Whether it's safe is a separate question. Read the project's current docs before you buy hardware or flash anything.</p>
+    <RepairBot />
   </div>
 
   <div class="controls">
