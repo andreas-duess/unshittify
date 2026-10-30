@@ -1,118 +1,163 @@
 ---
-// A small line-drawn robot that patrols the divider under a section head,
-// stopping for a run of small jobs before ambling on.
+// A small line-drawn robot that patrols the divider under a section head.
+// It stops for runs of small jobs, and now and then something goes wrong.
 ---
-<div class="bot" aria-hidden="true">
-  <svg class="bot-body" viewBox="0 0 48 40" width="43" height="36">
-    <g class="bob">
-      <!-- antenna -->
-      <path d="M19 7V3.5" />
-      <circle class="acc-fill antenna" cx="19" cy="2.6" r="1.3" />
-      <!-- head -->
-      <rect x="13" y="7" width="12" height="9" rx="1" />
-      <circle class="eye" cx="21.5" cy="11.5" r="1.1" />
-      <!-- body -->
-      <rect x="12" y="17" width="14" height="11" rx="1" />
-      <path d="M15 21h5M15 24h3" class="thin" />
-      <!-- back arm -->
-      <path class="arm-back" d="M13 20l-3.5 5" />
-      <!-- working arm + tools -->
-      <g class="arm">
-        <path d="M25 20l6 5" />
-        <g class="tool t-wrench">
-          <path d="M31 25l5 5" />
-          <path d="M35 31.5l2.5-2.5 1.5 1.5-1 1 1 1-2.5 2.5z" />
+<div class="bot-stage" aria-hidden="true">
+  <div class="scar"></div>
+  <div class="bot">
+    <svg class="bot-body" viewBox="0 0 48 40" width="43" height="36">
+      <g class="all">
+        <g class="bob">
+          <!-- antenna -->
+          <path d="M19 7V3.5" />
+          <circle class="acc-fill antenna" cx="19" cy="2.6" r="1.3" />
+          <!-- head -->
+          <rect x="13" y="7" width="12" height="9" rx="1" />
+          <circle class="eye" cx="21.5" cy="11.5" r="1.1" />
+          <path class="eye-dizzy" d="M21.5 11.5m-.2 0a.4.4 0 1 1 .5.4a.9.9 0 1 1-1.1-1a1.4 1.4 0 1 1 1.6 1.5" />
+          <!-- body -->
+          <rect x="12" y="17" width="14" height="11" rx="1" />
+          <path d="M15 21h5M15 24h3" class="thin" />
+          <!-- back arm -->
+          <path class="arm-back" d="M13 20l-3.5 5" />
+          <!-- working arm + hand tools -->
+          <g class="arm">
+            <path d="M25 20l6 5" />
+            <g class="tool t-wrench">
+              <path d="M31 25l5 5" />
+              <path d="M35 31.5l2.5-2.5 1.5 1.5-1 1 1 1-2.5 2.5z" />
+            </g>
+            <g class="tool t-hammer">
+              <path d="M31 25l4-6" />
+              <rect x="32" y="15.5" width="7" height="3.5" transform="rotate(34 35.5 17.25)" />
+            </g>
+            <g class="tool t-weld">
+              <path d="M31 25l4 9" />
+              <path d="M34 32.5l2-1" class="thin" />
+            </g>
+            <g class="tool t-screw">
+              <rect x="29.8" y="23.6" width="3" height="3.4" rx=".6" />
+              <path d="M32 27l4.5 7.5" class="thin" />
+            </g>
+            <g class="tool t-drill">
+              <path d="M29 22.5h7v3.5h-7z" />
+              <path d="M31 26v3.2" />
+              <path class="acc-stroke bit" d="M36 24.2h5" />
+            </g>
+            <g class="tool t-solder">
+              <path d="M31 25l3 6" />
+              <path d="M34 31l2.6 5.2" class="thin" />
+            </g>
+            <g class="tool t-inspect">
+              <path d="M31 25l2-2.6" />
+              <circle cx="35" cy="19.6" r="3" />
+            </g>
+            <g class="tool t-oil">
+              <path d="M29.5 23.5h5v4.5h-5z" />
+              <path d="M34.5 24.5l4-2.5" />
+            </g>
+            <g class="tool t-sweep">
+              <path d="M31 25l6 11.5" />
+              <path d="M34.5 39.5l1.6-3.5h3l1.6 3.5" />
+            </g>
+            <g class="tool t-measure">
+              <rect x="30" y="24" width="4" height="3.6" rx=".8" />
+            </g>
+            <g class="tool t-laser">
+              <path d="M30 23.3l4.8 3.5-1.3 1.8-4.8-3.5z" />
+            </g>
+          </g>
+          <!-- jackhammer, held in front -->
+          <g class="fx jackhammer">
+            <path d="M30.5 20.5h7" />
+            <rect x="32.3" y="20.5" width="3.4" height="12" rx=".6" />
+            <path d="M33 23.5h2M33 26h2" class="thin" />
+            <path d="M34 32.5v7" />
+          </g>
+          <!-- head-level marks -->
+          <g class="fx question">
+            <path class="acc-stroke" d="M27.5 2.2q0-2.2 2.2-2.2t2.2 2.2c0 1.6-2.2 1.6-2.2 3.4" />
+            <circle class="acc-fill" cx="29.7" cy="7.6" r=".6" />
+          </g>
+          <g class="fx bang">
+            <path class="acc-stroke" d="M29.5 -.5v5" />
+            <circle class="acc-fill" cx="29.5" cy="7.2" r=".7" />
+          </g>
+          <g class="fx check">
+            <path class="ok-stroke" d="M27 3l2 2 4-4.5" />
+          </g>
+          <g class="fx stars">
+            <path class="acc-stroke" d="M13 3.5h3M14.5 2v3" />
+            <path class="acc-stroke" d="M22 1.5h3M23.5 0v3" />
+          </g>
         </g>
-        <g class="tool t-hammer">
-          <path d="M31 25l4-6" />
-          <rect x="32" y="15.5" width="7" height="3.5" transform="rotate(34 35.5 17.25)" />
-        </g>
-        <g class="tool t-weld">
-          <path d="M31 25l4 9" />
-          <path d="M34 32.5l2-1" class="thin" />
-        </g>
-        <g class="tool t-screw">
-          <rect x="29.8" y="23.6" width="3" height="3.4" rx=".6" />
-          <path d="M32 27l4.5 7.5" class="thin" />
-        </g>
-        <g class="tool t-drill">
-          <path d="M29 22.5h7v3.5h-7z" />
-          <path d="M31 26v3.2" />
-          <path class="acc-stroke bit" d="M36 24.2h5" />
-        </g>
-        <g class="tool t-solder">
-          <path d="M31 25l3 6" />
-          <path d="M34 31l2.6 5.2" class="thin" />
-        </g>
-        <g class="tool t-inspect">
-          <path d="M31 25l2-2.6" />
-          <circle cx="35" cy="19.6" r="3" />
-        </g>
-        <g class="tool t-oil">
-          <path d="M29.5 23.5h5v4.5h-5z" />
-          <path d="M34.5 24.5l4-2.5" />
-        </g>
-        <g class="tool t-sweep">
-          <path d="M31 25l6 11.5" />
-          <path d="M34.5 39.5l1.6-3.5h3l1.6 3.5" />
-        </g>
-        <g class="tool t-measure">
-          <rect x="30" y="24" width="4" height="3.6" rx=".8" />
-        </g>
+        <!-- legs -->
+        <path class="leg leg-a" d="M16 28v10.5h-2" />
+        <path class="leg leg-b" d="M22 28v10.5h2" />
       </g>
-    </g>
-    <!-- legs -->
-    <path class="leg leg-a" d="M16 28v10.5h-2" />
-    <path class="leg leg-b" d="M22 28v10.5h2" />
 
-    <!-- effects that live in the world, not in the hand -->
-    <g class="fx sparks">
-      <path d="M36 39.5l-3-3" /><path d="M36.5 39.5l1-4.5" /><path d="M37 39.5l4-2.5" /><path d="M37 39.5l5 0" />
-    </g>
-    <g class="fx laptop">
-      <path d="M30 39.5h17" />
-      <path d="M32 39.5l1.5-9h11l-1.5 9" />
-      <path class="acc-stroke code-line l1" d="M35.5 33h4" />
-      <path class="acc-stroke code-line l2" d="M35 35.5h6" />
-      <path class="acc-stroke code-line l3" d="M34.6 37.8h3" />
-    </g>
-    <g class="fx smoke">
-      <path class="thin s1" d="M37 35q-1.2-1.6 0-3.2t0-3.2" />
-      <path class="thin s2" d="M38.5 35q1.2-1.6 0-3.2t0-3.2" />
-    </g>
-    <g class="fx drips">
-      <circle class="acc-fill d1" cx="39" cy="23.5" r=".7" />
-      <circle class="acc-fill d2" cx="39" cy="23.5" r=".7" />
-    </g>
-    <g class="fx dust">
-      <path class="thin" d="M42 38.5h1.5M44.5 37h1M43.5 39.3h1.5" />
-    </g>
-    <g class="fx tape">
-      <path class="acc-stroke tape-line" d="M34 27.5L36.5 39.5H48" />
-    </g>
-    <g class="fx question">
-      <path class="acc-stroke" d="M27.5 2.2q0-2.2 2.2-2.2t2.2 2.2c0 1.6-2.2 1.6-2.2 3.4" />
-      <circle class="acc-fill" cx="29.7" cy="7.6" r=".6" />
-    </g>
-    <g class="fx check">
-      <path class="ok-stroke" d="M27 3l2 2 4-4.5" />
-    </g>
-  </svg>
+      <!-- effects that stay in the world while the robot moves -->
+      <g class="fx auger">
+        <path d="M30 18.5h6" />
+        <rect x="31.5" y="18.5" width="3" height="10" rx=".6" />
+        <path class="acc-stroke bit" d="M33 28.5v11" />
+      </g>
+      <path class="fx beam" d="M34.6 28.2L36 39.5" />
+      <g class="fx sparks">
+        <path d="M36 39.5l-3-3" /><path d="M36.5 39.5l1-4.5" /><path d="M37 39.5l4-2.5" /><path d="M37 39.5l5 0" />
+      </g>
+      <g class="fx laptop">
+        <path d="M30 39.5h17" />
+        <path d="M32 39.5l1.5-9h11l-1.5 9" />
+        <path class="acc-stroke code-line l1" d="M35.5 33h4" />
+        <path class="acc-stroke code-line l2" d="M35 35.5h6" />
+        <path class="acc-stroke code-line l3" d="M34.6 37.8h3" />
+      </g>
+      <g class="fx smoke">
+        <path class="thin s1" d="M37 35q-1.2-1.6 0-3.2t0-3.2" />
+        <path class="thin s2" d="M38.5 35q1.2-1.6 0-3.2t0-3.2" />
+      </g>
+      <g class="fx drips">
+        <circle class="acc-fill d1" cx="39" cy="23.5" r=".7" />
+        <circle class="acc-fill d2" cx="39" cy="23.5" r=".7" />
+      </g>
+      <g class="fx dust">
+        <path class="thin" d="M42 38.5h1.5M44.5 37h1M43.5 39.3h1.5" />
+      </g>
+      <g class="fx tape">
+        <path class="acc-stroke tape-line" d="M34 27.5L36.5 39.5H48" />
+      </g>
+    </svg>
+  </div>
 </div>
 
 <style>
-  .bot {
-    position: absolute; left: 0; bottom: -1px; width: 43px; height: 36px;
-    pointer-events: none; will-change: transform;
+  /* The stage clips the sides (no page scroll when the robot rattles off the edge)
+     and, while .sink is on, everything below the line so it can fall through. */
+  .bot-stage {
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 80px;
+    pointer-events: none; overflow-x: clip;
+    clip-path: inset(-40px 0 -24px 0);
   }
+  .bot-stage.sink { clip-path: inset(-40px 0 0 0); }
+
+  .bot { position: absolute; left: 0; bottom: 0; width: 43px; height: 36px; will-change: transform; }
   .bot-body { display: block; overflow: visible; transition: transform .2s; }
   .bot.left .bot-body { transform: scaleX(-1); }
+
+  /* the burn mark and the hole it leaves in the line */
+  .scar { position: absolute; bottom: 0; width: 22px; height: 1px; display: none; }
+  .scar.burn { display: block; background: var(--acc); box-shadow: 0 0 4px 1px var(--acc); transform: scaleX(0); animation: burn 2.2s ease-in forwards, flick .16s steps(2) infinite; }
+  .scar.hole { display: block; background: var(--bg); border-left: 2px solid var(--acc); border-right: 2px solid var(--acc); }
+  @keyframes burn { to { transform: scaleX(1); } }
+
   svg * { transform-box: view-box; }
   path, rect, circle { fill: none; stroke: var(--fg); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
   .thin { stroke-width: 1; stroke: var(--dim); }
   .eye { fill: var(--fg); stroke: none; transition: transform .2s; }
+  .eye-dizzy { stroke-width: .7; display: none; }
   .acc-fill { fill: var(--acc); stroke: none; }
-  .acc-stroke, .sparks path { stroke: var(--acc); }
+  .acc-stroke, .sparks path, .beam { stroke: var(--acc); }
   .ok-stroke { stroke: var(--ok); stroke-width: 1.6; }
 
   .tool, .fx { display: none; }
@@ -120,8 +165,11 @@
   .bot.code .laptop, .bot.screw .t-screw, .bot.drill .t-drill, .bot.drill .dust,
   .bot.solder .t-solder, .bot.solder .smoke, .bot.inspect .t-inspect,
   .bot.oil .t-oil, .bot.oil .drips, .bot.sweep .t-sweep, .bot.sweep .dust,
-  .bot.measure .t-measure, .bot.measure .tape, .bot.think .question, .bot.done .check { display: inline; }
+  .bot.measure .t-measure, .bot.measure .tape, .bot.think .question, .bot.done .check,
+  .bot.jack .jackhammer, .bot.jack .dust, .bot.alarm .bang, .bot.uhoh .bang,
+  .bot.auger .auger, .bot.dizzy .stars, .bot.laser .t-laser, .bot.laser .beam { display: inline; }
 
+  .all { transform-origin: 19px 39.5px; }
   .arm { transform-origin: 25px 20px; }
   .arm-back { transform-origin: 13px 20px; }
   .leg-a { transform-origin: 16px 28px; }
@@ -220,7 +268,7 @@
   /* puzzled: scratch head, question mark */
   .bot.think .arm { animation: scratch .25s ease-in-out infinite alternate; }
   .bot.think .eye { transform: translate(-.5px, -1.4px); }
-  .question { animation: pop .3s ease-out; }
+  .question, .bang { animation: pop .3s ease-out; }
   @keyframes scratch { from { transform: rotate(-110deg); } to { transform: rotate(-120deg); } }
 
   /* done: little hop and a tick */
@@ -230,73 +278,206 @@
   @keyframes hop { 50% { transform: translateY(-2.5px); } }
   @keyframes pop { from { opacity: 0; transform: translateY(2px); } }
 
+  /* ---- mishaps ---- */
+
+  /* jackhammer: rattles itself off the line */
+  .bot.jack .arm { transform: rotate(-38deg); }
+  .bot.jack .all { animation: rattle .06s steps(2) infinite; }
+  .bot.jack .dust { animation: flick .12s steps(2) infinite; }
+  @keyframes rattle { 50% { transform: translate(.9px, -.8px) rotate(1.5deg); } }
+  .bot.alarm .eye { transform: scale(1.6); transform-origin: 21.5px 11.5px; }
+
+  /* drill jams: the robot spins round the handle, then staggers about */
+  .bot.auger .arm { transform: rotate(-47deg); }
+  .bot.auger .bob { animation: buzz .07s steps(2) infinite; }
+  .bot.spin .all { transform-origin: 33px 19px; animation: whirl 2.6s cubic-bezier(.45, 0, .55, 1) forwards; }
+  @keyframes whirl { to { transform: rotate(1440deg); } }
+  .bot.dizzy .arm { transform: rotate(55deg); }
+  .bot.dizzy .arm-back { transform: rotate(-20deg); }
+  .bot.dizzy .bob { animation: none; }
+  .bot.dizzy .all { animation: wobble 1.1s ease-in-out infinite; }
+  .bot.dizzy .eye { display: none; }
+  .bot.dizzy .eye-dizzy { display: inline; }
+  .stars { transform-origin: 19px 2.5px; animation: orbit 1s linear infinite; }
+  @keyframes wobble { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+  @keyframes orbit { 0% { transform: scaleX(1); } 50% { transform: scaleX(-1); } 100% { transform: scaleX(1); } }
+
+  /* laser: burns through the line, steps onto the hole, drops */
+  .bot.laser .eye { fill: var(--acc); }
+  .bot.laser .arm { animation: jitter .12s steps(2) infinite; }
+  .beam { animation: flick .1s steps(2) infinite; }
+  .bot.uhoh .eye { transform: translate(.4px, 1.6px); }
+  .bot.uhoh .arm { transform: rotate(-70deg); }
+  .bot.uhoh .arm-back { transform: rotate(60deg); }
+  .bot.fall .all { animation: drop .55s cubic-bezier(.55, 0, 1, .5) forwards; }
+  .bot.fallen .all { transform: translateY(80px); }
+  .bot.pop .all { animation: popup .8s cubic-bezier(.2, .8, .3, 1.2); }
+  @keyframes drop { to { transform: translateY(80px); } }
+  @keyframes popup { 0% { transform: translateY(46px); } 70% { transform: translateY(-7px); } 100% { transform: translateY(0); } }
+
   @media (prefers-reduced-motion: reduce) {
     .bot *, .bot-body { animation: none !important; transition: none; }
   }
 </style>
 
 <script>
-  // job: [class, min ms, max ms]
+  type Step = { cls: string; ms?: number; enter?: () => void; tick?: (dt: number) => boolean; exit?: () => void };
+
   const JOBS: [string, number, number][] = [
     ['wrench', 2200, 3600], ['hammer', 2000, 3400], ['weld', 2400, 3800], ['code', 2600, 4200],
     ['screw', 1800, 3000], ['drill', 1600, 2600], ['solder', 2600, 3800], ['inspect', 2200, 3400],
     ['oil', 2200, 3300], ['sweep', 1800, 3000], ['measure', 2600, 2600],
   ];
-  const ASIDES: [string, number, number][] = [['think', 1800, 2400], ['wave', 1600, 2000]];
-  const ALL = [...JOBS, ...ASIDES, ['done', 1000, 1000]].map((j) => j[0] as string);
+  const STATES = [
+    'walk', 'think', 'wave', 'done', ...JOBS.map((j) => j[0]),
+    'jack', 'alarm', 'auger', 'spin', 'dizzy', 'laser', 'uhoh', 'fall', 'fallen', 'pop',
+  ];
   const SPEED = 34; // px per second
   const W = 43;
   const rnd = (a: number, b: number) => a + Math.random() * (b - a);
+  const job = (cls: string, a: number, b = a): Step => ({ cls, ms: rnd(a, b) });
 
   for (const bot of document.querySelectorAll<HTMLElement>('.bot')) {
-    const stage = bot.parentElement!;
+    const stage = bot.closest<HTMLElement>('.bot-stage')!;
+    const scar = stage.querySelector<HTMLElement>('.scar')!;
     const still = matchMedia('(prefers-reduced-motion: reduce)');
-    let x = 0, target = 0, dir = 1, walking = true, until = 0, last = 0, raf = 0, visible = false;
-    let queue: [string, number, number][] = [];
-    let lastJob = '';
+    let x = 0, dir = 1, last = 0, raf = 0, visible = false, until = 0;
+    let queue: Step[] = [];
+    let step: Step | null = null;
+    let lastJob = '', lastGag = '', stops = 0;
 
     const max = () => Math.max(0, stage.clientWidth - W);
+    const clamp = (v: number) => Math.min(max(), Math.max(0, v));
     const place = () => { bot.style.transform = `translateX(${x}px)`; };
     const set = (cls: string) => {
-      bot.classList.remove('walk', ...ALL);
-      bot.classList.add(cls);
+      bot.classList.remove(...STATES);
+      bot.classList.add(...cls.split(' '));
       bot.classList.toggle('left', dir < 0);
     };
 
-    // A short stroll: mostly 40-170px, turning back at the edges.
-    const stroll = () => {
-      const step = rnd(40, 170);
-      let d = Math.random() < 0.5 ? -1 : 1;
-      if (x + d * step > max() || x + d * step < 0) d = -d;
-      target = Math.min(max(), Math.max(0, x + d * step));
-      dir = target >= x ? 1 : -1;
-      walking = true; set('walk');
+    // Walk towards a target, picked when the step starts.
+    const walkTo = (pickTarget: () => number, speed = SPEED): Step => {
+      let target = 0;
+      return {
+        cls: 'walk',
+        enter: () => { target = pickTarget(); dir = target >= x ? 1 : -1; },
+        tick: (dt) => {
+          x += dir * speed * dt;
+          const there = dir > 0 ? x >= target : x <= target;
+          if (there) x = target;
+          place();
+          return there;
+        },
+      };
+    };
+    // A short stroll, mostly 40-170px, turning back at the edges.
+    const stroll = () => walkTo(() => {
+      const d = rnd(40, 170);
+      let sign = Math.random() < 0.5 ? -1 : 1;
+      if (x + sign * d > max() || x + sign * d < 0) sign = -sign;
+      return clamp(x + sign * d);
+    });
+
+    // A normal stop: 2-3 jobs, maybe a puzzled pause or a wave, often a tick at the end.
+    const jobs = (): Step[] => {
+      const pool = JOBS.filter((j) => j[0] !== lastJob).sort(() => Math.random() - 0.5).slice(0, Math.random() < 0.55 ? 2 : 3);
+      lastJob = pool.at(-1)![0];
+      const steps = pool.map(([c, a, b]) => job(c, a, b));
+      if (Math.random() < 0.35) steps.splice(1, 0, job('think', 1800, 2400));
+      if (Math.random() < 0.2) steps.unshift(job('wave', 1600, 2000));
+      if (Math.random() < 0.5) steps.push(job('done', 1000));
+      return steps;
     };
 
-    // A stop is a run of 2-3 jobs, sometimes a puzzled pause or a wave, often a tick at the end.
-    const plan = () => {
-      const pool = JOBS.filter((j) => j[0] !== lastJob).sort(() => Math.random() - 0.5);
-      queue = pool.slice(0, Math.random() < 0.55 ? 2 : 3);
-      if (Math.random() < 0.35) queue.splice(1, 0, ASIDES[0]);
-      if (Math.random() < 0.2) queue.unshift(ASIDES[1]);
-      if (Math.random() < 0.5) queue.push(['done', 1000, 1000]);
-      lastJob = queue.filter((j) => j[0] !== 'done').at(-1)![0];
+    // Mishaps.
+    const jackhammer = (): Step[] => {
+      let v = 0;
+      return [
+        job('jack', 1500, 2000),
+        {
+          cls: 'jack alarm',
+          enter: () => { v = 8; },
+          tick: (dt) => {
+            v = Math.min(v + 70 * dt, 110);
+            x += dir * v * dt;
+            place();
+            return x > stage.clientWidth + 4 || x < -W - 4;
+          },
+          // Come back in from the other side.
+          exit: () => { x = dir > 0 ? -W : stage.clientWidth; place(); },
+        },
+        walkTo(() => (dir > 0 ? rnd(30, 180) : max() - rnd(30, 180))),
+        job('think', 1800),
+      ];
     };
-    const next = (now: number) => {
-      const job = queue.shift();
-      if (!job) return stroll();
-      walking = false; set(job[0]);
-      until = now + rnd(job[1], job[2]);
+
+    const drillJam = (): Step[] => [
+      job('auger', 1400, 1800),
+      job('auger spin', 2700),
+      job('auger dizzy', 2600, 3000),
+      job('dizzy', 1200),
+    ];
+
+    const laserHole = (): Step[] => {
+      let target = 0;
+      return [
+        {
+          cls: 'laser', ms: 2500,
+          enter: () => {
+            const hole = x + (dir > 0 ? 32.3 : W - 32.3);
+            target = x + dir * 15;
+            scar.style.left = `${hole - 11}px`;
+            scar.className = 'scar';
+            void scar.offsetWidth; // restart the burn animation
+            scar.classList.add('burn');
+          },
+          exit: () => { scar.className = 'scar hole'; },
+        },
+        job('think', 900),
+        walkTo(() => target, SPEED * 0.7), // step forward onto the hole
+        job('uhoh', 900),
+        { cls: 'fall', ms: 560, enter: () => stage.classList.add('sink') },
+        job('fallen', 1600, 2200),
+        { cls: 'pop', ms: 820, exit: () => { stage.classList.remove('sink'); scar.className = 'scar'; } },
+        job('weld', 2000),
+        job('done', 1000),
+      ];
+    };
+
+    const GAGS: [string, () => Step[]][] = [['jack', jackhammer], ['drill', drillJam], ['laser', laserHole]];
+
+    // ?bot=jack|drill|laser forces that mishap at every stop, for testing.
+    const forced = GAGS.find(([n]) => n === new URLSearchParams(location.search).get('bot'));
+
+    // About one stop in three is a mishap, never the same one twice running.
+    const plan = (): Step[] => {
+      stops++;
+      if (forced) return forced[1]();
+      if (stops > 1 && Math.random() < 0.33) {
+        const options = GAGS.filter(([n]) => n !== lastGag);
+        const [name, make] = options[Math.floor(Math.random() * options.length)];
+        lastGag = name;
+        return make();
+      }
+      return jobs();
+    };
+
+    const begin = (now: number) => {
+      if (!queue.length) queue = [stroll(), ...plan()];
+      step = queue.shift()!;
+      step.enter?.();
+      set(step.cls);
+      until = now + (step.ms ?? 0);
     };
 
     const tick = (now: number) => {
       const dt = Math.min(0.1, (now - (last || now)) / 1000);
       last = now;
-      if (walking) {
-        x += dir * SPEED * dt;
-        if ((dir > 0 && x >= target) || (dir < 0 && x <= target)) { x = target; plan(); next(now); }
-        place();
-      } else if (now > until) next(now);
+      if (!step) begin(now);
+      else {
+        const finished = step.tick ? step.tick(dt) : now > until;
+        if (finished) { step.exit?.(); begin(now); }
+      }
       raf = visible && !document.hidden ? requestAnimationFrame(tick) : 0;
     };
     const run = () => { if (!raf && visible && !document.hidden && !still.matches) { last = 0; raf = requestAnimationFrame(tick); } };
@@ -304,9 +485,9 @@
     x = Math.random() * max();
     place();
     if (still.matches) { set('wrench'); continue; }
-    stroll();
+    set('walk');
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; run(); }).observe(stage);
     document.addEventListener('visibilitychange', run);
-    addEventListener('resize', () => { x = Math.min(x, max()); target = Math.min(target, max()); place(); });
+    addEventListener('resize', () => { if (x >= 0 && x <= stage.clientWidth) { x = clamp(x); place(); } });
   }
 </script>
