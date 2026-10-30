@@ -36,5 +36,5 @@ export default defineConfig({
   site: 'https://unshittify.dev',
   output: 'static',
   trailingSlash: 'ignore',
-  integrations: [sitemap(), externalLinksNewTab()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/submitted') }), externalLinksNewTab()],
 });

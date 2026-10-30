@@ -5,12 +5,14 @@ interface Props {
   description?: string;
   ogType?: 'website' | 'article';
   jsonld?: Record<string, unknown>[];
+  noindex?: boolean;
 }
 const {
   title = 'unshittify | make the hardware you own useful again',
   description = 'A log of people undoing enshittification on hardware they own, with Claude Code, other AI tools and open source. TVs, printers, smart home devices after the cloud dies, old Macs. Source and caveats on every entry.',
   ogType = 'website',
   jsonld = [],
+  noindex = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og.png', Astro.site);
@@ -50,7 +52,7 @@ const ogImage = new URL('/og.png', Astro.site);
 <link rel="alternate" type="application/rss+xml" title="unshittify: new entries" href="/feed.xml">
 <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt">
 <meta name="author" content="Andreas Duess">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1'}>
 {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
 <link rel="preload" href="/fonts/jbm-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
