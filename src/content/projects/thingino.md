@@ -7,13 +7,13 @@ category: home
 ai: "coding agent (agent files)"
 evidence: public
 aiRole: "The repo has an AGENTS.md with instructions for coding agents. No AI use is claimed for the firmware itself."
-caveats: "Back up the stock firmware first. Use the stable branch unless you're a developer; master uses an experimental bootloader. UART access and unbricking skills are highly recommended. Check your exact camera, SoC and sensor variant on the supported-hardware list."
+caveats: "Back up the stock firmware first. Use the stable \"ciao\" branch unless you're a developer; master uses an experimental bootloader. UART access and unbricking skills are highly recommended. Check your exact camera, SoC and sensor variant on the supported-hardware list."
 evidenceNote: "Public MIT repo, about 2,300 stars, very active."
 links:
   - { label: "site", url: "https://thingino.com/" }
   - { label: "repo", url: "https://github.com/themactep/thingino-firmware" }
   - { label: "supported hardware", url: "https://github.com/themactep/thingino-firmware/blob/master/docs/hardware/supported-hardware.md" }
-reviewed: 2026-11-04
+reviewed: 2026-11-05
 submittedBy: unshittify
 ---
 

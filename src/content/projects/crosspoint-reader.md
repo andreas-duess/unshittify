@@ -2,7 +2,7 @@
 id: 53
 title: "CrossPoint Reader"
 seoTitle: "CrossPoint Reader: open firmware for Xteink e-readers"
-device: "Xteink X4 and X3"
+device: "Xteink X4 and X3, plus X4Pro, X4Classic, Seeed reTerminal Sticky, M5PaperMono and other ESP32 e-readers"
 category: computer
 ai: "claude (agent files)"
 evidence: public
@@ -11,7 +11,7 @@ caveats: "Some units sold through third parties are USB-locked and need the proj
 evidenceNote: "Public repo, very active."
 links:
   - { label: "repo", url: "https://github.com/crosspoint-reader/crosspoint-reader" }
-reviewed: 2026-10-29
+reviewed: 2026-11-05
 submittedBy: unshittify
 ---
 
