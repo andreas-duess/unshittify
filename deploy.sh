@@ -15,6 +15,20 @@ case "${1:-}" in
     URLS=$(grep -o '<loc>[^<]*</loc>' dist/sitemap-0.xml | sed 's#</*loc>##g' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
     curl -s -o /dev/null -w "indexnow %{http_code}\n" -H 'content-type: application/json' https://api.indexnow.org/indexnow \
       -d "{\"host\":\"unshittify.dev\",\"key\":\"$KEY\",\"keyLocation\":\"https://unshittify.dev/$KEY.txt\",\"urlList\":$URLS}"
+    # Refresh the public dataset (github.com/andreas-duess/unshittify-data, CC BY 4.0).
+    DATA="$(dirname "$PWD")/unshittify-data"
+    if [ -d "$DATA/.git" ]; then
+      cp dist/projects.json dist/projects.csv "$DATA/data/"
+      if [ -n "$(git -C "$DATA" status --porcelain)" ]; then
+        git -C "$DATA" add -A
+        git -C "$DATA" commit -q -m "Update from unshittify.dev, $(date +%F)"
+        git -C "$DATA" push -q && echo "dataset updated"
+      else
+        echo "dataset unchanged"
+      fi
+    else
+      echo "dataset repo not found at $DATA, skipped"
+    fi
     ;;
   *) echo "usage: $0 preview|prod"; exit 1 ;;
 esac

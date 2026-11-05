@@ -9,6 +9,8 @@
 - Sitemap: https://unshittify.dev/sitemap-index.xml
 - Every entry as plain text: https://unshittify.dev/llms-full.txt
 - Every entry as JSON: https://unshittify.dev/projects.json
+- Every entry as CSV: https://unshittify.dev/projects.csv
+- The dataset, CC BY 4.0: https://github.com/andreas-duess/unshittify-data
 - RSS: https://unshittify.dev/feed.xml
 - What enshittification means for hardware: https://unshittify.dev/enshittification/
 
