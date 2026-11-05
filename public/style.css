@@ -367,3 +367,15 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .dw .ok { color: var(--ok, #3fb950); }
 .dw.gone .dw-date { color: var(--fg); }
 @media (max-width: 560px) { .dw > li { grid-template-columns: 1fr; gap: 6px; } .dw-when { flex-direction: row; gap: 10px; align-items: baseline; } }
+
+/* Newsletter signup */
+.sub { border: 1px solid var(--line-2, var(--line)); background: var(--panel); padding: 16px 18px; margin: 28px 0; }
+.sub-lead { margin: 0 0 10px; font-size: 13.5px; color: var(--fg); }
+.sub-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.sub-field { flex: 1 1 260px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--line-2, var(--line)); background: var(--bg); padding: 0 12px; height: 40px; }
+.sub-field:focus-within { border-color: var(--acc); }
+.sub-field input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--fg); font: inherit; font-size: 14px; }
+.sub button { height: 40px; padding: 0 18px; font: inherit; font-size: 13.5px; color: var(--bg); background: var(--acc); border: 0; cursor: pointer; }
+.sub button:hover { filter: brightness(1.1); }
+.sub-fine { margin: 8px 0 0; font-size: 11.5px; color: var(--dim); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

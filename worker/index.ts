@@ -9,6 +9,10 @@ interface Env {
   TO_ADDRESS: string;
   SUBMIT_LIMITER: RateLimit;
   GLOBAL_LIMITER: RateLimit;
+  // Newsletter (Resend). Secrets: RESEND_API_KEY, SUBSCRIBE_SECRET. Var: NEWSLETTER_AUDIENCE.
+  RESEND_API_KEY: string;
+  SUBSCRIBE_SECRET: string;
+  NEWSLETTER_AUDIENCE: string;
 }
 
 const FIELDS = [
@@ -35,6 +39,8 @@ export default {
     const url = new URL(req.url);
     if (url.pathname === '/api/submit') return submit(req, env);
     if (url.pathname === '/api/geo') return geo(req);
+    if (url.pathname === '/api/subscribe') return subscribe(req, env);
+    if (url.pathname === '/api/confirm') return confirm(req, env);
     if (url.pathname.startsWith('/api/')) return json({ error: 'not found' }, 404);
     return env.ASSETS.fetch(req);
   },
@@ -150,3 +156,102 @@ const json = (body: unknown, status = 200) =>
 
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
+
+// ---------------------------------------------------------------- newsletter
+// Confirmed opt-in without a database: the confirm link carries the email,
+// a timestamp and an HMAC of both. Only a click on that link adds the address
+// to the Resend audience. Weekly sends happen from the Mac Mini, not here.
+
+const POSTAL = 'Unshittify, 30 Adelaide Street East, 12th floor, Toronto, ON, Canada';
+const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const DAY = 86_400_000;
+
+async function hmac(secret: string, msg: string): Promise<string> {
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const sig = new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(msg)));
+  return btoa(String.fromCharCode(...sig)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+async function resend(env: Env, path: string, body: unknown): Promise<Response> {
+  return fetch(`https://api.resend.com${path}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json', 'User-Agent': 'unshittify-worker/1.0' },
+    body: JSON.stringify(body),
+  });
+}
+
+async function subscribe(req: Request, env: Env): Promise<Response> {
+  if (req.method !== 'POST') return json({ error: 'method not allowed' }, 405);
+  const wantsJson = (req.headers.get('accept') || '').includes('application/json');
+  const done = (ok: boolean, error?: string, status = 400) =>
+    wantsJson ? json(ok ? { ok: true } : { error }, ok ? 200 : status)
+      : Response.redirect(new URL(ok ? '/subscribe-sent/' : '/#subscribe', req.url).toString(), 303);
+
+  const ip = req.headers.get('cf-connecting-ip') || 'unknown';
+  if (!(await env.SUBMIT_LIMITER.limit({ key: 'sub:' + ip })).success) return done(false, 'too many tries, wait a minute', 429);
+  if (!(await env.GLOBAL_LIMITER.limit({ key: 'sub' })).success) return done(false, 'busy, try again in a minute', 429);
+
+  let data: Record<string, string>;
+  try {
+    data = Object.fromEntries([...(await req.formData()).entries()].map(([k, v]) => [k, String(v)]));
+  } catch {
+    return done(false, 'bad request');
+  }
+  const email = (data.email || '').trim().toLowerCase().slice(0, 200);
+  if (data.website) return done(true); // honeypot: pretend success
+  if (!EMAIL_OK.test(email)) return done(false, 'that email address looks wrong');
+
+  const ts = String(Date.now());
+  const sig = await hmac(env.SUBSCRIBE_SECRET, `${email}|${ts}`);
+  const link = new URL('/api/confirm', req.url);
+  link.search = new URLSearchParams({ e: email, ts, s: sig }).toString();
+
+  const text = [
+    'Confirm your subscription to unshittify weekly.',
+    '',
+    'One email a week with the new projects on unshittify.dev: people making hardware they own useful again. No email in weeks with nothing new.',
+    '',
+    `Confirm: ${link}`,
+    '',
+    "If you didn't ask for this, ignore this email and you won't hear from us again.",
+    '',
+    '--',
+    POSTAL,
+  ].join('\n');
+  const html = `<div style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;line-height:1.6;color:#121314;max-width:560px">
+<p><b>Confirm your subscription to unshittify weekly.</b></p>
+<p>One email a week with the new projects on unshittify.dev: people making hardware they own useful again. No email in weeks with nothing new.</p>
+<p><a href="${esc(link.toString())}" style="display:inline-block;background:#d9500b;color:#fff;padding:10px 16px;text-decoration:none">confirm subscription</a></p>
+<p style="color:#62666c">If you didn't ask for this, ignore this email and you won't hear from us again.</p>
+<p style="color:#62666c;font-size:12px">${esc(POSTAL)}</p></div>`;
+
+  const r = await resend(env, '/emails', {
+    from: 'unshittify <hello@unshittify.dev>',
+    to: [email],
+    subject: 'Confirm: unshittify weekly',
+    text,
+    html,
+  });
+  if (!r.ok) {
+    console.error('confirm email failed', r.status, await r.text());
+    return done(false, 'could not send the confirmation email right now', 502);
+  }
+  return done(true);
+}
+
+async function confirm(req: Request, env: Env): Promise<Response> {
+  const u = new URL(req.url);
+  const email = (u.searchParams.get('e') || '').toLowerCase();
+  const ts = u.searchParams.get('ts') || '';
+  const s = u.searchParams.get('s') || '';
+  const back = (path: string) => Response.redirect(new URL(path, req.url).toString(), 303);
+  if (!EMAIL_OK.test(email) || !/^\d+$/.test(ts) || Date.now() - Number(ts) > 7 * DAY) return back('/subscribe-expired/');
+  if ((await hmac(env.SUBSCRIBE_SECRET, `${email}|${ts}`)) !== s) return back('/subscribe-expired/');
+  const r = await resend(env, `/audiences/${env.NEWSLETTER_AUDIENCE}/contacts`, { email, unsubscribed: false });
+  if (!r.ok && r.status !== 409) {
+    console.error('add contact failed', r.status, await r.text());
+    return back('/subscribe-expired/');
+  }
+  return back('/subscribed/');
+}

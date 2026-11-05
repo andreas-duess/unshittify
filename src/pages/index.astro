@@ -6,6 +6,7 @@ import LogRow from '../components/LogRow.astro';
 import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER } from '../lib/meta';
 import SubmitForm from '../components/SubmitForm.astro';
 import RepairBot from '../components/RepairBot.astro';
+import Subscribe from '../components/Subscribe.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
 
@@ -99,6 +100,7 @@ const jsonld = [
     ))}
   </div>
   <p class="empty" id="empty" hidden>0 matches. Try a broader device name.</p>
+  <Subscribe />
 </section>
 
 

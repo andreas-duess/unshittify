@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { SITE, MAINTAINER } from '../lib/meta';
 import { DEATHS, CHECKED } from '../data/deathwatch';
+import Subscribe from '../components/Subscribe.astro';
 
 // Upcoming soonest first; recently gone newest first. "Now" is the build
 // date; the countdown text is refreshed in the browser.
@@ -84,6 +85,8 @@ const jsonld = [{
       ))}
     </ol>
     <p>Earlier shutdowns, from Spotify's Car Thing to Belkin Wemo, are in the <a href="/enshittification/#examples">enshittification examples</a>, each with its fix.</p>
+
+    <Subscribe />
 
     <h2>How this list works</h2>
     <p>Only announced dates with a source go on it. When a company gives just a month or a year, the countdown runs to the end of that period. Rumours, and companies that are struggling but haven't announced anything, stay off until they do. Know of one we've missed? Use the <a href="/?kind=message#submit">form</a>.</p>

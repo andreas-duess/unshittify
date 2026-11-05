@@ -14,7 +14,8 @@
   ],
   "vars": {
     "FROM_ADDRESS": "form@unshittify.dev",
-    "TO_ADDRESS": "andreas@duess.com"
+    "TO_ADDRESS": "andreas@duess.com",
+    "NEWSLETTER_AUDIENCE": "53d74e97-7c4d-4a64-bb0a-ac4c88d27b8b"
   },
   "routes": [
     { "pattern": "unshittify.dev", "custom_domain": true },
