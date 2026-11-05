@@ -19,8 +19,10 @@ function externalLinksNewTab() {
           const html = await readFile(file, 'utf8');
           const out = html.replace(/<a\s([^>]*?)href="(https?:\/\/[^"]+)"([^>]*)>/g, (m, pre, href, post) => {
             if (/^https?:\/\/(www\.)?unshittify\.dev/.test(href)) return m;
+            // Keep rel="me" (profile verification, e.g. Mastodon); everything else gets "noopener".
+            const me = /\brel="[^"]*\bme\b[^"]*"/.test(pre + post);
             const attrs = (pre + post).replace(/\s*(target|rel)="[^"]*"/g, '');
-            return `<a ${attrs.trim()} href="${href}" target="_blank" rel="noopener">`.replace('<a  ', '<a ');
+            return `<a ${attrs.trim()} href="${href}" target="_blank" rel="${me ? 'me noopener' : 'noopener'}">`.replace('<a  ', '<a ');
           });
           if (out !== html) await writeFile(file, out);
         }
