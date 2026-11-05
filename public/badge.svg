@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="186" height="20" role="img" aria-label="listed on unshittify.dev">
+  <title>listed on unshittify.dev</title>
+  <rect width="186" height="20" rx="3" fill="#0a0b0c"/>
+  <rect width="52" height="20" rx="3" fill="#ff6a1a"/>
+  <rect x="48" width="4" height="20" fill="#ff6a1a"/>
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11" text-rendering="geometricPrecision">
+    <text x="26" y="14" text-anchor="middle" fill="#0a0b0c" font-weight="700">listed</text>
+    <text x="119" y="14" text-anchor="middle" fill="#e6e6e2">[u] unshittify.dev</text>
+  </g>
+</svg>
