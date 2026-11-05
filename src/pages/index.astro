@@ -1,13 +1,25 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import ProjectFields from '../components/ProjectFields.astro';
 import EvidenceTag from '../components/EvidenceTag.astro';
-import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER, pad } from '../lib/meta';
+import LogRow from '../components/LogRow.astro';
+import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER } from '../lib/meta';
 import SubmitForm from '../components/SubmitForm.astro';
 import RepairBot from '../components/RepairBot.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
+
+// The log, grouped: the newest few on top, then one section per category
+// (largest first), each showing SHOW rows with the rest a click away. Every
+// entry stays in the HTML, so search engines and the search box see all of it.
+const LATEST = 10;
+const SHOW = 5;
+const groups = (Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[])
+  .map((k) => ({ key: k, items: projects.filter((p) => p.data.category === k) }))
+  .filter((g) => g.items.length)
+  .sort((a, b) => b.items.length - a.items.length);
+const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
+const newThisWeek = projects.filter((p) => p.data.reviewed.getTime() >= weekAgo).length;
 const jsonld = [
   {
     '@context': 'https://schema.org',
@@ -44,6 +56,8 @@ const jsonld = [
     <RepairBot />
   </div>
 
+  <p class="logstats"><b>{projects.length}</b>{' projects '}<span class="dim">·</span>{' '}<b>{groups.length}</b>{' categories'}{newThisWeek > 0 && <>{' '}<span class="dim">·</span>{' '}<b>{newThisWeek}</b>{' added this week'}</>}</p>
+
   <div class="controls">
     <label class="search">
       <span class="acc" aria-hidden="true">&gt;</span>
@@ -51,8 +65,8 @@ const jsonld = [
       <kbd class="hint" aria-hidden="true">/</kbd>
     </label>
     <div class="chips" role="group" aria-label="Filter by category">
-      <button class="chip on" data-cat="all">all</button>
-      {Object.entries(CATEGORIES).map(([k, v]) => <button class="chip" data-cat={k}>{v}</button>)}
+      <button class="chip on" data-cat="all">all <span class="n">{projects.length}</span></button>
+      {groups.map((g) => <button class="chip" data-cat={g.key}>{CATEGORIES[g.key]} <span class="n">{g.items.length}</span></button>)}
     </div>
   </div>
 
@@ -60,29 +74,30 @@ const jsonld = [
     <span>id</span><span>project / device</span><span>ai</span><span>evidence</span><span>source</span>
   </div>
 
-  <ol class="log" id="list">
-    {projects.map(async (p) => {
-      const d = p.data;
-      return (
-        <li data-cat={d.category} id={p.id}>
-          <details>
-            <summary>
-              <span class="id">{pad(d.id)}</span>
-              <span class="name"><b>{d.title}</b><i>{d.device}</i></span>
-              <span class="ai">{d.ai}</span>
-              <EvidenceTag kind={d.evidence} />
-              <a class="src" href={d.links[0].url} rel="noopener">{d.links[0].label}<span aria-hidden="true"> ↗</span></a>
-            </summary>
-            <div class="body">
-              <p>{p.body?.trim().split(/\n\s*\n/)[0]}</p>
-              <ProjectFields p={d} />
-              <p class="perma"><a href={`/p/${p.id}/`}>/p/{p.id}</a></p>
-            </div>
-          </details>
-        </li>
-      );
-    })}
-  </ol>
+  <div id="list">
+    <div class="group latest" data-group="latest">
+      <h3 class="ghead"><span class="acc">//</span> latest</h3>
+      <ol class="log">
+        {projects.slice(0, LATEST).map((p) => <LogRow p={p} />)}
+      </ol>
+    </div>
+
+    {groups.map((g) => (
+      <div class="group" data-group={g.key}>
+        <h3 class="ghead">
+          <span><span class="acc">//</span> {CATEGORIES[g.key]}</span>
+          <span class="leader" aria-hidden="true"></span>
+          <a class="gcount" href={`/c/${CATEGORY_PAGES[g.key].slug}/`} title={`All ${CATEGORY_PAGES[g.key].h1.toLowerCase()} projects`}>{g.items.length}</a>
+        </h3>
+        <ol class="log">
+          {g.items.map((p, i) => <LogRow p={p} anchor more={i >= SHOW} />)}
+        </ol>
+        {g.items.length > SHOW && (
+          <button class="showall" type="button" data-n={g.items.length} aria-expanded="false">show all {g.items.length} <span aria-hidden="true">↓</span></button>
+        )}
+      </div>
+    ))}
+  </div>
   <p class="empty" id="empty" hidden>0 matches. Try a broader device name.</p>
 </section>
 
@@ -138,21 +153,47 @@ const jsonld = [
 </section>
 
 <script>
+  // Two views of the same rows. Browsing (no search, "all"): latest + category
+  // sections, each collapsed to a few rows. Filtering (a search term or a
+  // category chip): one flat result set, every match shown, "latest" hidden so
+  // nothing appears twice.
+  const root = document.getElementById('list')!;
+  root.classList.add('js');
   const q = document.getElementById('q') as HTMLInputElement;
   const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
-  const rows = [...document.querySelectorAll<HTMLLIElement>('#list > li')];
+  const groups = [...root.querySelectorAll<HTMLElement>('.group')];
   const empty = document.getElementById('empty')!;
   let cat = 'all';
+
   const run = () => {
     const term = q.value.trim().toLowerCase();
-    let n = 0;
-    for (const r of rows) {
-      const show = (cat === 'all' || r.dataset.cat === cat) && (!term || r.textContent!.toLowerCase().includes(term));
-      r.hidden = !show;
-      if (show) n++;
+    const filtering = !!term || cat !== 'all';
+    root.classList.toggle('filtering', filtering);
+    let total = 0;
+    for (const g of groups) {
+      const latest = g.dataset.group === 'latest';
+      let n = 0;
+      for (const r of g.querySelectorAll<HTMLLIElement>('.log > li')) {
+        const show = !filtering || ((cat === 'all' || r.dataset.cat === cat) && (!term || r.textContent!.toLowerCase().includes(term)));
+        r.hidden = !show;
+        if (show) n++;
+      }
+      g.hidden = filtering && (latest || n === 0);
+      if (!latest && !g.hidden) total += n;
     }
-    empty.hidden = n > 0;
+    empty.hidden = !filtering || total > 0;
   };
+
+  root.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('.showall');
+    if (!b) return;
+    const g = b.closest<HTMLElement>('.group')!;
+    const open = g.classList.toggle('open');
+    b.setAttribute('aria-expanded', String(open));
+    b.innerHTML = open ? 'show fewer <span aria-hidden="true">↑</span>' : `show all ${b.dataset.n} <span aria-hidden="true">↓</span>`;
+    if (!open) g.scrollIntoView({ block: 'nearest' });
+  });
+
   for (const c of chips) c.addEventListener('click', () => {
     chips.forEach((x) => x.classList.toggle('on', x === c));
     cat = c.dataset.cat!;
@@ -163,8 +204,12 @@ const jsonld = [
     if (e.key === '/' && document.activeElement !== q) { e.preventDefault(); q.focus(); }
     if (e.key === 'Escape' && document.activeElement === q) { q.value = ''; run(); q.blur(); }
   });
-  // Open the entry named in the URL hash (old-style deep links).
+  // Open the entry named in the URL hash (old-style deep links), expanding its section.
   const target = location.hash && document.getElementById(location.hash.slice(1));
-  if (target) target.querySelector('details')?.setAttribute('open', '');
+  if (target) {
+    target.closest('.group')?.classList.add('open');
+    target.querySelector('details')?.setAttribute('open', '');
+    target.scrollIntoView();
+  }
 </script>
 </Base>
