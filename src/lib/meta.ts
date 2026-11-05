@@ -4,6 +4,7 @@ export const CATEGORIES = {
   home: 'home + appliances',
   audio: 'audio + wearables',
   computer: 'computers',
+  vehicle: 'vehicles',
 } as const;
 
 export const EVIDENCE = {
@@ -57,6 +58,12 @@ export const CATEGORY_PAGES: Record<keyof typeof CATEGORIES, { slug: string; h1:
     h1: 'Computers',
     title: 'Old computers, new OS: keeping older Macs and laptops useful',
     intro: 'Computers that lost OS support but still have plenty of life. These projects put a maintained operating system on them.',
+  },
+  vehicle: {
+    slug: 'vehicles',
+    h1: 'Vehicles',
+    title: 'Cars and vehicles after the maker is gone: owner-run software and service',
+    intro: 'Cars whose maker went bust or switched off the servers. These projects keep them running, updated and serviceable.',
   },
 };
 

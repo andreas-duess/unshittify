@@ -12,7 +12,7 @@ const projects = defineCollection({
     // Optional search title for the <title> tag; defaults to "title: device".
     seoTitle: z.string().optional(),
     device: z.string(),
-    category: z.enum(['tv', 'make', 'home', 'audio', 'computer']),
+    category: z.enum(['tv', 'make', 'home', 'audio', 'computer', 'vehicle']),
     ai: z.string(),
     evidence: z.enum(['public', 'report', 'experimental']),
     aiRole: z.string(),
