@@ -344,3 +344,12 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 }
 .showall:hover { border-color: var(--acc); color: var(--acc); }
 .latest .ghead { color: var(--fg); }
+
+/* Enshittification page: definition box and dated examples. */
+.def { border-left: 3px solid var(--acc); background: var(--panel); padding: 14px 18px; margin: 0 0 28px; color: var(--fg); }
+.timeline { list-style: none; margin: 16px 0 28px; padding: 0; border-top: 1px solid var(--line); }
+.timeline > li { display: grid; grid-template-columns: 11ch 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.timeline .when { color: var(--acc); font-variant-numeric: tabular-nums; font-size: 13px; padding-top: 2px; }
+.timeline p { margin: 0; }
+.timeline .fix { margin-top: 6px; font-size: 13px; }
+@media (max-width: 560px) { .timeline > li { grid-template-columns: 1fr; gap: 4px; } }

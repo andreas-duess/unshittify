@@ -15,6 +15,22 @@ const faq = [
    'Not always. Coding assistants such as Claude Code now let owners read unfamiliar code, decode protocols and build replacements. Some projects still need soldering or command-line work. Pick one you can undo.'],
 ] as const;
 
+// Dated hardware examples, newest first. Every fact here comes from the linked
+// entry's write-up, so the entry is the source. Add new ones at the top.
+const examples = [
+  { when: 'Sep 2026', device: 'June Oven', what: 'Weber shut down the June app and cloud on 22 September 2026, taking preheat, cook programs and the camera with it.', fix: 'Project July', slug: 'project-july-june-oven' },
+  { when: 'May 2026', device: 'Bose SoundTouch speakers', what: 'Bose shut down the SoundTouch cloud. Internet radio and the six preset buttons stopped working.', fix: 'Bose SoundTouch revival', slug: 'bose-soundtouch-revival' },
+  { when: 'Jan 2026', device: 'Belkin Wemo plugs and switches', what: 'Belkin shut down the Wemo cloud on 31 January 2026. Devices can no longer be set up through the Wemo app.', fix: 'Bit Switch', slug: 'bit-switch-wemo' },
+  { when: 'Oct 2025', device: 'Nest Learning Thermostat, gen 1 and 2', what: 'Google ended support on 25 October 2025. The app, remote control and voice control stopped, leaving manual thermostats.', fix: 'NoLongerEvil', slug: 'nolongerevil-nest-thermostat' },
+  { when: 'Apr 2025', device: 'Fisker Ocean', what: 'After Fisker’s bankruptcy, the connection to its cloud went down and the features that depended on it stopped.', fix: 'Fisker Owners Association', slug: 'fisker-owners-association' },
+  { when: 'Feb 2025', device: 'Humane Ai Pin', what: 'Humane shut down the Pin’s servers, and the assistant that was the whole point of the device went with them.', fix: 'OpenPin', slug: 'openpin' },
+  { when: 'Early 2025', device: 'Moxie robot', what: 'Embodied’s cloud went dark and the US$800 companion robot for children stopped working.', fix: 'OpenMoxie', slug: 'openmoxie' },
+  { when: 'Dec 2024', device: 'Spotify Car Thing', what: 'Spotify ended Car Thing service and told owners to throw the devices away.', fix: 'DeskThing', slug: 'deskthing-car-thing' },
+  { when: 'Oct 2024', device: 'Enel X JuiceBox EV chargers', what: 'Enel X Way announced it was leaving North America nine days later. The chargers kept charging; the app, scheduling and monitoring went with the servers.', fix: 'JuicePass Proxy', slug: 'juicepassproxy' },
+  { when: 'Ongoing', device: 'Hisense VIDAA TVs', what: 'The TV boots into an ad-filled home screen and keeps sending telemetry with every toggle off.', fix: 'alvidaa', slug: 'alvidaa-hisense-vidaa' },
+  { when: 'Ongoing', device: 'NordicTrack treadmills', what: 'The treadmill’s own screen nags for an iFit subscription before you can simply run.', fix: 'STRIDE', slug: 'stride-nordictrack-without-ifit' },
+];
+
 const jsonld = [
   {
     '@context': 'https://schema.org',
@@ -23,7 +39,7 @@ const jsonld = [
     url: `${SITE}/enshittification/`,
     author: MAINTAINER,
     publisher: { '@type': 'Organization', name: 'unshittify', url: SITE },
-    dateModified: '2026-10-28',
+    dateModified: '2026-11-05',
     about: { '@type': 'Thing', name: 'Enshittification', sameAs: 'https://en.wikipedia.org/wiki/Enshittification' },
   },
   {
@@ -41,9 +57,10 @@ const jsonld = [
 <article class="wrap legal">
   <p class="prompt"><a href="/" class="dim">~</a><span class="acc">/</span>enshittification</p>
   <h1 class="detail-h">Enshittification</h1>
-  <p class="note">What it means for the hardware you own, and how people undo it. Updated 2026-10-28.</p>
+  <p class="note">What it means for the hardware you own, and how people undo it. Updated 2026-11-05.</p>
 
   <div class="prose legal-body">
+    <p class="def"><b>Enshittification</b> is the way products and platforms get worse for the people who use them once those people are locked in. With hardware it happens through software: ads on the home screen, a cloud that shuts down, an app that stops working, a subscription for features you already paid for.</p>
     <p>Writer <a href="https://pluralistic.net/">Cory Doctorow</a> coined <a href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a> in 2022 to describe how online platforms decay. First they are good to users. Then they squeeze users to please business customers. Then they squeeze the business customers too. The word stuck because people recognised it everywhere. In 2025 he published the book on it, <a href="https://craphound.com/category/enshittification/"><cite>Enshittification: Why Everything Suddenly Got Worse and What to Do About It</cite></a> (MCD/Farrar, Straus and Giroux).</p>
     <p>Hardware gets the same treatment. You pay once, but the software on the device keeps changing after you have paid, and the changes don't always favour you. The plastic and silicon still work. The software is what got worse.</p>
 
@@ -91,6 +108,20 @@ const jsonld = [
     </ul>
 
     <p>Not every case is bad faith. Companies close, priorities change, old products get dropped. The entries on this site describe what broke and what fixed it, and leave motives out.</p>
+
+    <h2 id="examples">Enshittification examples: hardware, 2024 to 2026</h2>
+    <p>Recent cases where a device people paid for got worse or stopped working because of a software or service decision, and the owner-built fix for each. Newest first.</p>
+    <ol class="timeline">
+      {examples.map((e) => (
+        <li>
+          <span class="when">{e.when}</span>
+          <div>
+            <p><b>{e.device}.</b> {e.what}</p>
+            <p class="fix"><span class="acc">fix:</span> <a href={`/p/${e.slug}/`}>{e.fix}</a></p>
+          </div>
+        </li>
+      ))}
+    </ol>
 
     <h2>Why this is happening now</h2>
     <p>Undoing it used to take a team with reverse-engineering experience. Coding assistants changed that. Owners now use <a href="/ai/claude-code/">Claude Code</a>, <a href="/ai/chatgpt/">ChatGPT</a> and similar tools to read protocols, decompile apps and write replacement software, on top of years of open-source work by people who did it the hard way.</p>
