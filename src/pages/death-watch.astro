@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, MAINTAINER } from '../lib/meta';
+import { DEATHS, CHECKED } from '../data/deathwatch';
+
+// Upcoming soonest first; recently gone newest first. "Now" is the build
+// date; the countdown text is refreshed in the browser.
+const now = new Date();
+const today = now.toISOString().slice(0, 10);
+const upcoming = DEATHS.filter((d) => d.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+const gone = DEATHS.filter((d) => d.date < today).sort((a, b) => b.date.localeCompare(a.date));
+const daysTo = (iso: string) => Math.round((Date.parse(iso + 'T12:00:00Z') - now.getTime()) / 86400000);
+const countdown = (iso: string) => {
+  const n = daysTo(iso);
+  if (n <= 0) return 'today';
+  if (n < 60) return `in ${n} day${n === 1 ? '' : 's'}`;
+  return `in ~${Math.round(n / 30.4)} months`;
+};
+
+const jsonld = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Death Watch: announced smart device shutdowns and end-of-support dates',
+  url: `${SITE}/death-watch/`,
+  author: MAINTAINER,
+  publisher: { '@type': 'Organization', name: 'unshittify', url: SITE },
+  dateModified: CHECKED,
+}];
+---
+<Base
+  title="Death Watch: upcoming smart device shutdowns and end-of-support dates | unshittify"
+  description="Announced cloud shutdowns, discontinued apps and end-of-support dates for consumer hardware, with countdowns, what stops working, what keeps working and the source for each. Plus what died recently and the owner-built fixes."
+  ogType="article"
+  jsonld={jsonld}>
+<article class="wrap legal deathwatch">
+  <p class="prompt"><a href="/" class="dim">~</a><span class="acc">/</span>death-watch</p>
+  <h1 class="detail-h">Death Watch</h1>
+  <p class="note">Announced shutdowns and end-of-support dates for hardware people own. Last checked {CHECKED}.</p>
+
+  <div class="prose legal-body">
+    <p>Companies announce when a device's cloud, app or updates will end. This page collects the dates, what stops, what keeps working, and the source for each. Most items aren't a dead device, just a worse one, so each carries a label saying what kind of ending it is.</p>
+    <p>No fix yet? That's an opening. If you build one, <a href="/#submit">send it in</a>.</p>
+
+    <h2 id="upcoming">Coming up</h2>
+    <ol class="dw">
+      {upcoming.map((d) => (
+        <li>
+          <div class="dw-when">
+            <span class="dw-count" data-date={d.date}>{countdown(d.date)}</span>
+            <span class="dw-date">{d.when}</span>
+          </div>
+          <div class="dw-body">
+            <p class="dw-head"><b>{d.company}: {d.device}</b> <span class="dw-kind">{d.kind}</span></p>
+            <p>{d.stops}{d.keeps && <> <span class="dim">{d.keeps}</span></>}</p>
+            <p class="dw-meta">
+              {d.fix
+                ? <><span class="ok">fix:</span> <a href={`/p/${d.fix.slug}/`}>{d.fix.label}</a></>
+                : <><span class="acc">no fix yet</span> · <a href="/#submit">built one?</a></>}
+              {' · source: '}
+              {d.sources.map((s, i) => <>{i > 0 && ', '}<a href={s.url} rel="noopener">{s.label}</a></>)}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <h2 id="gone">Recently gone</h2>
+    <ol class="dw gone">
+      {gone.map((d) => (
+        <li>
+          <div class="dw-when"><span class="dw-date">{d.when}</span></div>
+          <div class="dw-body">
+            <p class="dw-head"><b>{d.company}: {d.device}</b> <span class="dw-kind">{d.kind}</span></p>
+            <p>{d.stops}{d.keeps && <> <span class="dim">{d.keeps}</span></>}</p>
+            <p class="dw-meta">
+              {d.fix
+                ? <><span class="ok">fix:</span> <a href={`/p/${d.fix.slug}/`}>{d.fix.label}</a></>
+                : <><span class="acc">no fix yet</span> · <a href="/#submit">built one?</a></>}
+              {' · source: '}
+              {d.sources.map((s, i) => <>{i > 0 && ', '}<a href={s.url} rel="noopener">{s.label}</a></>)}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p>Earlier shutdowns, from Spotify's Car Thing to Belkin Wemo, are in the <a href="/enshittification/#examples">enshittification examples</a>, each with its fix.</p>
+
+    <h2>How this list works</h2>
+    <p>Only announced dates with a source go on it. When a company gives just a month or a year, the countdown runs to the end of that period. Rumours, and companies that are struggling but haven't announced anything, stay off until they do. Know of one we've missed? Use the <a href="/?kind=message#submit">form</a>.</p>
+  </div>
+</article>
+<script>
+  // Keep the countdowns current between deploys.
+  for (const el of document.querySelectorAll<HTMLElement>('.dw-count')) {
+    const n = Math.round((Date.parse(el.dataset.date + 'T12:00:00Z') - Date.now()) / 86400000);
+    el.textContent = n <= 0 ? 'any day now' : n < 60 ? `in ${n} day${n === 1 ? '' : 's'}` : `in ~${Math.round(n / 30.4)} months`;
+  }
+</script>
+</Base>
