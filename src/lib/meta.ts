@@ -62,8 +62,8 @@ export const CATEGORY_PAGES: Record<keyof typeof CATEGORIES, { slug: string; h1:
   vehicle: {
     slug: 'vehicles',
     h1: 'Vehicles',
-    title: 'Cars and vehicles after the maker is gone: owner-run software and service',
-    intro: 'Cars whose maker went bust or switched off the servers. These projects keep them running, updated and serviceable.',
+    title: 'Cars and scooters after the maker is gone: open firmware, local data and owner-run service',
+    intro: 'Cars and scooters whose maker went bust, switched off the servers or locked the data away. These projects keep them running, updated and under the owner\'s control.',
   },
 };
 
