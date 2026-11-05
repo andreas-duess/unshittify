@@ -1,6 +1,7 @@
 ---
 id: 31
 title: "XZ Mods"
+seoTitle: "XDJ-XZ mods: stems and themes for the Pioneer DJ XDJ-XZ"
 device: "Pioneer DJ XDJ-XZ controller"
 category: make
 ai: "codex + claude code"

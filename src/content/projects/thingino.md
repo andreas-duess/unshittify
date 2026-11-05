@@ -19,4 +19,4 @@ submittedBy: unshittify
 
 Cheap IP cameras ship with firmware that phones home to the vendor's cloud. Thingino replaces it with open firmware built on Buildroot for cameras with Ingenic chips, Wyze's included. The camera serves RTSP and ONVIF on your network, so any NVR or Home Assistant can use it with no vendor account.
 
-[docker-wyze-bridge](/p/docker-wyze-bridge) keeps Wyze's firmware and still needs a Wyze login. Thingino removes both.
+[docker-wyze-bridge](/p/docker-wyze-bridge/) keeps Wyze's firmware and still needs a Wyze login. Thingino removes both.

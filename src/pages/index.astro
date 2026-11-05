@@ -33,8 +33,8 @@ const jsonld = [
   <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshittify --list --all<span class="cursor" aria-hidden="true"></span></p>
   <h1>You bought it.<br>Make it yours.</h1>
   <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
-  <p class="lede">Most were built with a coding assistant on top of years of open-source work. Call it undoing <a href="/enshittification">enshittification</a>, one device at a time.</p>
-  <p class="hubs"><span class="dim">browse:</span> {Object.entries(CATEGORY_PAGES).map(([k, c]) => <a href={`/c/${c.slug}`}>{CATEGORIES[k as keyof typeof CATEGORIES]}</a>)}<a href="/ai/claude-code">claude code</a></p>
+  <p class="lede">Most were built with a coding assistant on top of years of open-source work. Call it undoing <a href="/enshittification/">enshittification</a>, one device at a time.</p>
+  <p class="hubs"><span class="dim">browse:</span> {Object.entries(CATEGORY_PAGES).map(([k, c]) => <a href={`/c/${c.slug}/`}>{CATEGORIES[k as keyof typeof CATEGORIES]}</a>)}<a href="/ai/claude-code/">claude code</a></p>
 </section>
 
 <section id="log" class="wrap">
@@ -76,7 +76,7 @@ const jsonld = [
             <div class="body">
               <p>{p.body?.trim().split(/\n\s*\n/)[0]}</p>
               <ProjectFields p={d} />
-              <p class="perma"><a href={`/p/${p.id}`}>/p/{p.id}</a></p>
+              <p class="perma"><a href={`/p/${p.id}/`}>/p/{p.id}</a></p>
             </div>
           </details>
         </li>
@@ -96,7 +96,7 @@ const jsonld = [
     <div class="prose">
       <p>unshittify logs people making the products they own work for them: replacing interfaces, restoring functions after an app or cloud disappears, giving old hardware a new job.</p>
       <p>For each entry we ask what the owner got back, whether someone else could repeat it, and what the catch is.</p>
-      <p>The name nods to Cory Doctorow's <a href="https://craphound.com/category/enshittification/"><cite>Enshittification: Why Everything Suddenly Got Worse and What to Do About It</cite></a> (MCD/Farrar, Straus and Giroux, 2025). He explains how it happens. This site collects people <a href="/enshittification">undoing it</a> on hardware they own.</p>
+      <p>The name nods to Cory Doctorow's <a href="https://craphound.com/category/enshittification/"><cite>Enshittification: Why Everything Suddenly Got Worse and What to Do About It</cite></a> (MCD/Farrar, Straus and Giroux, 2025). He explains how it happens. This site collects people <a href="/enshittification/">undoing it</a> on hardware they own.</p>
     </div>
     <div class="lists">
       <h3><span class="ok">+</span> in scope</h3>

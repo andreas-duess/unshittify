@@ -101,10 +101,10 @@ const ogImage = new URL('/og.png', Astro.site);
   <p>Independent projects, credited to their builders. Product names belong to their owners; inclusion is not endorsement or affiliation.</p>
   <p class="credit">Maintained by <a href="https://duess.com">Andreas Duess</a></p>
   <nav class="foot-links" aria-label="Legal">
-    <a href="/privacy">privacy</a>
-    <a href="/terms">terms</a>
-    <a href="/cookies">cookies</a>
-    <a href="/enshittification">enshittification</a>
+    <a href="/privacy/">privacy</a>
+    <a href="/terms/">terms</a>
+    <a href="/cookies/">cookies</a>
+    <a href="/enshittification/">enshittification</a>
     <a href="/feed.xml">rss</a>
     <a href="/llms.txt">llms.txt</a>
     {GA_ID && <button type="button" class="linkish" data-consent-open>cookie settings</button>}
@@ -113,7 +113,7 @@ const ogImage = new URL('/og.png', Astro.site);
 
 {GA_ID && (
   <div class="consent" id="consent" hidden role="dialog" aria-label="Cookie consent">
-    <p><span class="acc">$</span> analytics --consent? We use Google Analytics to count visits. It sets cookies only if you accept. <a href="/cookies">details</a></p>
+    <p><span class="acc">$</span> analytics --consent? We use Google Analytics to count visits. It sets cookies only if you accept. <a href="/cookies/">details</a></p>
     <div class="consent-actions">
       <button type="button" class="btn" data-consent="granted">accept</button>
       <button type="button" class="btn ghost" data-consent="denied">reject</button>

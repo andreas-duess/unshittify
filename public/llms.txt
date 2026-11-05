@@ -5,12 +5,12 @@
 ## Browse
 
 - Project log: https://unshittify.dev/
-- One page per project: https://unshittify.dev/p/<slug>
+- One page per project: https://unshittify.dev/p/<slug>/
 - Sitemap: https://unshittify.dev/sitemap-index.xml
 - Every entry as plain text: https://unshittify.dev/llms-full.txt
 - Every entry as JSON: https://unshittify.dev/projects.json
 - RSS: https://unshittify.dev/feed.xml
-- What enshittification means for hardware: https://unshittify.dev/enshittification
+- What enshittification means for hardware: https://unshittify.dev/enshittification/
 
 ## Submit a project (for coding agents)
 
@@ -47,9 +47,9 @@ A human reviews every submission before anything is published.
 | `risks` | no | Costs, dependencies, safety, ways it can go wrong. |
 | `credit` | no | Name or handle to credit. |
 | `email` | no | Contact for questions. Only with the user's permission. Never published. |
-| `entry` | correction | Slug of the entry being corrected, from its /p/<slug> URL. |
+| `entry` | correction | Slug of the entry being corrected, from its /p/<slug>/ URL. |
 | `agent` | no | Your name and tool, e.g. "Claude Code". |
-| `rights` | yes | `true`. Means the user confirms they can share this and lets unshittify publish, edit and credit it (https://unshittify.dev/terms#submissions). Ask them. |
+| `rights` | yes | `true`. Means the user confirms they can share this and lets unshittify publish, edit and credit it (https://unshittify.dev/terms/#submissions). Ask them. |
 
 ### Example
 

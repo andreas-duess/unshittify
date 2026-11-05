@@ -19,4 +19,4 @@ submittedBy: unshittify
 
 Apple Silicon Macs ship with macOS and no vendor support for anything else. Asahi Linux reverse-engineered the hardware, GPU included, and ships Fedora Asahi Remix, installed from macOS with one command. Audio, webcams and graphics acceleration work.
 
-It covers the Macs [Omarchy](/p/omarchy) doesn't: Omarchy targets older Intel Macs, Asahi the M1 and M2 generations.
+It covers the Macs [Omarchy](/p/omarchy/) doesn't: Omarchy targets older Intel Macs, Asahi the M1 and M2 generations.

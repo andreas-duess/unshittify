@@ -6,7 +6,7 @@ export async function GET() {
   const items = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => a.data.id - b.data.id);
   const data = items.map((p) => ({
     slug: p.id,
-    url: `${SITE}/p/${p.id}`,
+    url: `${SITE}/p/${p.id}/`,
     ...p.data,
     reviewed: p.data.reviewed.toISOString().slice(0, 10),
     summary: (p.body ?? '').trim().split(/\n\s*\n/)[0],

@@ -14,7 +14,7 @@ export async function GET() {
       return [
         `## ${d.title}`,
         '',
-        `- URL: ${SITE}/p/${p.id}`,
+        `- URL: ${SITE}/p/${p.id}/`,
         `- Device: ${d.device}`,
         `- Category: ${CATEGORIES[d.category]}`,
         `- AI: ${d.ai}`,

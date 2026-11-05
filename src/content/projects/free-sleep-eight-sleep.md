@@ -1,7 +1,7 @@
 ---
 id: 49
 title: "Free Sleep"
-seoTitle: "Free Sleep: an Eight Sleep Pod without the subscription cloud"
+seoTitle: "Eight Sleep jailbreak: Free Sleep runs the Pod locally, no subscription"
 device: "Eight Sleep Pod 3, Pod 4, Pod 5"
 category: home
 ai: "none documented"

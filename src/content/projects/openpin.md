@@ -19,4 +19,4 @@ submittedBy: unshittify
 
 Humane shut the Pin's servers down in February 2025. Max Maeder's OpenPin replaces the assistant with one owners can run, installed in a few clicks and without Humane's ADB certificates.
 
-[PenumbraOS](/p/penumbraos-humane-ai-pin) goes the other way: it uses Humane's leaked certificate and an Android exploit to get near-system access, and is meant for developers. OpenPin aims at owners who just want the Pin working again.
+[PenumbraOS](/p/penumbraos-humane-ai-pin/) goes the other way: it uses Humane's leaked certificate and an Android exploit to get near-system access, and is meant for developers. OpenPin aims at owners who just want the Pin working again.

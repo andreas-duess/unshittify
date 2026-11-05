@@ -10,7 +10,7 @@ const { items } = Astro.props;
     <li>
       <span class="id">{pad(p.data.id)}</span>
       <div>
-        <h2><a href={`/p/${p.id}`}>{p.data.title}</a></h2>
+        <h2><a href={`/p/${p.id}/`}>{p.data.title}</a></h2>
         <p class="dim">{p.data.device} · ai: {p.data.ai}</p>
         <p>{(p.body ?? '').trim().split(/\n\s*\n/)[0]}</p>
         <p class="hub-meta"><EvidenceTag kind={p.data.evidence} /> <a class="src" href={p.data.links[0].url} rel="noopener">{p.data.links[0].label}<span aria-hidden="true"> ↗</span></a></p>
