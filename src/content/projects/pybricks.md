@@ -1,7 +1,7 @@
 ---
 id: 113
 title: "Pybricks"
-seoTitle: "Pybricks: MicroPython for LEGO MINDSTORMS Robot Inventor and SPIKE hubs after the app ends"
+seoTitle: "LEGO MINDSTORMS app alternative: Pybricks for Robot Inventor and SPIKE"
 device: "LEGO MINDSTORMS Robot Inventor 51515, SPIKE Prime and Essential, Technic, City and BOOST hubs"
 category: make
 ai: "none documented"

@@ -1,7 +1,7 @@
 ---
 id: 112
 title: "JuicePass Proxy"
-seoTitle: "JuicePass Proxy: local control of JuiceBox EV chargers after Enel X left North America"
+seoTitle: "Enel X JuiceBox after the shutdown: local control with JuicePass Proxy"
 device: "Enel X JuiceBox EV chargers (protocols v07 and v09u; v09u tested on JuiceBox 2.x)"
 category: vehicle
 ai: "none documented"

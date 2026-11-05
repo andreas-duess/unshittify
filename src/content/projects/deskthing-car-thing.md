@@ -1,7 +1,7 @@
 ---
 id: 44
 title: "DeskThing"
-seoTitle: "DeskThing: a Spotify Car Thing as a desk assistant"
+seoTitle: "Spotify Car Thing after shutdown: DeskThing makes it a desk display"
 device: "Spotify Car Thing"
 category: audio
 ai: "none documented"

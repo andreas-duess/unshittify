@@ -1,7 +1,7 @@
 ---
 id: 48
 title: "Project July"
-seoTitle: "Project July: the June Oven after Weber shut down its cloud"
+seoTitle: "June Oven after the cloud shutdown: Project July"
 device: "June Oven Gen 2"
 category: home
 ai: "none documented"

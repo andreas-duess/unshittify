@@ -1,7 +1,7 @@
 ---
 id: 50
 title: "OpenMoxie"
-seoTitle: "OpenMoxie: the Moxie robot after Embodied shut down"
+seoTitle: "Moxie robot after Embodied shut down: OpenMoxie keeps it running"
 device: "Embodied Moxie companion robot"
 category: home
 ai: "none documented"

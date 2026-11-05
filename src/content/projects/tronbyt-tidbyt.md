@@ -1,7 +1,7 @@
 ---
 id: 52
 title: "Tronbyt"
-seoTitle: "Tronbyt: Tidbyt pixel displays without Tidbyt's cloud"
+seoTitle: "Tidbyt without the cloud: Tronbyt runs Gen 1 and Gen 2 locally"
 device: "Tidbyt Gen 1 and Gen 2"
 category: tv
 ai: "none documented"

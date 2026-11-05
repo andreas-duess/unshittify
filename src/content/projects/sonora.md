@@ -1,7 +1,7 @@
 ---
 id: 108
 title: "Sonora"
-seoTitle: "Sonora: a self-hosted controller for Sonos S1 and S2 speakers"
+seoTitle: "Sonos S1 and S2 controller, self-hosted: Sonora"
 device: "Sonos speakers on S1, S2 and S2.1"
 category: audio
 ai: "claude code"

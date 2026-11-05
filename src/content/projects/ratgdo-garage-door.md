@@ -1,7 +1,7 @@
 ---
 id: 45
 title: "ratgdo"
-seoTitle: "ratgdo: local control of Chamberlain and LiftMaster garage doors"
+seoTitle: "ratgdo: the MyQ alternative for local garage door control"
 device: "Chamberlain / LiftMaster / Merlin garage door openers (Security+ 1.0 and 2.0)"
 category: home
 ai: "none documented"

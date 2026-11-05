@@ -1,7 +1,7 @@
 ---
 id: 55
 title: "OpenStrap Edge"
-seoTitle: "OpenStrap Edge: a WHOOP band without the subscription"
+seoTitle: "WHOOP without subscription: OpenStrap Edge"
 device: "WHOOP 4.0"
 category: audio
 ai: "none documented"

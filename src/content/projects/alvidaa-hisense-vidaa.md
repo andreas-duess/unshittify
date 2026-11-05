@@ -1,7 +1,7 @@
 ---
 id: 68
 title: "alvidaa"
-seoTitle: "alvidaa: root, a clean launcher and no telemetry on a Hisense VIDAA TV"
+seoTitle: "Hisense TV ads gone: alvidaa roots VIDAA for a clean launcher"
 device: "Hisense 50A51HUV (MediaTek MTK9602, VIDAA OS)"
 category: tv
 ai: "glm via z code"
