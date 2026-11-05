@@ -1,10 +1,13 @@
 ---
 // Newsletter signup: one email field, confirmed opt-in (see worker/index.ts).
-interface Props { id?: string }
-const { id = 'subscribe' } = Astro.props;
+// `compact`: one line for the top of the homepage.
+interface Props { id?: string; compact?: boolean }
+const { id = 'subscribe', compact = false } = Astro.props;
 ---
-<form class="sub" id={id} method="post" action="/api/subscribe">
-  <p class="sub-lead"><span class="acc">&gt;</span> unshittify weekly: new projects in your inbox, once a week. Nothing in weeks with nothing new.</p>
+<form class:list={['sub', { compact }]} id={id} method="post" action="/api/subscribe">
+  {compact
+    ? <p class="sub-lead"><span class="acc">&gt;</span> new projects weekly, by email</p>
+    : <p class="sub-lead"><span class="acc">&gt;</span> unshittify weekly: new projects in your inbox, once a week. Nothing in weeks with nothing new.</p>}
   <div class="sub-row">
     <label class="sub-field"><span class="acc" aria-hidden="true">$</span>
       <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-label="Email address">
@@ -12,5 +15,5 @@ const { id = 'subscribe' } = Astro.props;
     <label class="hp" aria-hidden="true">leave blank <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
     <button type="submit">subscribe</button>
   </div>
-  <p class="sub-fine">You'll get a confirmation email first. Unsubscribe any time. <a href="/privacy/">privacy</a></p>
+  {!compact && <p class="sub-fine">You'll get a confirmation email first. Unsubscribe any time. <a href="/privacy/">privacy</a></p>}
 </form>
