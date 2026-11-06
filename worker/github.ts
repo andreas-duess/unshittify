@@ -191,6 +191,35 @@ function feedHtml(s: State, opts: { limit?: number; onePerProject?: boolean; nam
   return items.length ? `<ol class="feed">${items.join('')}</ol>` : '<p class="dim">Nothing yet.</p>';
 }
 
+// Homepage ticker: one short line per item, the list twice so the CSS loop
+// is seamless (the copy is hidden from screen readers and the tab order).
+function ago(date: string, now: number): string {
+  const d = Math.floor((now - Date.parse(`${date}T12:00:00Z`)) / 86400000);
+  return d <= 0 ? 'today' : d < 14 ? `${d}d ago` : d < 60 ? `${Math.floor(d / 7)}w ago` : date;
+}
+
+function tickerHtml(s: State, now: number): string {
+  const ls = lines(s.events, { limit: 20, onePerProject: true });
+  if (!ls.length) return '';
+  const item = (l: Line, copy: boolean) => {
+    const ti = copy ? ' tabindex="-1"' : '';
+    const link = (slug: string) => `<a href="/p/${slug}/"${ti}>${esc(s.titles[slug])}</a>`;
+    let body: string;
+    if (l.kind === 'added') {
+      body = l.slugs.slice(0, 2).map(link).join(', ') + (l.slugs.length > 2 ? `<span class="dim"> +${l.slugs.length - 2}</span>` : '');
+    } else if (l.kind === 'release') {
+      body = `${link(l.slug)} <a class="tk-x" href="${esc(l.url)}" target="_blank" rel="noopener"${ti}>${esc(l.tags[0])}</a>`;
+    } else if (l.kind === 'stars') {
+      body = `${link(l.slug)} <span class="tk-x">★ ${fmt(l.stars)}</span>`;
+    } else {
+      body = link(l.slug);
+    }
+    return `<li><span class="ftag k-${l.kind}">${LABEL[l.kind]}</span>${body}<span class="when">${ago(l.date, now)}</span></li>`;
+  };
+  const list = (copy: boolean) => `<ul class="tk-list"${copy ? ' aria-hidden="true"' : ''}>${ls.map((l) => item(l, copy)).join('')}</ul>`;
+  return `<div class="tk-rail" style="--tk-dur:${ls.length * 6}s">${list(false)}${list(true)}</div>`;
+}
+
 // ------------------------------------------------------------------ routes
 
 // Page views: fill the slots. Anything that isn't a 200 HTML page passes through.
@@ -238,7 +267,18 @@ export async function fill(res: Response, env: GhEnv): Promise<Response> {
         el.setAttribute('style', `order:${i}`);
       },
     })
-    .on('[data-activity]', {
+    .on('[data-ticker]', {
+      element(el) {
+        const html = tickerHtml(s, Date.now());
+        if (!html) { el.remove(); return; }
+        el.removeAttribute('hidden');
+        el.removeAttribute('data-ticker');
+      },
+    })
+    .on('[data-activity="ticker"]', {
+      element(el) { el.setInnerContent(tickerHtml(s, Date.now()), { html: true }); },
+    })
+    .on('[data-activity]:not([data-activity="ticker"])', {
       element(el) {
         const full = el.getAttribute('data-activity') === 'full';
         el.setInnerContent(feedHtml(s, full ? {} : { limit: 10, onePerProject: true, names: 3 }), { html: true });

@@ -53,6 +53,15 @@ const jsonld = [
   <p class="hubs"><span class="dim">browse:</span> {Object.entries(CATEGORY_PAGES).map(([k, c]) => <a href={`/c/${c.slug}/`}>{CATEGORIES[k as keyof typeof CATEGORIES]}</a>)}<a href="/ai/claude-code/">claude code</a></p>
 </section>
 
+<section class="ticker" id="activity" aria-label="What's happening" data-ticker hidden>
+  <div class="wrap tk-head">
+    <span><span class="acc">//</span> what's happening</span>
+    <span class="dim tk-note">checked on GitHub every hour</span>
+    <a href="/activity/">all activity →</a>
+  </div>
+  <div class="tk-track" data-activity="ticker"></div>
+</section>
+
 <section id="log" class="wrap">
   <div class="sec-head has-bot">
     <h2><span class="acc">01</span> // the log</h2>
@@ -115,18 +124,10 @@ const jsonld = [
   <Subscribe />
 </section>
 
-<section id="activity" class="wrap">
-  <div class="sec-head">
-    <h2><span class="acc">02</span> // what's happening</h2>
-    <p class="note">New releases, star milestones and new entries, checked on GitHub every hour. <a href="/activity/">all activity</a> · <a href="/activity.xml">rss</a></p>
-  </div>
-  <div data-activity="home"><p class="dim">Activity is loading from GitHub. Check back in a few minutes.</p></div>
-  <p class="more-link"><a href="/activity/">all activity →</a></p>
-</section>
 
 <section id="about" class="wrap">
   <div class="sec-head">
-    <h2><span class="acc">03</span> // about</h2>
+    <h2><span class="acc">02</span> // about</h2>
     <p class="note">Useful things should stay useful.</p>
   </div>
   <div class="cols">
@@ -164,7 +165,7 @@ const jsonld = [
 
 <section id="submit" class="wrap">
   <div class="sec-head">
-    <h2><span class="acc">04</span> // submit</h2>
+    <h2><span class="acc">03</span> // submit</h2>
     <p class="note">Made something useful again?</p>
   </div>
   <div class="prose submit-intro">

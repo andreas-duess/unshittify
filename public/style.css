@@ -357,12 +357,33 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .topstars .log { display: flex; flex-direction: column; }
 .stars { font-weight: 400; font-size: 12px; color: var(--dim); margin-left: 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
-/* Activity feed: homepage section and /activity/. */
+/* Homepage ticker: the activity feed as a strip under the intro. Pauses on
+   hover or focus; with reduced motion it becomes a strip you scroll by hand. */
+.ticker { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--panel); margin-bottom: 24px; }
+.tk-head { display: flex; gap: 6px 14px; align-items: baseline; flex-wrap: wrap; padding-top: 10px; font-size: 12px; }
+.tk-head a { margin-left: auto; }
+.tk-track { overflow: hidden; padding: 10px 0 12px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent); mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent); }
+.tk-rail { display: flex; width: max-content; animation: tk var(--tk-dur, 90s) linear infinite; }
+.tk-track:hover .tk-rail, .tk-track:focus-within .tk-rail { animation-play-state: paused; }
+.tk-list { display: flex; list-style: none; margin: 0; padding: 0; }
+.tk-list li { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; padding: 0 22px; border-right: 1px solid var(--line-2); font-size: 13px; }
+.tk-list .ftag { font-size: 10px; }
+.tk-x { color: var(--dim); }
+.tk-list .when { color: var(--dim); font-size: 11.5px; }
+@keyframes tk { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .tk-rail { animation: none; }
+  .tk-track { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .tk-list[aria-hidden] { display: none; }
+}
+@media (max-width: 560px) { .tk-note { display: none; } }
+
+/* Activity feed: /activity/. */
 .feed { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .feed > li { display: grid; grid-template-columns: 11ch 9ch 1fr; gap: 16px; align-items: baseline; padding: 12px 12px; border-bottom: 1px solid var(--line); font-size: 13.5px; }
 .feed .when { color: var(--dim); font-size: 12px; font-variant-numeric: tabular-nums; }
 .feed p { margin: 0; }
-.feed .ftag { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; padding: 1px 6px; border: 1px solid currentColor; justify-self: start; white-space: nowrap; }
+.ftag { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; padding: 1px 6px; border: 1px solid currentColor; justify-self: start; white-space: nowrap; }
 .k-release { color: var(--ok); }
 .k-added { color: var(--acc); }
 .k-stars { color: var(--warn); }
@@ -370,7 +391,6 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .feed-page .feed { margin-top: 20px; }
 .feed-page .feed > li { padding-left: 0; padding-right: 0; }
 .more-link { margin: 14px 12px 0; font-size: 13px; }
-#activity { padding-bottom: 32px; }
 @media (max-width: 560px) {
   .feed > li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 12px 4px; }
   .feed p { flex-basis: 100%; }
