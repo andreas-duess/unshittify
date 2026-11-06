@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README says: \"A human designed Sonora and Claude Code built it.\""
 caveats: "S1 and S2 rooms show in one interface but still can't be grouped together. Remote access needs your own VPN. Not affiliated with Sonos. About a month old."
 evidenceNote: "Public AGPL-3.0 repo, very active."
+repo: "Bretteroo/Sonora"
 links:
   - { label: "site", url: "https://sonoracontroller.com/" }
   - { label: "repo", url: "https://github.com/Bretteroo/Sonora" }

@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. Both commits carry a Claude co-author line."
 caveats: "One unit tested; not the original QardioBase. Some digits hadn't been seen yet, so the app asks you to label unknown ones."
 evidenceNote: "Public code."
+repo: "sanchescom/qardiobase-ble"
 links:
   - { label: "repo", url: "https://github.com/sanchescom/qardiobase-ble" }
 reviewed: 2026-10-31

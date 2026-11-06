@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Most of the code was written with Claude Code, per the creator, who tested every claim against the real hardware."
 caveats: "Linux only (ALSA raw MIDI). The tutor mode he cares about most isn't built yet. Protocol claims are marked as verified or unverified."
 evidenceNote: "Public project + creator account."
+repo: "ideaCompany/tr8s-studio"
 links:
   - { label: "repo", url: "https://github.com/ideaCompany/tr8s-studio" }
   - { label: "creator post", url: "https://www.reddit.com/r/linuxaudio/comments/1w5adsp/" }

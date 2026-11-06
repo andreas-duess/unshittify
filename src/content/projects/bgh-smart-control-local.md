@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented."
 caveats: "Units must already be on your Wi-Fi; early setup needed the vendor app, a later tool handles it locally. Some kits had trouble configuring the IR module, which has limited range."
 evidenceNote: "Public code + HA forum thread with user reports."
+repo: "arpena/hpa4911"
 links:
   - { label: "repo", url: "https://github.com/arpena/hpa4911" }
   - { label: "ha forum", url: "https://community.home-assistant.io/t/bgh-smart-control-is-dead-long-life-to-local-bgh-smart-control/974020" }

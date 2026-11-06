@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented in building it. The robot's conversation runs on the owner's own OpenAI account."
 caveats: "Needs a paid OpenAI account. Ocean Explorer, Animal Faces and Story Maker are missing, and there is no parent app. The default setup allows anonymous access to the hub; lock down your network. openmoxie.org and \"OpenMoxie 2.0\" are not affiliated."
 evidenceNote: "Public repo, actively maintained."
+repo: "jbeghtol/openmoxie"
 links:
   - { label: "repo", url: "https://github.com/jbeghtol/openmoxie" }
 reviewed: 2026-10-29

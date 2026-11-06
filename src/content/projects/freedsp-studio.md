@@ -8,6 +8,7 @@ evidence: public
 aiRole: "From the README: \"The reverse engineering, hardware testing and decisions were mine; Claude wrote most of the code.\" A few hours of work."
 caveats: "The README lists which devices are tested on real hardware; others rely on the maker's own data. Linux builds are untested with a real cable. Windows shows an unknown-publisher warning."
 evidenceNote: "Public project + creator account."
+repo: "EffectiveEquivalent/FreeDSP-Studio"
 links:
   - { label: "repo", url: "https://github.com/EffectiveEquivalent/FreeDSP-Studio" }
   - { label: "creator post", url: "https://www.reddit.com/r/iems/comments/1vlm0os/" }

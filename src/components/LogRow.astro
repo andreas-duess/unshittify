@@ -7,16 +7,18 @@ import type { CollectionEntry } from 'astro:content';
 import ProjectFields from './ProjectFields.astro';
 import EvidenceTag from './EvidenceTag.astro';
 import { pad } from '../lib/meta';
+import { repoInfo, fmtStars } from '../lib/stars';
 
 interface Props { p: CollectionEntry<'projects'>; anchor?: boolean; more?: boolean }
 const { p, anchor = false, more = false } = Astro.props;
 const d = p.data;
+const gh = repoInfo(d.repo);
 ---
 <li data-cat={d.category} id={anchor ? p.id : undefined} class={more ? 'more' : undefined}>
   <details>
     <summary>
       <span class="id">{pad(d.id)}</span>
-      <span class="name"><b>{d.title}</b><i>{d.device}</i></span>
+      <span class="name"><b>{d.title}{gh && <span class="stars" title={`${gh.stars.toLocaleString('en-US')} GitHub stars`}>★ {fmtStars(gh.stars)}</span>}</b><i>{d.device}</i></span>
       <span class="ai">{d.ai}</span>
       <EvidenceTag kind={d.evidence} />
       <a class="src" href={d.links[0].url} rel="noopener">{d.links[0].label}<span aria-hidden="true"> ↗</span></a>

@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented."
 caveats: "Hot-air rework and a mains appliance. The builder calls it another version of an earlier conversion."
 evidenceNote: "Public code + Reddit post."
+repo: "drublin/SmartKettle-ESPHome"
 links:
   - { label: "repo", url: "https://github.com/drublin/SmartKettle-ESPHome" }
   - { label: "reddit", url: "https://www.reddit.com/r/homeassistant/comments/1wzrz3e/" }

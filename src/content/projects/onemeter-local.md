@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Claude Code ran in an isolated VM with the SWD probe and a BLE adapter attached. It set a breakpoint in the encryption routine and matched plaintext in RAM to what went over the air. The builder credits it with about 80% of the protocol work and about 90% of the integration. All 3 commits carry a Claude co-author line."
 caveats: "Every owner has to open the case, solder to the SWD pads and pull their own AES key. The README calls it pre-MVP and working on one tested device. Mapping meter registers depends on the meter."
 evidenceNote: "Public code + creator post + community continuation."
+repo: "grappeq/onemeter-ha-integration"
 links:
   - { label: "creator post", url: "https://medium.com/kingfisher-technology/when-the-cloud-dies-reverse-engineering-an-abandoned-iot-device-264ce7e5a24e" }
   - { label: "repo", url: "https://github.com/grappeq/onemeter-ha-integration" }

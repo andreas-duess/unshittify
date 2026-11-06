@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Built with Claude Code, which found the connector pinout in CBE documentation and forums, planned the measurements, wrote the firmware and CAD scripts and drafted the docs. The owner did every measurement and wire on the real van."
 caveats: "Pinout validated on one vehicle; measure yours first. This is 12 V vehicle wiring: fuse every +12 V wire. The replacement loses the original panel's low-voltage cut-off. Most screens need Home Assistant running in the van."
 evidenceNote: "Public repo with firmware, pinout and build guide."
+repo: "danderik88/cbe-ds300-esphome-panel"
 links:
   - { label: "repo", url: "https://github.com/danderik88/cbe-ds300-esphome-panel" }
 reviewed: 2026-10-29

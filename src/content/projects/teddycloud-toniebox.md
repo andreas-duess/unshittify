@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented."
 caveats: "Setup means dumping the box's certificates and flashing a replacement CA; the CC3235 and ESP32 boards take more hands-on work. Toniebox 2 not supported."
 evidenceNote: "Public repo + community wiki."
+repo: "toniebox-reverse-engineering/teddycloud"
 links:
   - { label: "repo", url: "https://github.com/toniebox-reverse-engineering/teddycloud" }
   - { label: "wiki", url: "https://tonies-wiki.revvox.de/docs/tools/teddycloud/" }

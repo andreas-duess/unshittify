@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Recent commits carry a Co-authored-by: Claude trailer and a Generated with Claude Code line."
 caveats: "Needs Node 22+ and a Bluetooth adapter; Docker needs a Linux host with BlueZ. Body composition is computed locally from weight and impedance, so numbers can differ from the vendor app. Check your model on the supported-scales list."
 evidenceNote: "Public GPL-3.0 repo, docs site, CI and tagged releases. Actively maintained."
+repo: "KristianP26/ble-scale-sync"
 links:
   - { label: "repo", url: "https://github.com/KristianP26/ble-scale-sync" }
   - { label: "docs", url: "https://blescalesync.dev" }

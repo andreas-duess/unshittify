@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. The commit history lists Claude as co-author on 819 of 1,045 commits, and the repo has a CLAUDE.md."
 caveats: "Updates and some features are only tested on a host machine. ADB has to be re-enabled over USB after each boot. Building needs Rust, Docker and cross. The vendor still supports the device; this is about privacy, not a dead cloud. A revert script restores stock."
 evidenceNote: "Public code + docs + Show HN post."
+repo: "XavierGeerinck/insta360-custom-firmware"
 links:
   - { label: "repo", url: "https://github.com/XavierGeerinck/insta360-custom-firmware" }
   - { label: "docs", url: "https://xaviergeerinck.github.io/insta360-custom-firmware/" }

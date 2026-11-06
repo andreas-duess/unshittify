@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented."
 caveats: "The project warns that installing the module may damage your vehicle and void its warranty. Features vary by car; check your model's page. On the Leaf, remote climate often means unplugging the car's telematics unit or cutting its CAN wires, which disables Nissan Connect; newer ZE1 Leafs need a custom CAN tap behind the instrument cluster and keep permanent error codes."
 evidenceNote: "Public code, about 880 stars, per-vehicle docs. Community project."
+repo: "openvehicles/Open-Vehicle-Monitoring-System-3"
 links:
   - { label: "repo", url: "https://github.com/openvehicles/Open-Vehicle-Monitoring-System-3" }
   - { label: "docs", url: "https://docs.openvehicles.com/" }

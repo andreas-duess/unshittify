@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. The commit history lists Claude as co-author on 15 of 126 commits, and Copilot on others."
 caveats: "Firmware updates and schedules don't work; routines and scenes do. Camera streaming needs a TURN relay and is verified on two models. China-market units don't work outside China. Setup needs a domain you control, local DNS rewriting and an SSL certificate."
 evidenceNote: "Public project (1.2K stars) + Show HN post."
+repo: "Python-roborock/local_roborock_server"
 links:
   - { label: "repo", url: "https://github.com/Python-roborock/local_roborock_server" }
   - { label: "technical write-up", url: "https://python-roborock.github.io/local_roborock_server/technical_writeup/" }

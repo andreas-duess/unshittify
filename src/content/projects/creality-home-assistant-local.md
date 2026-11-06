@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "No AI use documented in the repo."
 caveats: "Tested on the Ender 3 V3 KE only; K1 and K2 series untested, WebRTC on K1C/K2 untested. Controls for hardware your model lacks can still appear. Unofficial weekend project, not endorsed by Creality. Energy and cost tracking is unfinished."
 evidenceNote: "Public MIT repo with tests. Very new."
+repo: "filipeamorimdev/home-assistant-creality"
 links:
   - { label: "repo", url: "https://github.com/filipeamorimdev/home-assistant-creality" }
 reviewed: 2026-11-04

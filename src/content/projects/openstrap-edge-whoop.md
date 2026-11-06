@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented in building it."
 caveats: "Sync the band's clock or it resets. Temperature readings need calibration. Not full feature parity with WHOOP, and a future WHOOP firmware update could block it."
 evidenceNote: "Public repo + press coverage."
+repo: "OpenStrap/edge"
 links:
   - { label: "repo", url: "https://github.com/OpenStrap/edge" }
   - { label: "hackaday", url: "https://hackaday.com/2026/07/15/making-a-locked-down-wearable-work-without-a-subscription/" }

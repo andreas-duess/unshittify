@@ -9,6 +9,7 @@ evidence: public
 aiRole: "ChatGPT first, then Claude, wrote the relay and the ESP32 firmware and read the protocol specs. The creator says the key ideas were his and both AIs gave up at the decision points."
 caveats: "Spotify, Amazon Music and other cloud services are gone for good; AirPlay still works. The relay runs on a server you host. The display can show the station name or the stream can be saved as a preset, but not both at once."
 evidenceNote: "Public project + creator account."
+repo: "sergei-ponomarenko/bose-soundtouch"
 links:
   - { label: "repo", url: "https://github.com/sergei-ponomarenko/bose-soundtouch" }
   - { label: "creator post", url: "https://www.reddit.com/r/bose/comments/1tie903/" }

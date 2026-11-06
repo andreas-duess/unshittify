@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. The commit history lists Claude as co-author on 79 of 88 commits."
 caveats: "Control only; the V7's built-in audio isn't implemented yet. Intel Macs untested; Linux and Windows planned. Part of the control map still needs hardware confirmation. Builds on the Ozzy project's work on the Ploytec protocol."
 evidenceNote: "Public code."
+repo: "tejofjord/openv7"
 links:
   - { label: "repo", url: "https://github.com/tejofjord/openv7" }
 reviewed: 2026-10-31

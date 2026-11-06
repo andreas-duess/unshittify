@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The builder says all of the code was written by models: GPT-6 Astra and GPT-6.1 Sol for the launcher and blocking, Claude Opus 5.5 for the UI and video stream, and Argon for voice. He made the design decisions."
 caveats: "Tested on one TV and firmware; pins and offsets must be found again for others. Needs root, and the write-up doesn't cover getting it. Voice and the browser need a CUDA machine with about 10 GB of models. Weather works in the US only."
 evidenceNote: "Public code + creator post + Show HN post."
+repo: "anubhavmalhotra/r2d2-tv"
 links:
   - { label: "creator post", url: "https://anubhavmalhotra.com/vibing/r2d2-webos/" }
   - { label: "repo", url: "https://github.com/anubhavmalhotra/r2d2-tv" }

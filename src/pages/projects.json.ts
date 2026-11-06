@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { SITE } from '../lib/meta';
+import { repoInfo } from '../lib/stars';
 
 // Machine-readable log. Same fields as the markdown frontmatter.
 export async function GET() {
@@ -9,6 +10,7 @@ export async function GET() {
     url: `${SITE}/p/${p.id}/`,
     ...p.data,
     reviewed: p.data.reviewed.toISOString().slice(0, 10),
+    stars: repoInfo(p.data.repo)?.stars ?? null,
     summary: (p.body ?? '').trim().split(/\n\s*\n/)[0],
   }));
   return new Response(JSON.stringify({ source: SITE, count: data.length, projects: data }, null, 2), {

@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "The README says Claude Code was used, with Opus 4.6, 4.7, 4.8 and 5. It adds that Fable refuses to work on the project."
 caveats: "You still need the Meta AI app once: the glasses only trust a key Meta's servers issue at first pairing, and you have to pull that key off your phone with a debugging tool. The builder calls that step work in progress. The newer Ray-Ban Meta glasses aren't supported. Meta still supports the Stories; this is about privacy and the app, not a dead cloud. Not affiliated with Meta or Ray-Ban."
 evidenceNote: "Public code + HN post."
+repo: "KonradIT/storiesclient"
 links:
   - { label: "repo", url: "https://github.com/KonradIT/storiesclient" }
   - { label: "hn", url: "https://news.ycombinator.com/item?id=49575233" }

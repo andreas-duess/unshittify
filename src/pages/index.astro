@@ -7,6 +7,7 @@ import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER } from '../lib/m
 import SubmitForm from '../components/SubmitForm.astro';
 import RepairBot from '../components/RepairBot.astro';
 import Subscribe from '../components/Subscribe.astro';
+import { repoInfo } from '../lib/stars';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
 
@@ -19,7 +20,11 @@ const groups = (Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[])
   .map((k) => ({ key: k, items: projects.filter((p) => p.data.category === k) }))
   .filter((g) => g.items.length)
   .sort((a, b) => b.items.length - a.items.length);
-const weekAgo = Date.now() - 7 * 24 * 3600 * 1000;
+const topStars = projects
+  .filter((p) => repoInfo(p.data.repo))
+  .sort((a, b) => repoInfo(b.data.repo)!.stars - repoInfo(a.data.repo)!.stars)
+  .slice(0, 10);
+const weekAgo =Date.now() - 7 * 24 * 3600 * 1000;
 const newThisWeek = projects.filter((p) => p.data.reviewed.getTime() >= weekAgo).length;
 const jsonld = [
   {
@@ -44,7 +49,8 @@ const jsonld = [
 
 <section class="hero wrap">
   <p class="prompt"><span class="dim">~/</span><span class="acc">$</span> unshittify --list --all<span class="cursor" aria-hidden="true"></span></p>
-  <h1>You bought it.<br>Make it yours.</h1>
+  <h1 class="h1-long">A database of software that keeps hardware working for the people who own it</h1>
+  <p class="kicker">You bought it. Make it yours.</p>
   <p class="lede">The hardware still works. The software is in the way. This is a log of people fixing that: TVs with sane home screens, printers talking to modern Macs, appliances brought back after their cloud died, old laptops on a new OS.</p>
   <p class="lede">Most were built with a coding assistant on top of years of open-source work. Call it undoing <a href="/enshittification/">enshittification</a>, one device at a time.</p>
   <p class="hubs"><span class="dim">browse:</span> {Object.entries(CATEGORY_PAGES).map(([k, c]) => <a href={`/c/${c.slug}/`}>{CATEGORIES[k as keyof typeof CATEGORIES]}</a>)}<a href="/ai/claude-code/">claude code</a></p>
@@ -82,6 +88,15 @@ const jsonld = [
         {projects.slice(0, LATEST).map((p) => <LogRow p={p} />)}
       </ol>
     </div>
+
+    {topStars.length > 0 && (
+      <div class="group latest" data-group="top">
+        <h3 class="ghead"><span><span class="acc">//</span> most starred on github</span><span class="leader" aria-hidden="true"></span><span class="gnote">stars show interest, not safety</span></h3>
+        <ol class="log">
+          {topStars.map((p) => <LogRow p={p} />)}
+        </ol>
+      </div>
+    )}
 
     {groups.map((g) => (
       <div class="group" data-group={g.key}>
@@ -173,7 +188,7 @@ const jsonld = [
     root.classList.toggle('filtering', filtering);
     let total = 0;
     for (const g of groups) {
-      const latest = g.dataset.group === 'latest';
+      const latest = g.classList.contains('latest'); // "latest" and "most starred": duplicates, hidden while filtering
       let n = 0;
       for (const r of g.querySelectorAll<HTMLLIElement>('.log > li')) {
         const show = !filtering || ((cat === 'all' || r.dataset.cat === cat) && (!term || r.textContent!.toLowerCase().includes(term)));

@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented. Builds on earlier open work it credits: omap_loader and the GTVHacker Nest research. Won a FULU Foundation bounty."
 caveats: "Flashing low-level firmware can brick the thermostat; keep a backup thermostat. The README says some firmware and server code is still to be open sourced. The project's cloud swaps one server for another; self-hosting is the cloud-free route. For Gen 2, Sett sells an open-source replacement board instead."
 evidenceNote: "Public repo + press coverage."
+repo: "codykociemba/NoLongerEvil-Thermostat"
 links:
   - { label: "repo", url: "https://github.com/codykociemba/NoLongerEvil-Thermostat" }
   - { label: "9to5google", url: "https://9to5google.com/2025/11/03/google-nest-thermostat-old-revive-project/" }

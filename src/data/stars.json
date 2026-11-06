@@ -1,0 +1,485 @@
+{
+  "fetched": "2026-11-06",
+  "repos": {
+    "carteakey/alvidaa": {
+      "stars": 36,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "NelsonEU/arn0-tv": {
+      "stars": 261,
+      "archived": false,
+      "pushed": "2026-10-22"
+    },
+    "RMerl/asuswrt-merlin.ng": {
+      "stars": 6270,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "Aquaspaces/maxwell-peq": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-10-15"
+    },
+    "arpena/hpa4911": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-07-06"
+    },
+    "KristianP26/ble-scale-sync": {
+      "stars": 216,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "jarkkosyrjala/bosch-compress-local": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-08-28"
+    },
+    "sergei-ponomarenko/bose-soundtouch": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-05-21"
+    },
+    "MichaelBruck/briturn-google-home": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "danderik88/cbe-ds300-esphome-panel": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-10-22"
+    },
+    "mertemr/chsmartbulb": {
+      "stars": 3,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "Gathin23/cleanyourtv": {
+      "stars": 52984,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "filipeamorimdev/home-assistant-creality": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "crosspoint-reader/crosspoint-reader": {
+      "stars": 8671,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "ItsRiprod/DeskThing": {
+      "stars": 1201,
+      "archived": false,
+      "pushed": "2026-08-04"
+    },
+    "mrlt8/docker-wyze-bridge": {
+      "stars": 3285,
+      "archived": false,
+      "pushed": "2026-10-26"
+    },
+    "itsmeorestis/dq10-h616-linux": {
+      "stars": 6,
+      "archived": false,
+      "pushed": "2026-10-30"
+    },
+    "humblemuzzu/dumbtv": {
+      "stars": 1965,
+      "archived": false,
+      "pushed": "2026-11-05"
+    },
+    "mpjanofsky/echo-wall-clock": {
+      "stars": 3,
+      "archived": false,
+      "pushed": "2026-10-19"
+    },
+    "alanstrok/ecoflow2nut-pibridge": {
+      "stars": 7,
+      "archived": false,
+      "pushed": "2026-08-30"
+    },
+    "wertigpar/ha-emaldo": {
+      "stars": 16,
+      "archived": false,
+      "pushed": "2026-11-03"
+    },
+    "emporia-vue-local/esphome": {
+      "stars": 812,
+      "archived": false,
+      "pushed": "2026-04-19"
+    },
+    "leftouterjoins/EpilogDriver": {
+      "stars": 5,
+      "archived": false,
+      "pushed": "2026-07-31"
+    },
+    "KrzysztofHajdamowicz/felicity-battery-modbus": {
+      "stars": 2,
+      "archived": false,
+      "pushed": "2026-10-12"
+    },
+    "kerosix/foobot-local": {
+      "stars": 2,
+      "archived": false,
+      "pushed": "2026-07-09"
+    },
+    "throwaway31265/free-sleep": {
+      "stars": 936,
+      "archived": false,
+      "pushed": "2026-10-05"
+    },
+    "EffectiveEquivalent/FreeDSP-Studio": {
+      "stars": 19,
+      "archived": false,
+      "pushed": "2026-10-16"
+    },
+    "dbrant/ftape": {
+      "stars": 105,
+      "archived": false,
+      "pushed": "2026-09-04"
+    },
+    "adrianjagielak/home-assistant-futurehome": {
+      "stars": 306,
+      "archived": false,
+      "pushed": "2026-10-08"
+    },
+    "AidenShaw2020/gigaset_elements_emulator": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-09-27"
+    },
+    "alexnorton/handycam-rs": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-08-10"
+    },
+    "josephspurrier/hello-sense": {
+      "stars": 7,
+      "archived": false,
+      "pushed": "2026-11-04"
+    },
+    "Kuberwastaken/hp-laser-1008a-macos": {
+      "stars": 176,
+      "archived": false,
+      "pushed": "2026-10-04"
+    },
+    "frankbrg/huawei-ah100": {
+      "stars": 2,
+      "archived": false,
+      "pushed": "2026-11-03"
+    },
+    "wlcrs/huawei_solar": {
+      "stars": 942,
+      "archived": false,
+      "pushed": "2026-10-31"
+    },
+    "paul43210/inkbird-bw-ble": {
+      "stars": 14,
+      "archived": false,
+      "pushed": "2026-05-29"
+    },
+    "XavierGeerinck/insta360-custom-firmware": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-10-14"
+    },
+    "JuiceRescue/juicepassproxy": {
+      "stars": 132,
+      "archived": false,
+      "pushed": "2026-09-10"
+    },
+    "unrealJune/kindshare": {
+      "stars": 27,
+      "archived": false,
+      "pushed": "2026-09-02"
+    },
+    "mayukh4/linux-android": {
+      "stars": 3847,
+      "archived": false,
+      "pushed": "2026-10-24"
+    },
+    "andy911850/ha-logi-pop": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-08-01"
+    },
+    "TimStewartJ/lululemon-mirror-repurpose": {
+      "stars": 23,
+      "archived": false,
+      "pushed": "2026-10-08"
+    },
+    "LMS-Community/slimserver": {
+      "stars": 1815,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "iMike78/home-mini-v1-drop-in-pcb": {
+      "stars": 421,
+      "archived": false,
+      "pushed": "2026-07-30"
+    },
+    "HeapsGoodTom/mycoolman-ha": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-07-07"
+    },
+    "ThreeDaPrint/niimbot": {
+      "stars": 131,
+      "archived": false,
+      "pushed": "2026-09-21"
+    },
+    "codykociemba/NoLongerEvil-Thermostat": {
+      "stars": 1924,
+      "archived": false,
+      "pushed": "2026-09-22"
+    },
+    "tomwilkie/ha-norman-shutters": {
+      "stars": 3,
+      "archived": false,
+      "pushed": "2026-10-31"
+    },
+    "MichaelOE/homeassistant-ocean_pulse": {
+      "stars": 34,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "grappeq/onemeter-ha-integration": {
+      "stars": 1,
+      "archived": false,
+      "pushed": "2026-05-24"
+    },
+    "jbeghtol/openmoxie": {
+      "stars": 97,
+      "archived": false,
+      "pushed": "2026-10-26"
+    },
+    "renjfk/OpenNeato": {
+      "stars": 212,
+      "archived": false,
+      "pushed": "2026-09-25"
+    },
+    "MaxMaeder/OpenPin": {
+      "stars": 57,
+      "archived": false,
+      "pushed": "2025-05-27"
+    },
+    "gh123man/opensnek": {
+      "stars": 91,
+      "archived": false,
+      "pushed": "2026-11-05"
+    },
+    "OpenStrap/edge": {
+      "stars": 878,
+      "archived": false,
+      "pushed": "2026-11-03"
+    },
+    "tejofjord/openv7": {
+      "stars": 2,
+      "archived": false,
+      "pushed": "2026-08-30"
+    },
+    "openwrt/openwrt": {
+      "stars": 29111,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "cschalle/OpticFilm8200i-sane": {
+      "stars": 3,
+      "archived": false,
+      "pushed": "2026-11-02"
+    },
+    "KonradIT/osmosis": {
+      "stars": 126,
+      "archived": false,
+      "pushed": "2026-11-04"
+    },
+    "openvehicles/Open-Vehicle-Monitoring-System-3": {
+      "stars": 877,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "coredevices/libpebble3": {
+      "stars": 944,
+      "archived": false,
+      "pushed": "2026-11-05"
+    },
+    "tonypest0/sonos-controller": {
+      "stars": 53,
+      "archived": false,
+      "pushed": "2026-09-28"
+    },
+    "alex-so-3/petkit-local": {
+      "stars": 38,
+      "archived": false,
+      "pushed": "2026-08-12"
+    },
+    "wesbos/photo-frame-dashboard": {
+      "stars": 1671,
+      "archived": false,
+      "pushed": "2026-11-04"
+    },
+    "pdrgds/pixma-rs": {
+      "stars": 24,
+      "archived": false,
+      "pushed": "2026-07-17"
+    },
+    "GLinnik21/plx-native": {
+      "stars": 1188,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "pybricks/pybricks-micropython": {
+      "stars": 353,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "ramirezjhulian7/motorola-q11-freedom": {
+      "stars": 2,
+      "archived": false,
+      "pushed": "2026-10-15"
+    },
+    "sanchescom/qardiobase-ble": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-09-29"
+    },
+    "anubhavmalhotra/r2d2-tv": {
+      "stars": 68,
+      "archived": false,
+      "pushed": "2026-11-05"
+    },
+    "PaulWieland/ratgdo": {
+      "stars": 1342,
+      "archived": false,
+      "pushed": "2026-07-21"
+    },
+    "jhbruhn/respira": {
+      "stars": 113,
+      "archived": false,
+      "pushed": "2026-03-29"
+    },
+    "Python-roborock/local_roborock_server": {
+      "stars": 1266,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "acvx93/rowenta-pure-air-cloud-rescue": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-10-29"
+    },
+    "gtgaute/ha-smartercoffee": {
+      "stars": 0,
+      "archived": false,
+      "pushed": "2026-10-20"
+    },
+    "drublin/SmartKettle-ESPHome": {
+      "stars": 2,
+      "archived": false,
+      "pushed": "2026-10-06"
+    },
+    "McArhony/smartthings-samsung-drc-washer": {
+      "stars": 17,
+      "archived": false,
+      "pushed": "2026-10-25"
+    },
+    "skinnie/sommet": {
+      "stars": 7,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "Bretteroo/Sonora": {
+      "stars": 56,
+      "archived": false,
+      "pushed": "2026-11-05"
+    },
+    "KonradIT/storiesclient": {
+      "stars": 33,
+      "archived": false,
+      "pushed": "2026-09-07"
+    },
+    "keranm/strideApp": {
+      "stars": 22,
+      "archived": false,
+      "pushed": "2026-09-08"
+    },
+    "HuskerMinion/techo5": {
+      "stars": 562,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "toniebox-reverse-engineering/teddycloud": {
+      "stars": 1095,
+      "archived": false,
+      "pushed": "2026-11-03"
+    },
+    "dmellok/tesserae": {
+      "stars": 1008,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "themactep/thingino-firmware": {
+      "stars": 2310,
+      "archived": false,
+      "pushed": "2026-11-05"
+    },
+    "ideaCompany/tr8s-studio": {
+      "stars": 26,
+      "archived": false,
+      "pushed": "2026-09-02"
+    },
+    "Crawler757/treadmill-home": {
+      "stars": 27,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "Gophercs/trifo_lucy_re": {
+      "stars": 5,
+      "archived": false,
+      "pushed": "2026-11-02"
+    },
+    "tronbyt/server": {
+      "stars": 228,
+      "archived": false,
+      "pushed": "2026-11-06"
+    },
+    "vacuula/vacuula": {
+      "stars": 215,
+      "archived": false,
+      "pushed": "2026-10-29"
+    },
+    "manuaguirre9/nw-a820-homebrew": {
+      "stars": 4,
+      "archived": false,
+      "pushed": "2026-10-23"
+    },
+    "kercre123/wire-pod": {
+      "stars": 843,
+      "archived": false,
+      "pushed": "2026-10-15"
+    },
+    "Janczykkkko/xbloom-ble": {
+      "stars": 8,
+      "archived": false,
+      "pushed": "2026-11-01"
+    },
+    "OpticMystic/XZ-Mods": {
+      "stars": 23,
+      "archived": false,
+      "pushed": "2026-11-02"
+    },
+    "tomekent/yotwo": {
+      "stars": 6,
+      "archived": false,
+      "pushed": "2026-10-16"
+    },
+    "blade-running-man/zehnder-comfoair-q-firmware": {
+      "stars": 3,
+      "archived": false,
+      "pushed": "2026-10-21"
+    }
+  }
+}

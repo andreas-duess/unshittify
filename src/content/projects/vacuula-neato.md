@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented."
 caveats: "The replacement server must stay online; dedicated always-on hardware is recommended. Gen2 Botvac Connected not yet supported. Setup differs by model and host system; check the README's tables. Notifications and a Home Assistant entity are still in progress."
 evidenceNote: "Public repo + press coverage."
+repo: "vacuula/vacuula"
 links:
   - { label: "repo", url: "https://github.com/vacuula/vacuula" }
   - { label: "installer", url: "https://github.com/vacuula/installer" }

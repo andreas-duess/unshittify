@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented. Builds on Digital Dream Labs' open-sourced server code."
 caveats: "Setup and troubleshooting are in the project wiki. Runs on a machine you keep on."
 evidenceNote: "Public repo, maintained since 2022."
+repo: "kercre123/wire-pod"
 links:
   - { label: "repo", url: "https://github.com/kercre123/wire-pod" }
 reviewed: 2026-10-29

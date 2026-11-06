@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Claude reverse-engineered the firmware and wrote the patch. Both commits carry a Claude co-author line; the builder later noted that a fallback model, Opus 4.8, did the reverse-engineering."
 caveats: "Firmware 5.22 only; flashing across major versions bricks the printer. Ships prebuilt binaries. One commenter says the label tag mainly reports label size."
 evidenceNote: "Public code (131 stars) + Reddit post."
+repo: "ThreeDaPrint/niimbot"
 links:
   - { label: "repo", url: "https://github.com/ThreeDaPrint/niimbot" }
   - { label: "reddit", url: "https://www.reddit.com/r/ClaudeCode/comments/1wkrcmp/" }

@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Claude Code replaced outdated kernel APIs by feeding compiler output back into itself and helped diagnose hardware communication from dmesg logs. He says it would not have been possible without his own kernel knowledge, and it took several manual fixes."
 caveats: "Works only with the same limited set of floppy-controller chipsets as the original driver. Verified on his own drives and still being tweaked."
 evidenceNote: "Public code + write-up."
+repo: "dbrant/ftape"
 links:
   - { label: "write-up", url: "https://dmitrybrant.com/?p=2503" }
   - { label: "repo", url: "https://github.com/dbrant/ftape" }

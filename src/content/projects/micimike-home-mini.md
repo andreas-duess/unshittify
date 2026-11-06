@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "No AI use documented."
 caveats: "Prototype tested; the validation batch is still under test, and boards are in pre-order on Crowd Supply. Replaces Google's electronics entirely, so Google Assistant is gone. Means opening the speaker. Needs Home Assistant for the voice assistant."
 evidenceNote: "Open hardware: public KiCad files and ESPHome config (CERN-OHL-S-2.0) + CNX Software coverage."
+repo: "iMike78/home-mini-v1-drop-in-pcb"
 links:
   - { label: "repo", url: "https://github.com/iMike78/home-mini-v1-drop-in-pcb" }
   - { label: "crowd supply", url: "https://www.crowdsupply.com/micimike-rev-devices/micimike-home-mini-drop-in-pcb" }

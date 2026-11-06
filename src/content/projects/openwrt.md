@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented."
 caveats: "Check your exact model and hardware revision in the Table of Hardware first; flashing the wrong image can brick a router, and flashing usually voids the warranty. Some vendor features, like the vendor's app or cloud management, go away."
 evidenceNote: "Public code, community project since 2004."
+repo: "openwrt/openwrt"
 links:
   - { label: "site", url: "https://openwrt.org/" }
   - { label: "table of hardware", url: "https://openwrt.org/toh/start" }

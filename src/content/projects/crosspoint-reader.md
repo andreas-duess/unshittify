@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The repo ships Claude agent instructions; the maintainers do not say how much of the code AI wrote."
 caveats: "Some units sold through third parties are USB-locked and need the project's unlocker first; flashing a locked unit wrongly can leave it unrecoverable. You can return to the official firmware."
 evidenceNote: "Public repo, very active."
+repo: "crosspoint-reader/crosspoint-reader"
 links:
   - { label: "repo", url: "https://github.com/crosspoint-reader/crosspoint-reader" }
 reviewed: 2026-11-05

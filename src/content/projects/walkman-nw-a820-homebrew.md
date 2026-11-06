@@ -8,6 +8,7 @@ evidence: experimental
 aiRole: "The creator says Claude wrote most of the code. It builds on Rockbox nwztools and Sony's GPL source."
 caveats: "Experimental, tested on one Japanese NW-A829. International NWZ models are untested and the installer can't reach them yet. Installer is Windows only. Charge the battery first; you do this at your own risk."
 evidenceNote: "Public project + creator account."
+repo: "manuaguirre9/nw-a820-homebrew"
 links:
   - { label: "repo", url: "https://github.com/manuaguirre9/nw-a820-homebrew" }
   - { label: "creator post", url: "https://www.reddit.com/r/walkman/comments/1wzdk63/" }

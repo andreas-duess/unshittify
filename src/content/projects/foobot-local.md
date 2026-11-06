@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Commits are co-authored by Claude; the README does not describe the AI's role."
 caveats: "Calibration was worked out from one unit. The ring colour on the device is not reproduced. A local server becomes a dependency. New and small."
 evidenceNote: "Public repo."
+repo: "kerosix/foobot-local"
 links:
   - { label: "repo", url: "https://github.com/kerosix/foobot-local" }
 reviewed: 2026-10-29

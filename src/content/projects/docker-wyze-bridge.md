@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented."
 caveats: "Still needs a Wyze account and, since May 2024, a Wyze API key and ID. Streams keep going without internet for a while but will probably stop eventually; for fully offline use the project points to the wz_mini_hacks firmware mod. Wyze Cam OG, OG Telephoto and Doorbell Pro aren't supported. Upstream has been quiet since September 2024; the most active fork is IDisposable's. Don't port-forward the bridge."
 evidenceNote: "Public AGPL-3.0 repo, about 3,300 stars."
+repo: "mrlt8/docker-wyze-bridge"
 links:
   - { label: "repo", url: "https://github.com/mrlt8/docker-wyze-bridge" }
   - { label: "active fork", url: "https://github.com/IDisposable/docker-wyze-bridge" }

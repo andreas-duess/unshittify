@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented."
 caveats: "Replaces the hub's firmware; the original can be restored. Check your hub on pybricks.com first. Programs are Python, not LEGO's block language."
 evidenceNote: "Public MIT code, maintained since 2018."
+repo: "pybricks/pybricks-micropython"
 links:
   - { label: "site", url: "https://pybricks.com/" }
   - { label: "repo", url: "https://github.com/pybricks/pybricks-micropython" }

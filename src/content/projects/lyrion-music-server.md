@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Recent commits carry Co-Authored-By: Claude trailers. The server itself dates back two decades."
 caveats: "Needs a machine on your network to run the server. Streaming services depend on community plugins."
 evidenceNote: "Public code, about 1,800 stars, community-maintained."
+repo: "LMS-Community/slimserver"
 links:
   - { label: "site", url: "https://lyrion.org/" }
   - { label: "repo", url: "https://github.com/LMS-Community/slimserver" }

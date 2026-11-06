@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Creator credits Claude Code with most of the implementation. Builds on Ink/Stitch and pystitch."
 caveats: "PP1 only. Check file, Bluetooth, browser and desktop requirements. Brother says the paid Artspira+ subscription is optional for the PP1, so what Respira replaces is the phone-app workflow."
 evidenceNote: "Public project + creator account."
+repo: "jhbruhn/respira"
 links:
   - { label: "repo", url: "https://github.com/jhbruhn/respira" }
   - { label: "creator on HN", url: "https://news.ycombinator.com/item?id=46763634" }

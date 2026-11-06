@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "Commits from both contributors carry Co-Authored-By: Claude trailers."
 caveats: "Verified end to end on one Kindle Voyage only; check the compatibility notes for other models. Needs a jailbroken Kindle with KUAL, KOReader and SSH. Building needs Go and Docker. Starting at boot needs one write to the root filesystem."
 evidenceNote: "Public MIT repo with protocol notes and a porting guide. New."
+repo: "unrealJune/kindshare"
 links:
   - { label: "repo", url: "https://github.com/unrealJune/kindshare" }
   - { label: "compatibility", url: "https://github.com/unrealJune/kindshare/blob/main/docs/COMPATIBILITY.md" }

@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Claude Code did the protocol research, wrote the CLI, gateway code and tests, drove the TV box over SSH and helped through the Google console. The owner handled the box physically and approved each step that touched the network, Google or a light."
 caveats: "Nothing starts automatically: after a restart, SSH, the gateway and the tunnel have to be started by hand. The free Cloudflare Quick Tunnel hostname changes on every restart, so the URLs in the Google console must be updated each time; a named tunnel on your own domain would fix this. Personal test integration without Report State, so changes made elsewhere show up late. You run a public OAuth endpoint on a home device. Tested on one box and two bulbs. The repo has no licence."
 evidenceNote: "Public code + write-up. One box, two bulbs."
+repo: "MichaelBruck/briturn-google-home"
 links:
   - { label: "repo", url: "https://github.com/MichaelBruck/briturn-google-home" }
   - { label: "tv box write-up", url: "https://github.com/MichaelBruck/briturn-google-home/blob/HEAD/docs/TV-BOX-HOME-HUB.md" }

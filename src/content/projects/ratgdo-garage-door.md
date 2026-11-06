@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented. The project predates coding agents (2022) and credits its human contributors."
 caveats: "Needs a small board wired to the opener's terminals: follow the wiring docs, and it may affect the opener warranty. The board is a purchase (about $45 as a kit) or a DIY build. Check the compatibility docs for your opener."
 evidenceNote: "Public firmware and open hardware."
+repo: "PaulWieland/ratgdo"
 links:
   - { label: "repo", url: "https://github.com/PaulWieland/ratgdo" }
   - { label: "docs", url: "https://paulwieland.github.io/ratgdo/" }

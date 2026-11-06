@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented. Builds on the Car Thing community's superbird-tool image and custom web app."
 caveats: "The Car Thing stays connected to a computer running the DeskThing server: a desk accessory, not standalone in-car use. Install from deskthing.app, not from the repo's main branch."
 evidenceNote: "Public repo + coverage."
+repo: "ItsRiprod/DeskThing"
 links:
   - { label: "repo", url: "https://github.com/ItsRiprod/DeskThing" }
   - { label: "site", url: "https://deskthing.app/" }

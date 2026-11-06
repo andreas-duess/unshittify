@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Recent commits carry Co-Authored-By: Claude trailers. Termux and the desktop environments it installs are not AI-built."
 caveats: "Use Termux from F-Droid; the Play Store build is outdated. Needs 5 to 10 GB free and 4 GB+ RAM for KDE Plasma. GPU acceleration is best on Snapdragon; Mali phones run slower. A phone left running as a server keeps its battery charged constantly, so watch for swelling."
 evidenceNote: "Public MIT repo, about 3,800 stars, with a video walkthrough on a OnePlus 5T."
+repo: "mayukh4/linux-android"
 links:
   - { label: "repo", url: "https://github.com/mayukh4/linux-android" }
   - { label: "video", url: "https://youtu.be/tYm2rQpkOcg" }

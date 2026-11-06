@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Claude Code compared USB captures of the vendor's driver, run in a virtual machine, with the Linux driver's traffic. Claude also wrote Negative Vibes. He published the method as hw-harness."
 caveats: "Verified on one scanner. One frame per start, film holder positioned by hand, 35 mm only. Upstream SANE added this scanner in September 2026; he calls his backend a proof of concept."
 evidenceNote: "Public code + detailed write-up."
+repo: "cschalle/OpticFilm8200i-sane"
 links:
   - { label: "repo", url: "https://github.com/cschalle/OpticFilm8200i-sane" }
   - { label: "write-up", url: "https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/" }

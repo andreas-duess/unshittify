@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Recent commits carry Co-authored-by: Claude trailers. The repo's AI_POLICY.md allows AI as a contributor's tool and bans autonomous agents."
 caveats: "Needs inverter firmware from 2023 or later, and Modbus TCP enabled on the inverter. Modbus allows one connection at a time, so it can clash with other local tools. The port can change after a firmware update. Battery and export control need \"elevated permissions\" and change how the system runs."
 evidenceNote: "Public AGPL-3.0 repo, in the HACS default store, about 940 stars, with a wiki."
+repo: "wlcrs/huawei_solar"
 links:
   - { label: "repo", url: "https://github.com/wlcrs/huawei_solar" }
   - { label: "wiki", url: "https://github.com/wlcrs/huawei_solar/wiki" }

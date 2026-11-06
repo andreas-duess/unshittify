@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Built with Claude on openambit and opensportsync."
 caveats: "Strongest coverage: Ambit 3, Traverse, Kailash on Android and Linux Mint. Other watches and desktops need checking. Bluetooth reliability is a known issue."
 evidenceNote: "Public project + creator report."
+repo: "skinnie/sommet"
 links:
   - { label: "repo", url: "https://github.com/skinnie/sommet" }
   - { label: "creator thread", url: "https://www.reddit.com/r/ClaudeAI/comments/1xanm9s/which_old_hardware_did_you_revive_with_claude/" }

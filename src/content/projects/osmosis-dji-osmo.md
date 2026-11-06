@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Not stated in the README or the creator's post. The commit history lists Claude as co-author on 258 of 366 commits."
 caveats: "Other Osmo models are untested or in progress; drone offload is verified on the Mavic 3 only. Not on Google Play; install from F-Droid or GitHub releases. Not affiliated with DJI."
 evidenceNote: "Public project + Show HN post + press review."
+repo: "KonradIT/osmosis"
 links:
   - { label: "repo", url: "https://github.com/KonradIT/osmosis" }
   - { label: "f-droid", url: "https://f-droid.org/packages/dev.konraditurbe.osmosis/" }

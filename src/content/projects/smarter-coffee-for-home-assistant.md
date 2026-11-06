@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Claude Code for protocol research, implementation, tests and setup tooling. Earlier community reverse-engineering underneath."
 caveats: "Tested on Gen 1, firmware 22. Local commands have no authentication; lock down your network."
 evidenceNote: "Public project with a documented hardware test."
+repo: "gtgaute/ha-smartercoffee"
 links:
   - { label: "repo", url: "https://github.com/gtgaute/ha-smartercoffee" }
 reviewed: 2026-10-28

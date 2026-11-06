@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Built with Claude Code over about a day and a half, with a CLAUDE.md file as the project's running memory. The builder credits the QZ (qdomyos-zwift) project for the GlassOS motor-service access the app relies on."
 caveats: "Tested on one Commercial 2250 only; older iFit/ERU consoles won't work. Getting ADB on needs iFit's privileged mode, and recent builds ask for a customer-care response code. iFit's motor service listens on the whole Wi-Fi with a public client certificate, so anyone on the network can start the belt; keep the treadmill on a network you control. Removing iFit's eru app keeps ADB on after restarts. Netflix plays in SD (Widevine L3), the tablet is slow and there is no Google Play, so apps are sideloaded. Can void the warranty, and a factory reset or iFit update can undo it. The safety key and Stop button stay the real way to stop."
 evidenceNote: "Public MIT repo with setup, safety notes and an undo section + builder's Reddit post. One machine."
+repo: "Crawler757/treadmill-home"
 links:
   - { label: "repo", url: "https://github.com/Crawler757/treadmill-home" }
 reviewed: 2026-11-03

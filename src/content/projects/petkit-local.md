@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README says \"Most of the code was written with an LLM\" and names no model. The protocol meaning came from the builder's own packet captures and from strings and functions in the firmware."
 caveats: "Five models confirmed; others are listed as should-work or untested. The builder notes that confirmed is not the same as complete, and the code grades each protocol fact as confirmed, inferred, unverified or conflicted. Patching a device changes its certificate trust and streaming settings."
 evidenceNote: "Public GPL-3.0 repo. New."
+repo: "alex-so-3/petkit-local"
 links:
   - { label: "repo", url: "https://github.com/alex-so-3/petkit-local" }
 reviewed: 2026-11-04

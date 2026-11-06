@@ -18,6 +18,9 @@ const projects = defineCollection({
     aiRole: z.string(),
     caveats: z.string(),
     evidenceNote: z.string(),
+    // The entry's own GitHub repo as "owner/name". Its star count shows on the
+    // site (scripts/stars.mjs). Leave it out when there is no single repo.
+    repo: z.string().regex(/^[\w.-]+\/[\w.-]+$/).optional(),
     links: z.array(z.object({ label: z.string(), url: z.string().url() })).min(1),
     reviewed: z.coerce.date(),
     // Who added the entry. "unshittify" for editorial entries; a member handle later.

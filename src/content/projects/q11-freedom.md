@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Commits are co-authored by Claude; the README does not describe the AI's role."
 caveats: "Never flashes firmware, so a factory reset returns the unit to stock. Wireless backhaul is experimental. Other Motorola mesh models untested. New and small."
 evidenceNote: "Public repo."
+repo: "ramirezjhulian7/motorola-q11-freedom"
 links:
   - { label: "repo", url: "https://github.com/ramirezjhulian7/motorola-q11-freedom" }
 reviewed: 2026-10-29

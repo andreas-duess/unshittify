@@ -9,6 +9,7 @@ evidence: public
 aiRole: "GLM 5.3 Flash in Z Code, about 300M tokens across parallel sessions: one agent did recon and root, another the launcher. The post is labelled AI-assisted and the repo has an AGENTS.md."
 caveats: "One model and firmware. The boot hook needs a physical unplug to run. The local bridge has no authentication. Ad blocking by firewall rules is still to come. The write-up is a live log from late October 2026."
 evidenceNote: "Public code + creator post + HN thread."
+repo: "carteakey/alvidaa"
 links:
   - { label: "creator post", url: "https://carteakey.dev/blog/homelab/alvidaa/" }
   - { label: "repo", url: "https://github.com/carteakey/alvidaa" }

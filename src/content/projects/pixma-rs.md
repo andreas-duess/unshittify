@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Claude Code for protocol analysis and the Rust implementation. Owner supplied packet captures and tested."
 caveats: "G3010 is the tested model. Other G-series machines are not automatically covered. Check current macOS requirements."
 evidenceNote: "Public project + development write-up."
+repo: "pdrgds/pixma-rs"
 links:
   - { label: "repo", url: "https://github.com/pdrgds/pixma-rs" }
   - { label: "creator post", url: "https://www.reddit.com/r/ClaudeCode/comments/1sgqsug/i_used_claude_code_to_reverseengineer_a/" }

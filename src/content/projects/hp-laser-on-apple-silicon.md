@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Claude Code assisted. The fix adapts existing SpliX code rather than writing a driver from scratch."
 caveats: "Follow the exact model and macOS list in the repo. It fixes Mac compatibility. Ink and subscriptions are untouched."
 evidenceNote: "Public project with install and compatibility docs."
+repo: "Kuberwastaken/hp-laser-1008a-macos"
 links:
   - { label: "repo", url: "https://github.com/Kuberwastaken/hp-laser-1008a-macos" }
 reviewed: 2026-10-28

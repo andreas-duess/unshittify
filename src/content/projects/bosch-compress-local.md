@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented in the repo or commits."
 caveats: "Tested on one installation and one IP module firmware (04.08.02). Other Bosch and IVT systems on the same protocol may work but are unverified. It controls heating equipment: check safety-critical behaviour at the appliance. Schedules and holiday settings are read-only. Needs Home Assistant 2026.8.3 or newer."
 evidenceNote: "Public MIT repo with changelog + builder's X post."
+repo: "jarkkosyrjala/bosch-compress-local"
 links:
   - { label: "repo", url: "https://github.com/jarkkosyrjala/bosch-compress-local" }
   - { label: "post", url: "https://x.com/JarSyr/status/2093360270957506870" }

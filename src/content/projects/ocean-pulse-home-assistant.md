@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented in the repo."
 caveats: "Still cloud-based: it polls the Ocean Pulse service, a third party, not the car. Needs an Ocean Pulse device fitted to the car. Beta; the builder has run it since mid-October 2026. Controls are not fully implemented. Entity names and sensor IDs changed when the integration was renamed from My Fisker in June 2026."
 evidenceNote: "Public Apache-2.0 repo, installable via HACS."
+repo: "MichaelOE/homeassistant-ocean_pulse"
 links:
   - { label: "repo", url: "https://github.com/MichaelOE/homeassistant-ocean_pulse" }
 reviewed: 2026-11-04

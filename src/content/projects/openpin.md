@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "No AI use documented in building it. The revived Pin runs an AI assistant, which is the product, not how it was made."
 caveats: "Installing still needs a DIY interposer: a small pogo-pin USB board ordered from a PCB maker and a 3D-printed cradle. No commits since May 2025. Humane warned owners to stop using the Pin's charging case over a fire risk."
 evidenceNote: "Public code + hardware files, press coverage."
+repo: "MaxMaeder/OpenPin"
 links:
   - { label: "site", url: "https://openpin.org/" }
   - { label: "repo", url: "https://github.com/MaxMaeder/OpenPin" }

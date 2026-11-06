@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The builder on HN: he used Claude to make a macOS driver for an engraver that only ever worked with Windows. Claude is co-author on 27 of 55 commits."
 caveats: "The installer isn't notarised. The protocol code started as a port of LibLaserCut."
 evidenceNote: "Public code with signed releases + HN comment."
+repo: "leftouterjoins/EpilogDriver"
 links:
   - { label: "repo", url: "https://github.com/leftouterjoins/EpilogDriver" }
   - { label: "hn", url: "https://news.ycombinator.com/item?id=49355548" }

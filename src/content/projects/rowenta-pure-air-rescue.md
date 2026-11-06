@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. The commit history lists Claude as co-author on all 10 commits."
 caveats: "Mains appliance; soldering required. 2.4 GHz only. The timer and filter buttons aren't visible to the new firmware. Voice control goes through the Sinric Pro cloud. Same-board models are untested. An earlier, separate project did the same for the PU6080F0 XL."
 evidenceNote: "Public code, running on the builder's unit."
+repo: "acvx93/rowenta-pure-air-cloud-rescue"
 links:
   - { label: "repo", url: "https://github.com/acvx93/rowenta-pure-air-cloud-rescue" }
   - { label: "earlier pu6080 project", url: "https://github.com/vpxavier/rowenta-esp32-mqtt-bridge" }

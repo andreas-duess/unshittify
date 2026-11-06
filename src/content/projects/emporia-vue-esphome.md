@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented."
 caveats: "Mains electricity: never flash the board while it is connected to the panel. Flashing means opening the monitor and wiring a serial adapter to TX, RX and GPIO0. Replaces Emporia's firmware, so the Emporia app stops working."
 evidenceNote: "Public ESPHome fork, about 800 stars, with a flashing tutorial. Maintained since 2021."
+repo: "emporia-vue-local/esphome"
 links:
   - { label: "repo", url: "https://github.com/emporia-vue-local/esphome" }
   - { label: "tutorial", url: "https://emporia-vue-local.github.io/docs/tutorial/intro" }

@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. All 8 commits carry a Claude co-author line."
 caveats: "Every press is reported as a single press; double and long presses aren't told apart. Builds on earlier bridge and plugin work. No creator post."
 evidenceNote: "Public code."
+repo: "andy911850/ha-logi-pop"
 links:
   - { label: "repo", url: "https://github.com/andy911850/ha-logi-pop" }
 reviewed: 2026-10-31

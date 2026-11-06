@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI use documented."
 caveats: "The maintainers can't assure it works on every JuiceBox version, and not every firmware has telnet. Charger and proxy need static IPs. The offline max current is written to EEPROM, so don't change it often, and setting 0 A repeatedly may wear the contactor. Stay within your circuit's limits."
 evidenceNote: "Public Apache-2.0 repo + coverage of the shutdown."
+repo: "JuiceRescue/juicepassproxy"
 links:
   - { label: "repo", url: "https://github.com/JuiceRescue/juicepassproxy" }
   - { label: "insideevs", url: "https://insideevs.com/news/736041/enel-x-juicebox-discontinued/" }

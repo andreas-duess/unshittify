@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Claude on the redevelopment, alongside weeks of human investigation, hardware recovery and testing."
 caveats: "Expect weeks of work. Creator reports end-to-end function. Restored sleep scores are not medically validated."
 evidenceNote: "Detailed write-up + public code."
+repo: "josephspurrier/hello-sense"
 links:
   - { label: "write-up", url: "https://www.josephspurrier.com/ai-revives-a-dead-sleep-company" }
   - { label: "repo", url: "https://github.com/josephspurrier/hello-sense" }

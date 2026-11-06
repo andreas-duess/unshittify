@@ -9,6 +9,7 @@ evidence: public
 aiRole: "No AI involvement documented."
 caveats: "Needs the device reflashed. No mobile app; apps are managed in a web UI. Built-in apps that rely on Tidbyt's cloud have limited support."
 evidenceNote: "Public repo."
+repo: "tronbyt/server"
 links:
   - { label: "repo", url: "https://github.com/tronbyt/server" }
 reviewed: 2026-10-29

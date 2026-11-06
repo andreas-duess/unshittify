@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The maintainer's recent commits, including a kernel CVE fix, carry Co-Authored-By: Claude trailers. The project ran for more than a decade before that."
 caveats: "Check your exact model; older routers have a final build, e.g. RT-AC68U and RT-AC86U on 386.14_2, RT-N66U on 380.70. Flashing third-party firmware can void the warranty."
 evidenceNote: "Public GPL-based code, about 6,300 stars, maintained since 2012."
+repo: "RMerl/asuswrt-merlin.ng"
 links:
   - { label: "site", url: "https://www.asuswrt-merlin.net/" }
   - { label: "repo", url: "https://github.com/RMerl/asuswrt-merlin.ng" }

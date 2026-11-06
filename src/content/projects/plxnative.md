@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Ghidra with Claude Code and Opus to reverse engineer LG's native media libraries; Claude Code, Opus, Fable and Codex for implementation, debugging, tests and review. He says the agent's code needed heavy architecture refactoring."
 caveats: "Video won't play on some 2019 sets with LG's k5lp or k3lp chips in Developer Mode. Developer Mode needs renewing or LG removes the apps. Nightly builds are untested on a TV. Unofficial; not affiliated with Plex or LG."
 evidenceNote: "Public project (1.1K stars) + creator account."
+repo: "GLinnik21/plx-native"
 links:
   - { label: "repo", url: "https://github.com/GLinnik21/plx-native" }
   - { label: "site", url: "https://plxnative.com" }

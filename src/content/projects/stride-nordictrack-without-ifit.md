@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The creator says about 90% was coded with Claude Code, which also helped decode the FitPro serial protocol between console and motor board."
 caveats: "Confirmed on one machine; other Gen 6 NordicTrack and ProForm consoles are likely but untested, and reports say the Gen 7 update closes the route. Likely voids the console warranty. A factory reset restores iFit. The physical safety key still cuts the motor."
 evidenceNote: "Public repo with signed releases + creator write-up."
+repo: "keranm/strideApp"
 links:
   - { label: "repo", url: "https://github.com/keranm/strideApp" }
   - { label: "write-up", url: "https://theidea.works/blog/jailbreak-nordictrack-treadmill/" }

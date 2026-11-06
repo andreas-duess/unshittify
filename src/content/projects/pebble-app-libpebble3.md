@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The repo has a CLAUDE.md, and recent commits carry Co-Authored-By: Claude trailers."
 caveats: "GPL-3.0, with a paid commercial licence option from Core Devices. Core Devices is a company, not a community project."
 evidenceNote: "Public repo, about 940 stars, very active."
+repo: "coredevices/libpebble3"
 links:
   - { label: "repo", url: "https://github.com/coredevices/libpebble3" }
 reviewed: 2026-11-04

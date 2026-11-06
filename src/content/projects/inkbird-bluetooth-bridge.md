@@ -8,6 +8,7 @@ evidence: public
 aiRole: "The README credits \"significant collaboration from Claude\". The hardest part, a two-stage CRC chain, was cracked with help from a decompile of the Android app."
 caveats: "Alarm channels and several settings reports are logged but not parsed. No Wi-Fi path. Only one Bluetooth connection at a time, so the phone app can't connect while the bridge does."
 evidenceNote: "Public project; the creator reports weeks of daily use."
+repo: "paul43210/inkbird-bw-ble"
 links:
   - { label: "repo", url: "https://github.com/paul43210/inkbird-bw-ble" }
 reviewed: 2026-10-28

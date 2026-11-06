@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. The commit history lists Claude as co-author on 5 of 72 commits."
 caveats: "Needs a router that can override DNS and redirect traffic. A factory-reset base needs files extracted from your own unit. No creator post. Earlier prior art exists (gelee). The newer camera model is still research."
 evidenceNote: "Public code."
+repo: "AidenShaw2020/gigaset_elements_emulator"
 links:
   - { label: "repo", url: "https://github.com/AidenShaw2020/gigaset_elements_emulator" }
   - { label: "camera repo", url: "https://github.com/AidenShaw2020/gigaset_elements_camera" }

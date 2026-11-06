@@ -8,6 +8,7 @@ evidence: public
 aiRole: "Claude Code, on top of node-sonos-http-api and Sonos's local control."
 caveats: "Official app still needed for firmware updates and some services. Noncommercial licence."
 evidenceNote: "Public project + creator account."
+repo: "tonypest0/sonos-controller"
 links:
   - { label: "repo", url: "https://github.com/tonypest0/sonos-controller" }
   - { label: "creator post", url: "https://www.reddit.com/r/sonos/comments/1s2qff8/i_used_claude_code_to_build_a_custom_sonos_arc/" }

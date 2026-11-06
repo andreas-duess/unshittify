@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Not stated by the author. One of 1,816 commits, by an outside contributor, carries a Claude co-author line."
 caveats: "Needs a bootloader unlock through the existing amonet exploit; no Echo made after 2021 has a public unlock. Show 5 owners need to raise their voice over music. The author calls it a hobby project, not a product."
 evidenceNote: "Public code (490 stars) + HN thread + HA forum thread."
+repo: "HuskerMinion/techo5"
 links:
   - { label: "repo", url: "https://github.com/HuskerMinion/techo5" }
   - { label: "hn", url: "https://news.ycombinator.com/item?id=49869865" }

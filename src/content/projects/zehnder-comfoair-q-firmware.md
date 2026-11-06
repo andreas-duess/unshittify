@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "The builder says \"the code itself was typed by Claude Code.\" Their part: deciding what the device should and must never do, reviewing the analysis, wiring the board and checking it against the real unit."
 caveats: "Version 0.1.0; the README says nothing has been accepted on a real ComfoAir Q yet, and the builder's own hardware checklist is unfinished. Means wiring into the unit's CAN bus. No TLS to the MQTT broker; 2.4 GHz Wi-Fi only."
 evidenceNote: "Public MIT repo + builder's Home Assistant forum post."
+repo: "blade-running-man/zehnder-comfoair-q-firmware"
 links:
   - { label: "repo", url: "https://github.com/blade-running-man/zehnder-comfoair-q-firmware" }
   - { label: "forum post", url: "https://community.home-assistant.io/t/i-wrote-my-own-firmware-for-my-zehnder-comfoair-unit-well-my-own-well-wrote/1029339" }

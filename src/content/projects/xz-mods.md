@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "Mostly Codex and Claude Code. Both sometimes refused work they saw as reverse engineering, so he also used Gemini."
 caveats: "Experimental and still buggy. Four-deck mode broke audio routing. Stems need the same USB setup as the CDJ mod that uses OverCue. The stem builder is a beta and not hardware-qualified."
 evidenceNote: "Public experimental project + creator account."
+repo: "OpticMystic/XZ-Mods"
 links:
   - { label: "repo", url: "https://github.com/OpticMystic/XZ-Mods" }
   - { label: "site", url: "https://vj.tools/xz-mods" }

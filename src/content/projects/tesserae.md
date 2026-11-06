@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README says it was built with Claude Code; the builder owns architecture, code review, hardware testing and what ships. Commits carry Claude co-author trailers. Tesserae also has an MCP API so an agent can build and push pages."
 caveats: "25 panels verified on hardware; check yours first. Its own firmware covers the reTerminal E-Series and XIAO ePaper, flashed from Chrome or Edge. The hosted cloud isn't open yet, and dashboards made there would need recreating on a self-hosted server. Seeed supplied sample hardware and some Seeed links are affiliate links."
 evidenceNote: "Public AGPL-3.0 repo, docs, firmware repo + builder's X post."
+repo: "dmellok/tesserae"
 links:
   - { label: "site", url: "https://tesserae.ink/" }
   - { label: "repo", url: "https://github.com/dmellok/tesserae" }

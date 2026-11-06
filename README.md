@@ -19,6 +19,14 @@ The body is the write-up. The log shows its first paragraph; the project page sh
 
 Categories, evidence labels, snapshot date and the submit address: `src/lib/meta.ts`.
 
+## GitHub stars
+
+`repo: "owner/name"` in an entry's frontmatter names its own GitHub repo. Leave it out when there is no single repo.
+`node scripts/stars.mjs` fetches the star counts (token from `GITHUB_TOKEN` or `gh auth token`) into `src/data/stars.json`
+and adds a dated snapshot to `src/data/stars-history.json`. `deploy.sh` runs it before every build; if GitHub fails it keeps
+the old counts. The counts show on each row, in each entry's fields, in the "most starred" list and in projects.json/csv.
+Commit both data files so the history builds up.
+
 ## Hosting
 
 Cloudflare Worker with static assets, andreas@duess.com Cloudflare account. `wrangler.jsonc` holds the config.

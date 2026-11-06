@@ -9,6 +9,7 @@ evidence: public
 aiRole: "The README doesn't mention AI. Claude is co-author on 17 of 151 commits and author of 11 more."
 caveats: "Low profile; no creator post."
 evidenceNote: "Public code."
+repo: "mertemr/chsmartbulb"
 links:
   - { label: "repo", url: "https://github.com/mertemr/chsmartbulb" }
 reviewed: 2026-10-31

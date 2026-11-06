@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Coding agents for investigation and the dashboard build."
 caveats: "Lookalike frames ship different internals. Some mods need advanced device access. Repo uses sample data; wiring in real calendars and inboxes is on you, along with the security of doing so."
 evidenceNote: "Walkthrough, video, public code."
+repo: "wesbos/photo-frame-dashboard"
 links:
   - { label: "write-up", url: "https://wesbos.com/hacking-smart-photo-frames" }
   - { label: "repo", url: "https://github.com/wesbos/photo-frame-dashboard" }

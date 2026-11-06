@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Claude Code ran the job: an Opus session drove the hardware, a Sonnet subagent built the code, and separate Opus subagents audited each step. Nothing was flashed until an audit passed. The README says so."
 caveats: "Proven on one unit. Bluetooth, audio, IR, microSD and video decoding are not verified. Memory settings are hard-coded for this board; other H616 boxes aren't supported. One failure state has no software recovery."
 evidenceNote: "Public code + Reddit post."
+repo: "itsmeorestis/dq10-h616-linux"
 links:
   - { label: "repo", url: "https://github.com/itsmeorestis/dq10-h616-linux" }
   - { label: "reddit", url: "https://www.reddit.com/r/ClaudeCode/comments/1xjtuwx/" }

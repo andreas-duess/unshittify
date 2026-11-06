@@ -9,6 +9,7 @@ evidence: experimental
 aiRole: "No AI use documented in the repo or commits. The protocol code is a GPL port of openScale's Huawei handler."
 caveats: "Version 0.3.0. One real scale reading has gone through the manual profile flow; profile confirmation, household automations and the SparkyFitness export are not yet validated on hardware. Bluetooth proxies unverified. The scale takes one connection, so keep Huawei Health disconnected. Needs Home Assistant 2026.10 or newer. Gives weight, body fat and impedance only; no derived metrics."
 evidenceNote: "Public GPL-3.0 repo, installable via HACS. Builder's X post."
+repo: "frankbrg/huawei-ah100"
 links:
   - { label: "repo", url: "https://github.com/frankbrg/huawei-ah100" }
   - { label: "openscale", url: "https://github.com/oliexdev/openScale" }

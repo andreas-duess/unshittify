@@ -9,6 +9,7 @@ evidence: public
 aiRole: "Commits are co-authored by GitHub Copilot; the README does not describe the AI's role."
 caveats: "Works only on that one firmware build; later i.MX8 units are not supported. An optional privileged helper uses a device-specific flaw, and recovery may need Qualcomm EDL mode. Keep your own backup of the factory app."
 evidenceNote: "Public repo + press coverage."
+repo: "TimStewartJ/lululemon-mirror-repurpose"
 links:
   - { label: "repo", url: "https://github.com/TimStewartJ/lululemon-mirror-repurpose" }
   - { label: "404 media", url: "https://www.404media.co/reverse-engineer-anything-is-the-new-wild-west-of-ai/" }
