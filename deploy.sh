@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 export CLOUDFLARE_API_TOKEN="$(cat ~/.config/secrets/CLOUDFLARE_UNSHITTIFY_API_TOKEN)"
 export CLOUDFLARE_ACCOUNT_ID=881f712a188eb3e93945c5afbff783e3
-node scripts/stars.mjs   # refresh GitHub star counts; never fails the deploy
+node scripts/github.mjs   # refresh stars, releases and the activity feed; never fails the deploy
 npm run build
 case "${1:-}" in
   preview) npx wrangler deploy --env preview ;;

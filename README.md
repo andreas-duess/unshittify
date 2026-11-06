@@ -22,10 +22,13 @@ Categories, evidence labels, snapshot date and the submit address: `src/lib/meta
 ## GitHub stars
 
 `repo: "owner/name"` in an entry's frontmatter names its own GitHub repo. Leave it out when there is no single repo.
-`node scripts/stars.mjs` fetches the star counts (token from `GITHUB_TOKEN` or `gh auth token`) into `src/data/stars.json`
-and adds a dated snapshot to `src/data/stars-history.json`. `deploy.sh` runs it before every build; if GitHub fails it keeps
-the old counts. The counts show on each row, in each entry's fields, in the "most starred" list and in projects.json/csv.
-Commit both data files so the history builds up.
+`node scripts/github.mjs` (token from `GITHUB_TOKEN` or `gh auth token`) writes three files in `src/data/`:
+
+- `stars.json`: current stars, archived flag and last push per repo. Shown on each row, in each entry's fields, in the "most starred" list and in projects.json/csv.
+- `stars-history.json`: one snapshot of star counts per day.
+- `activity.json`: the activity feed (homepage section 02, `/activity/`, `/activity.xml`). Events: new entries (date the file first landed in git), releases of listed repos (last 90 days, no pre-releases), star milestones (100, 250, 500, 1k, 2.5k, 5k, 10k, ...; crossed between two daily snapshots) and repos that became archived. New events merge into the old ones, so nothing drops off.
+
+`deploy.sh` runs it before every build; if GitHub fails it keeps the old files. Commit all three so the history builds up.
 
 ## Hosting
 

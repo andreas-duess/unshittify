@@ -1,0 +1,1661 @@
+{
+ "updated": "2026-11-06",
+ "events": [
+  {
+   "key": "release:filipeamorimdev/home-assistant-creality:v0.1.1",
+   "type": "release",
+   "date": "2026-11-06",
+   "slug": "creality-home-assistant-local",
+   "tag": "v0.1.1",
+   "url": "https://github.com/filipeamorimdev/home-assistant-creality/releases/tag/v0.1.1"
+  },
+  {
+   "key": "release:HuskerMinion/techo5:v1.6.27",
+   "type": "release",
+   "date": "2026-11-06",
+   "slug": "techo5-echo-show",
+   "tag": "v1.6.27",
+   "url": "https://github.com/HuskerMinion/techo5/releases/tag/v1.6.27"
+  },
+  {
+   "key": "release:pybricks/pybricks-micropython:v4.1.3",
+   "type": "release",
+   "date": "2026-11-06",
+   "slug": "pybricks",
+   "tag": "v4.1.3",
+   "url": "https://github.com/pybricks/pybricks-micropython/releases/tag/v4.1.3"
+  },
+  {
+   "key": "release:Gathin23/cleanyourtv:v3.4.0",
+   "type": "release",
+   "date": "2026-11-05",
+   "slug": "clean-your-tv",
+   "tag": "v3.4.0",
+   "url": "https://github.com/Gathin23/cleanyourtv/releases/tag/v3.4.0"
+  },
+  {
+   "key": "release:humblemuzzu/dumbtv:launcher-v1.8",
+   "type": "release",
+   "date": "2026-11-05",
+   "slug": "dumbtv",
+   "tag": "launcher-v1.8",
+   "url": "https://github.com/humblemuzzu/dumbtv/releases/tag/launcher-v1.8"
+  },
+  {
+   "key": "release:HuskerMinion/techo5:v1.6.26",
+   "type": "release",
+   "date": "2026-11-05",
+   "slug": "techo5-echo-show",
+   "tag": "v1.6.26",
+   "url": "https://github.com/HuskerMinion/techo5/releases/tag/v1.6.26"
+  },
+  {
+   "key": "release:themactep/thingino-firmware:firmware-2026-11-05",
+   "type": "release",
+   "date": "2026-11-05",
+   "slug": "thingino",
+   "tag": "firmware-2026-11-05",
+   "url": "https://github.com/themactep/thingino-firmware/releases/tag/firmware-2026-11-05"
+  },
+  {
+   "key": "release:Bretteroo/Sonora:v1.2.0",
+   "type": "release",
+   "date": "2026-11-04",
+   "slug": "sonora",
+   "tag": "v1.2.0",
+   "url": "https://github.com/Bretteroo/Sonora/releases/tag/v1.2.0"
+  },
+  {
+   "key": "release:HuskerMinion/techo5:v1.6.24",
+   "type": "release",
+   "date": "2026-11-04",
+   "slug": "techo5-echo-show",
+   "tag": "v1.6.24",
+   "url": "https://github.com/HuskerMinion/techo5/releases/tag/v1.6.24"
+  },
+  {
+   "key": "release:HuskerMinion/techo5:v1.6.25",
+   "type": "release",
+   "date": "2026-11-04",
+   "slug": "techo5-echo-show",
+   "tag": "v1.6.25",
+   "url": "https://github.com/HuskerMinion/techo5/releases/tag/v1.6.25"
+  },
+  {
+   "key": "release:KristianP26/ble-scale-sync:v1.39.1",
+   "type": "release",
+   "date": "2026-11-04",
+   "slug": "ble-scale-sync",
+   "tag": "v1.39.1",
+   "url": "https://github.com/KristianP26/ble-scale-sync/releases/tag/v1.39.1"
+  },
+  {
+   "key": "added:asahi-linux",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "asahi-linux"
+  },
+  {
+   "key": "added:asuswrt-merlin",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "asuswrt-merlin"
+  },
+  {
+   "key": "added:ble-scale-sync",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "ble-scale-sync"
+  },
+  {
+   "key": "added:bluetti-ep760-local",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "bluetti-ep760-local"
+  },
+  {
+   "key": "added:bosch-compress-local",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "bosch-compress-local"
+  },
+  {
+   "key": "added:creality-home-assistant-local",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "creality-home-assistant-local"
+  },
+  {
+   "key": "added:docker-wyze-bridge",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "docker-wyze-bridge"
+  },
+  {
+   "key": "added:emporia-vue-esphome",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "emporia-vue-esphome"
+  },
+  {
+   "key": "added:felicity-battery-modbus",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "felicity-battery-modbus"
+  },
+  {
+   "key": "added:fisker-owners-association",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "fisker-owners-association"
+  },
+  {
+   "key": "added:huawei-ah100-local",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "huawei-ah100-local"
+  },
+  {
+   "key": "added:huawei-solar-modbus",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "huawei-solar-modbus"
+  },
+  {
+   "key": "added:juicepassproxy",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "juicepassproxy"
+  },
+  {
+   "key": "added:kindshare",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "kindshare"
+  },
+  {
+   "key": "added:librescoot",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "librescoot"
+  },
+  {
+   "key": "added:linux-android",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "linux-android"
+  },
+  {
+   "key": "added:lyrion-music-server",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "lyrion-music-server"
+  },
+  {
+   "key": "added:micimike-home-mini",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "micimike-home-mini"
+  },
+  {
+   "key": "added:ocean-pulse-home-assistant",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "ocean-pulse-home-assistant"
+  },
+  {
+   "key": "added:openpin",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "openpin"
+  },
+  {
+   "key": "added:openwrt",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "openwrt"
+  },
+  {
+   "key": "added:ovms",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "ovms"
+  },
+  {
+   "key": "added:pebble-app-libpebble3",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "pebble-app-libpebble3"
+  },
+  {
+   "key": "added:petkit-local",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "petkit-local"
+  },
+  {
+   "key": "added:pybricks",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "pybricks"
+  },
+  {
+   "key": "added:sonora",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "sonora"
+  },
+  {
+   "key": "added:tesserae",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "tesserae"
+  },
+  {
+   "key": "added:thingino",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "thingino"
+  },
+  {
+   "key": "added:zehnder-comfoair-q-firmware",
+   "type": "added",
+   "date": "2026-11-04",
+   "slug": "zehnder-comfoair-q-firmware"
+  },
+  {
+   "key": "release:carteakey/alvidaa:v1.0",
+   "type": "release",
+   "date": "2026-11-03",
+   "slug": "alvidaa-hisense-vidaa",
+   "tag": "v1.0",
+   "url": "https://github.com/carteakey/alvidaa/releases/tag/v1.0"
+  },
+  {
+   "key": "release:humblemuzzu/dumbtv:launcher-v1.7",
+   "type": "release",
+   "date": "2026-11-03",
+   "slug": "dumbtv",
+   "tag": "launcher-v1.7",
+   "url": "https://github.com/humblemuzzu/dumbtv/releases/tag/launcher-v1.7"
+  },
+  {
+   "key": "release:HuskerMinion/techo5:v1.6.23",
+   "type": "release",
+   "date": "2026-11-03",
+   "slug": "techo5-echo-show",
+   "tag": "v1.6.23",
+   "url": "https://github.com/HuskerMinion/techo5/releases/tag/v1.6.23"
+  },
+  {
+   "key": "release:skinnie/sommet:v0.2.57",
+   "type": "release",
+   "date": "2026-11-03",
+   "slug": "sommet",
+   "tag": "v0.2.57",
+   "url": "https://github.com/skinnie/sommet/releases/tag/v0.2.57"
+  },
+  {
+   "key": "release:skinnie/sommet:v0.2.58",
+   "type": "release",
+   "date": "2026-11-03",
+   "slug": "sommet",
+   "tag": "v0.2.58",
+   "url": "https://github.com/skinnie/sommet/releases/tag/v0.2.58"
+  },
+  {
+   "key": "release:skinnie/sommet:v0.2.59",
+   "type": "release",
+   "date": "2026-11-03",
+   "slug": "sommet",
+   "tag": "v0.2.59",
+   "url": "https://github.com/skinnie/sommet/releases/tag/v0.2.59"
+  },
+  {
+   "key": "added:treadmill-home-nordictrack-glassos",
+   "type": "added",
+   "date": "2026-11-03",
+   "slug": "treadmill-home-nordictrack-glassos"
+  },
+  {
+   "key": "release:filipeamorimdev/home-assistant-creality:v0.1.0",
+   "type": "release",
+   "date": "2026-11-02",
+   "slug": "creality-home-assistant-local",
+   "tag": "v0.1.0",
+   "url": "https://github.com/filipeamorimdev/home-assistant-creality/releases/tag/v0.1.0"
+  },
+  {
+   "key": "release:KristianP26/ble-scale-sync:v1.39.0",
+   "type": "release",
+   "date": "2026-11-02",
+   "slug": "ble-scale-sync",
+   "tag": "v1.39.0",
+   "url": "https://github.com/KristianP26/ble-scale-sync/releases/tag/v1.39.0"
+  },
+  {
+   "key": "release:themactep/thingino-firmware:firmware-2026-11-02",
+   "type": "release",
+   "date": "2026-11-02",
+   "slug": "thingino",
+   "tag": "firmware-2026-11-02",
+   "url": "https://github.com/themactep/thingino-firmware/releases/tag/firmware-2026-11-02"
+  },
+  {
+   "key": "release:toniebox-reverse-engineering/teddycloud:tc_v0.7.1",
+   "type": "release",
+   "date": "2026-11-02",
+   "slug": "teddycloud-toniebox",
+   "tag": "tc_v0.7.1",
+   "url": "https://github.com/toniebox-reverse-engineering/teddycloud/releases/tag/tc_v0.7.1"
+  },
+  {
+   "key": "release:crosspoint-reader/crosspoint-reader:2.0.0",
+   "type": "release",
+   "date": "2026-11-01",
+   "slug": "crosspoint-reader",
+   "tag": "2.0.0",
+   "url": "https://github.com/crosspoint-reader/crosspoint-reader/releases/tag/2.0.0"
+  },
+  {
+   "key": "release:Gathin23/cleanyourtv:v3.3.0",
+   "type": "release",
+   "date": "2026-11-01",
+   "slug": "clean-your-tv",
+   "tag": "v3.3.0",
+   "url": "https://github.com/Gathin23/cleanyourtv/releases/tag/v3.3.0"
+  },
+  {
+   "key": "release:MichaelOE/homeassistant-ocean_pulse:v1.1.0",
+   "type": "release",
+   "date": "2026-11-01",
+   "slug": "ocean-pulse-home-assistant",
+   "tag": "v1.1.0",
+   "url": "https://github.com/MichaelOE/homeassistant-ocean_pulse/releases/tag/v1.1.0"
+  },
+  {
+   "key": "release:MichaelOE/homeassistant-ocean_pulse:v1.1.1",
+   "type": "release",
+   "date": "2026-11-01",
+   "slug": "ocean-pulse-home-assistant",
+   "tag": "v1.1.1",
+   "url": "https://github.com/MichaelOE/homeassistant-ocean_pulse/releases/tag/v1.1.1"
+  },
+  {
+   "key": "added:alvidaa-hisense-vidaa",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "alvidaa-hisense-vidaa"
+  },
+  {
+   "key": "added:avermedia-game-capture-hd2",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "avermedia-game-capture-hd2"
+  },
+  {
+   "key": "added:bgh-smart-control-local",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "bgh-smart-control-local"
+  },
+  {
+   "key": "added:briturn-google-home",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "briturn-google-home"
+  },
+  {
+   "key": "added:car-head-unit-cleanup",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "car-head-unit-cleanup"
+  },
+  {
+   "key": "added:chsmartbulb",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "chsmartbulb"
+  },
+  {
+   "key": "added:dq10-tv-stick-linux",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "dq10-tv-stick-linux"
+  },
+  {
+   "key": "added:epilog-zing-macos",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "epilog-zing-macos"
+  },
+  {
+   "key": "added:gigaset-elements-local",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "gigaset-elements-local"
+  },
+  {
+   "key": "added:handycam-rs",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "handycam-rs"
+  },
+  {
+   "key": "added:insta360-wave-open-firmware",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "insta360-wave-open-firmware"
+  },
+  {
+   "key": "added:litter-robot-esphome",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "litter-robot-esphome"
+  },
+  {
+   "key": "added:logi-pop-no-hub",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "logi-pop-no-hub"
+  },
+  {
+   "key": "added:niimbot-b1-any-label",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "niimbot-b1-any-label"
+  },
+  {
+   "key": "added:onemeter-local",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "onemeter-local"
+  },
+  {
+   "key": "added:openneato",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "openneato"
+  },
+  {
+   "key": "added:openv7-numark",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "openv7-numark"
+  },
+  {
+   "key": "added:qardiobase-ble",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "qardiobase-ble"
+  },
+  {
+   "key": "added:r2d2-lg-webos",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "r2d2-lg-webos"
+  },
+  {
+   "key": "added:rowenta-pure-air-rescue",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "rowenta-pure-air-rescue"
+  },
+  {
+   "key": "added:smarter-ikettle-esphome",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "smarter-ikettle-esphome"
+  },
+  {
+   "key": "added:stories-client-ray-ban",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "stories-client-ray-ban"
+  },
+  {
+   "key": "added:techo5-echo-show",
+   "type": "added",
+   "date": "2026-11-01",
+   "slug": "techo5-echo-show"
+  },
+  {
+   "key": "release:MichaelOE/homeassistant-ocean_pulse:v1.0.9",
+   "type": "release",
+   "date": "2026-10-31",
+   "slug": "ocean-pulse-home-assistant",
+   "tag": "v1.0.9",
+   "url": "https://github.com/MichaelOE/homeassistant-ocean_pulse/releases/tag/v1.0.9"
+  },
+  {
+   "key": "release:Bretteroo/Sonora:v1.1.0",
+   "type": "release",
+   "date": "2026-10-30",
+   "slug": "sonora",
+   "tag": "v1.1.0",
+   "url": "https://github.com/Bretteroo/Sonora/releases/tag/v1.1.0"
+  },
+  {
+   "key": "release:skinnie/sommet:v0.2.56",
+   "type": "release",
+   "date": "2026-10-30",
+   "slug": "sommet",
+   "tag": "v0.2.56",
+   "url": "https://github.com/skinnie/sommet/releases/tag/v0.2.56"
+  },
+  {
+   "key": "release:Gathin23/cleanyourtv:v3.2.0",
+   "type": "release",
+   "date": "2026-10-29",
+   "slug": "clean-your-tv",
+   "tag": "v3.2.0",
+   "url": "https://github.com/Gathin23/cleanyourtv/releases/tag/v3.2.0"
+  },
+  {
+   "key": "release:KristianP26/ble-scale-sync:v1.38.0",
+   "type": "release",
+   "date": "2026-10-29",
+   "slug": "ble-scale-sync",
+   "tag": "v1.38.0",
+   "url": "https://github.com/KristianP26/ble-scale-sync/releases/tag/v1.38.0"
+  },
+  {
+   "key": "release:MichaelOE/homeassistant-ocean_pulse:v1.0.8",
+   "type": "release",
+   "date": "2026-10-29",
+   "slug": "ocean-pulse-home-assistant",
+   "tag": "v1.0.8",
+   "url": "https://github.com/MichaelOE/homeassistant-ocean_pulse/releases/tag/v1.0.8"
+  },
+  {
+   "key": "release:pybricks/pybricks-micropython:v4.1.2",
+   "type": "release",
+   "date": "2026-10-29",
+   "slug": "pybricks",
+   "tag": "v4.1.2",
+   "url": "https://github.com/pybricks/pybricks-micropython/releases/tag/v4.1.2"
+  },
+  {
+   "key": "release:skinnie/sommet:v0.2.55",
+   "type": "release",
+   "date": "2026-10-29",
+   "slug": "sommet",
+   "tag": "v0.2.55",
+   "url": "https://github.com/skinnie/sommet/releases/tag/v0.2.55"
+  },
+  {
+   "key": "added:bit-switch-wemo",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "bit-switch-wemo"
+  },
+  {
+   "key": "added:cbe-motorhome-panel-esphome",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "cbe-motorhome-panel-esphome"
+  },
+  {
+   "key": "added:crosspoint-reader",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "crosspoint-reader"
+  },
+  {
+   "key": "added:deskthing-car-thing",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "deskthing-car-thing"
+  },
+  {
+   "key": "added:echo-wall-clock-without-echo",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "echo-wall-clock-without-echo"
+  },
+  {
+   "key": "added:emaldo-battery-home-assistant",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "emaldo-battery-home-assistant"
+  },
+  {
+   "key": "added:foobot-local",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "foobot-local"
+  },
+  {
+   "key": "added:free-sleep-eight-sleep",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "free-sleep-eight-sleep"
+  },
+  {
+   "key": "added:futurehome-home-assistant",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "futurehome-home-assistant"
+  },
+  {
+   "key": "added:insignia-xbox-live",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "insignia-xbox-live"
+  },
+  {
+   "key": "added:kindle-claude-code",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "kindle-claude-code"
+  },
+  {
+   "key": "added:lululemon-mirror-repurpose",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "lululemon-mirror-repurpose"
+  },
+  {
+   "key": "added:mycoolman-home-assistant",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "mycoolman-home-assistant"
+  },
+  {
+   "key": "added:nolongerevil-nest-thermostat",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "nolongerevil-nest-thermostat"
+  },
+  {
+   "key": "added:openmoxie",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "openmoxie"
+  },
+  {
+   "key": "added:openstrap-edge-whoop",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "openstrap-edge-whoop"
+  },
+  {
+   "key": "added:penumbraos-humane-ai-pin",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "penumbraos-humane-ai-pin"
+  },
+  {
+   "key": "added:pretendo-network",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "pretendo-network"
+  },
+  {
+   "key": "added:project-july-june-oven",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "project-july-june-oven"
+  },
+  {
+   "key": "added:q11-freedom",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "q11-freedom"
+  },
+  {
+   "key": "added:ratgdo-garage-door",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "ratgdo-garage-door"
+  },
+  {
+   "key": "added:stride-nordictrack-without-ifit",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "stride-nordictrack-without-ifit"
+  },
+  {
+   "key": "added:sxs-k811-macro-pad-app",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "sxs-k811-macro-pad-app"
+  },
+  {
+   "key": "added:teddycloud-toniebox",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "teddycloud-toniebox"
+  },
+  {
+   "key": "added:tronbyt-tidbyt",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "tronbyt-tidbyt"
+  },
+  {
+   "key": "added:vacuula-neato",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "vacuula-neato"
+  },
+  {
+   "key": "added:wire-pod-vector",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "wire-pod-vector"
+  },
+  {
+   "key": "added:withings-body-plus-local",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "withings-body-plus-local"
+  },
+  {
+   "key": "added:xbloom-ble",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "xbloom-ble"
+  },
+  {
+   "key": "added:xiaomi-humidifier-esphome",
+   "type": "added",
+   "date": "2026-10-29",
+   "slug": "xiaomi-humidifier-esphome"
+  },
+  {
+   "key": "added:arn0",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "arn0"
+  },
+  {
+   "key": "added:audeze-maxwell-parametric-eq",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "audeze-maxwell-parametric-eq"
+  },
+  {
+   "key": "added:bose-soundtouch-revival",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "bose-soundtouch-revival"
+  },
+  {
+   "key": "added:cat-printer-no-stock-app",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "cat-printer-no-stock-app"
+  },
+  {
+   "key": "added:clean-your-tv",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "clean-your-tv"
+  },
+  {
+   "key": "added:dell-webcam-elgato-light-linux",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "dell-webcam-elgato-light-linux"
+  },
+  {
+   "key": "added:dumbtv",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "dumbtv"
+  },
+  {
+   "key": "added:ecoflow-delta-3-ups",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "ecoflow-delta-3-ups"
+  },
+  {
+   "key": "added:freedsp-studio",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "freedsp-studio"
+  },
+  {
+   "key": "added:ftape-modernized",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "ftape-modernized"
+  },
+  {
+   "key": "added:hello-sense-revival",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "hello-sense-revival"
+  },
+  {
+   "key": "added:hp-laser-on-apple-silicon",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "hp-laser-on-apple-silicon"
+  },
+  {
+   "key": "added:inkbird-bluetooth-bridge",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "inkbird-bluetooth-bridge"
+  },
+  {
+   "key": "added:kath-korevec-pp1",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "kath-korevec-pp1"
+  },
+  {
+   "key": "added:norman-shutters-home-assistant",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "norman-shutters-home-assistant"
+  },
+  {
+   "key": "added:omarchy",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "omarchy"
+  },
+  {
+   "key": "added:opensnek",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "opensnek"
+  },
+  {
+   "key": "added:opticfilm-8200i-linux",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "opticfilm-8200i-linux"
+  },
+  {
+   "key": "added:osmosis-dji-osmo",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "osmosis-dji-osmo"
+  },
+  {
+   "key": "added:personal-sonos-controller",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "personal-sonos-controller"
+  },
+  {
+   "key": "added:photo-frame-dashboard",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "photo-frame-dashboard"
+  },
+  {
+   "key": "added:pixma-rs",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "pixma-rs"
+  },
+  {
+   "key": "added:plxnative",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "plxnative"
+  },
+  {
+   "key": "added:respira",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "respira"
+  },
+  {
+   "key": "added:roborock-local-server",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "roborock-local-server"
+  },
+  {
+   "key": "added:smarter-coffee-for-home-assistant",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "smarter-coffee-for-home-assistant"
+  },
+  {
+   "key": "added:smartthings-washer-driver",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "smartthings-washer-driver"
+  },
+  {
+   "key": "added:sommet",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "sommet"
+  },
+  {
+   "key": "added:tr-8s-studio",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "tr-8s-studio"
+  },
+  {
+   "key": "added:trifo-lucy-local-server",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "trifo-lucy-local-server"
+  },
+  {
+   "key": "added:walkman-nw-a820-homebrew",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "walkman-nw-a820-homebrew"
+  },
+  {
+   "key": "added:xz-mods",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "xz-mods"
+  },
+  {
+   "key": "added:yotwo",
+   "type": "added",
+   "date": "2026-10-28",
+   "slug": "yotwo"
+  },
+  {
+   "key": "release:Gathin23/cleanyourtv:v3.1.0",
+   "type": "release",
+   "date": "2026-10-27",
+   "slug": "clean-your-tv",
+   "tag": "v3.1.0",
+   "url": "https://github.com/Gathin23/cleanyourtv/releases/tag/v3.1.0"
+  },
+  {
+   "key": "release:humblemuzzu/dumbtv:launcher-v1.6",
+   "type": "release",
+   "date": "2026-10-27",
+   "slug": "dumbtv",
+   "tag": "launcher-v1.6",
+   "url": "https://github.com/humblemuzzu/dumbtv/releases/tag/launcher-v1.6"
+  },
+  {
+   "key": "release:MichaelOE/homeassistant-ocean_pulse:v1.0.7",
+   "type": "release",
+   "date": "2026-10-27",
+   "slug": "ocean-pulse-home-assistant",
+   "tag": "v1.0.7",
+   "url": "https://github.com/MichaelOE/homeassistant-ocean_pulse/releases/tag/v1.0.7"
+  },
+  {
+   "key": "release:dmellok/tesserae:v0.479.1",
+   "type": "release",
+   "date": "2026-10-26",
+   "slug": "tesserae",
+   "tag": "v0.479.1",
+   "url": "https://github.com/dmellok/tesserae/releases/tag/v0.479.1"
+  },
+  {
+   "key": "release:dmellok/tesserae:v0.480.0",
+   "type": "release",
+   "date": "2026-10-26",
+   "slug": "tesserae",
+   "tag": "v0.480.0",
+   "url": "https://github.com/dmellok/tesserae/releases/tag/v0.480.0"
+  },
+  {
+   "key": "release:frankbrg/huawei-ah100:v0.1.0",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "huawei-ah100-local",
+   "tag": "v0.1.0",
+   "url": "https://github.com/frankbrg/huawei-ah100/releases/tag/v0.1.0"
+  },
+  {
+   "key": "release:frankbrg/huawei-ah100:v0.1.1",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "huawei-ah100-local",
+   "tag": "v0.1.1",
+   "url": "https://github.com/frankbrg/huawei-ah100/releases/tag/v0.1.1"
+  },
+  {
+   "key": "release:frankbrg/huawei-ah100:v0.1.2",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "huawei-ah100-local",
+   "tag": "v0.1.2",
+   "url": "https://github.com/frankbrg/huawei-ah100/releases/tag/v0.1.2"
+  },
+  {
+   "key": "release:frankbrg/huawei-ah100:v0.2.0",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "huawei-ah100-local",
+   "tag": "v0.2.0",
+   "url": "https://github.com/frankbrg/huawei-ah100/releases/tag/v0.2.0"
+  },
+  {
+   "key": "release:frankbrg/huawei-ah100:v0.3.0",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "huawei-ah100-local",
+   "tag": "v0.3.0",
+   "url": "https://github.com/frankbrg/huawei-ah100/releases/tag/v0.3.0"
+  },
+  {
+   "key": "release:Gathin23/cleanyourtv:v3.0.0",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "clean-your-tv",
+   "tag": "v3.0.0",
+   "url": "https://github.com/Gathin23/cleanyourtv/releases/tag/v3.0.0"
+  },
+  {
+   "key": "release:humblemuzzu/dumbtv:launcher-v1.4",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "dumbtv",
+   "tag": "launcher-v1.4",
+   "url": "https://github.com/humblemuzzu/dumbtv/releases/tag/launcher-v1.4"
+  },
+  {
+   "key": "release:humblemuzzu/dumbtv:launcher-v1.5",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "dumbtv",
+   "tag": "launcher-v1.5",
+   "url": "https://github.com/humblemuzzu/dumbtv/releases/tag/launcher-v1.5"
+  },
+  {
+   "key": "release:KristianP26/ble-scale-sync:v1.37.0",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "ble-scale-sync",
+   "tag": "v1.37.0",
+   "url": "https://github.com/KristianP26/ble-scale-sync/releases/tag/v1.37.0"
+  },
+  {
+   "key": "release:vacuula/vacuula:v1.1.0",
+   "type": "release",
+   "date": "2026-10-25",
+   "slug": "vacuula-neato",
+   "tag": "v1.1.0",
+   "url": "https://github.com/vacuula/vacuula/releases/tag/v1.1.0"
+  },
+  {
+   "key": "release:Bretteroo/Sonora:v1.0.5",
+   "type": "release",
+   "date": "2026-10-23",
+   "slug": "sonora",
+   "tag": "v1.0.5",
+   "url": "https://github.com/Bretteroo/Sonora/releases/tag/v1.0.5"
+  },
+  {
+   "key": "release:dmellok/tesserae:v0.475.0",
+   "type": "release",
+   "date": "2026-10-23",
+   "slug": "tesserae",
+   "tag": "v0.475.0",
+   "url": "https://github.com/dmellok/tesserae/releases/tag/v0.475.0"
+  },
+  {
+   "key": "release:KonradIT/osmosis:v1.5.0",
+   "type": "release",
+   "date": "2026-10-22",
+   "slug": "osmosis-dji-osmo",
+   "tag": "v1.5.0",
+   "url": "https://github.com/KonradIT/osmosis/releases/tag/v1.5.0"
+  },
+  {
+   "key": "release:KristianP26/ble-scale-sync:v1.36.0",
+   "type": "release",
+   "date": "2026-10-22",
+   "slug": "ble-scale-sync",
+   "tag": "v1.36.0",
+   "url": "https://github.com/KristianP26/ble-scale-sync/releases/tag/v1.36.0"
+  },
+  {
+   "key": "release:manuaguirre9/nw-a820-homebrew:v0.3.0",
+   "type": "release",
+   "date": "2026-10-22",
+   "slug": "walkman-nw-a820-homebrew",
+   "tag": "v0.3.0",
+   "url": "https://github.com/manuaguirre9/nw-a820-homebrew/releases/tag/v0.3.0"
+  },
+  {
+   "key": "release:pybricks/pybricks-micropython:v4.1.1",
+   "type": "release",
+   "date": "2026-10-22",
+   "slug": "pybricks",
+   "tag": "v4.1.1",
+   "url": "https://github.com/pybricks/pybricks-micropython/releases/tag/v4.1.1"
+  },
+  {
+   "key": "release:tronbyt/server:v2.5.2",
+   "type": "release",
+   "date": "2026-10-22",
+   "slug": "tronbyt-tidbyt",
+   "tag": "v2.5.2",
+   "url": "https://github.com/tronbyt/server/releases/tag/v2.5.2"
+  },
+  {
+   "key": "release:gtgaute/ha-smartercoffee:v0.1.1",
+   "type": "release",
+   "date": "2026-10-20",
+   "slug": "smarter-coffee-for-home-assistant",
+   "tag": "v0.1.1",
+   "url": "https://github.com/gtgaute/ha-smartercoffee/releases/tag/v0.1.1"
+  },
+  {
+   "key": "release:Bretteroo/Sonora:v1.0.4",
+   "type": "release",
+   "date": "2026-10-19",
+   "slug": "sonora",
+   "tag": "v1.0.4",
+   "url": "https://github.com/Bretteroo/Sonora/releases/tag/v1.0.4"
+  },
+  {
+   "key": "release:dmellok/tesserae:v0.466.1",
+   "type": "release",
+   "date": "2026-10-18",
+   "slug": "tesserae",
+   "tag": "v0.466.1",
+   "url": "https://github.com/dmellok/tesserae/releases/tag/v0.466.1"
+  },
+  {
+   "key": "release:gtgaute/ha-smartercoffee:v0.1.0",
+   "type": "release",
+   "date": "2026-10-18",
+   "slug": "smarter-coffee-for-home-assistant",
+   "tag": "v0.1.0",
+   "url": "https://github.com/gtgaute/ha-smartercoffee/releases/tag/v0.1.0"
+  },
+  {
+   "key": "release:openwrt/openwrt:v25.12.6",
+   "type": "release",
+   "date": "2026-10-18",
+   "slug": "openwrt",
+   "tag": "v25.12.6",
+   "url": "https://github.com/openwrt/openwrt/releases/tag/v25.12.6"
+  },
+  {
+   "key": "release:Bretteroo/Sonora:v1.0.3",
+   "type": "release",
+   "date": "2026-10-17",
+   "slug": "sonora",
+   "tag": "v1.0.3",
+   "url": "https://github.com/Bretteroo/Sonora/releases/tag/v1.0.3"
+  },
+  {
+   "key": "release:dmellok/tesserae:v0.463.0",
+   "type": "release",
+   "date": "2026-10-17",
+   "slug": "tesserae",
+   "tag": "v0.463.0",
+   "url": "https://github.com/dmellok/tesserae/releases/tag/v0.463.0"
+  },
+  {
+   "key": "release:tronbyt/server:v2.5.0",
+   "type": "release",
+   "date": "2026-10-17",
+   "slug": "tronbyt-tidbyt",
+   "tag": "v2.5.0",
+   "url": "https://github.com/tronbyt/server/releases/tag/v2.5.0"
+  },
+  {
+   "key": "release:tronbyt/server:v2.5.1",
+   "type": "release",
+   "date": "2026-10-17",
+   "slug": "tronbyt-tidbyt",
+   "tag": "v2.5.1",
+   "url": "https://github.com/tronbyt/server/releases/tag/v2.5.1"
+  },
+  {
+   "key": "release:EffectiveEquivalent/FreeDSP-Studio:v0.8.3",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "freedsp-studio",
+   "tag": "v0.8.3",
+   "url": "https://github.com/EffectiveEquivalent/FreeDSP-Studio/releases/tag/v0.8.3"
+  },
+  {
+   "key": "release:mpjanofsky/echo-wall-clock:v0.1.0",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "echo-wall-clock-without-echo",
+   "tag": "v0.1.0",
+   "url": "https://github.com/mpjanofsky/echo-wall-clock/releases/tag/v0.1.0"
+  },
+  {
+   "key": "release:tomekent/yotwo:v0.5.2-beta",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "yotwo",
+   "tag": "v0.5.2-beta",
+   "url": "https://github.com/tomekent/yotwo/releases/tag/v0.5.2-beta"
+  },
+  {
+   "key": "release:tomekent/yotwo:v0.5.3-beta",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "yotwo",
+   "tag": "v0.5.3-beta",
+   "url": "https://github.com/tomekent/yotwo/releases/tag/v0.5.3-beta"
+  },
+  {
+   "key": "release:tomekent/yotwo:v0.5.4-beta",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "yotwo",
+   "tag": "v0.5.4-beta",
+   "url": "https://github.com/tomekent/yotwo/releases/tag/v0.5.4-beta"
+  },
+  {
+   "key": "release:tomekent/yotwo:v0.5.5-beta",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "yotwo",
+   "tag": "v0.5.5-beta",
+   "url": "https://github.com/tomekent/yotwo/releases/tag/v0.5.5-beta"
+  },
+  {
+   "key": "release:tomekent/yotwo:v0.5.6-beta",
+   "type": "release",
+   "date": "2026-10-16",
+   "slug": "yotwo",
+   "tag": "v0.5.6-beta",
+   "url": "https://github.com/tomekent/yotwo/releases/tag/v0.5.6-beta"
+  },
+  {
+   "key": "release:ramirezjhulian7/motorola-q11-freedom:v1.1.0",
+   "type": "release",
+   "date": "2026-10-15",
+   "slug": "q11-freedom",
+   "tag": "v1.1.0",
+   "url": "https://github.com/ramirezjhulian7/motorola-q11-freedom/releases/tag/v1.1.0"
+  },
+  {
+   "key": "release:Aquaspaces/maxwell-peq:v0.2.0",
+   "type": "release",
+   "date": "2026-10-14",
+   "slug": "audeze-maxwell-parametric-eq",
+   "tag": "v0.2.0",
+   "url": "https://github.com/Aquaspaces/maxwell-peq/releases/tag/v0.2.0"
+  },
+  {
+   "key": "release:EffectiveEquivalent/FreeDSP-Studio:v0.8.1",
+   "type": "release",
+   "date": "2026-10-14",
+   "slug": "freedsp-studio",
+   "tag": "v0.8.1",
+   "url": "https://github.com/EffectiveEquivalent/FreeDSP-Studio/releases/tag/v0.8.1"
+  },
+  {
+   "key": "release:EffectiveEquivalent/FreeDSP-Studio:v0.8.2",
+   "type": "release",
+   "date": "2026-10-14",
+   "slug": "freedsp-studio",
+   "tag": "v0.8.2",
+   "url": "https://github.com/EffectiveEquivalent/FreeDSP-Studio/releases/tag/v0.8.2"
+  },
+  {
+   "key": "release:manuaguirre9/nw-a820-homebrew:v0.2.0",
+   "type": "release",
+   "date": "2026-10-14",
+   "slug": "walkman-nw-a820-homebrew",
+   "tag": "v0.2.0",
+   "url": "https://github.com/manuaguirre9/nw-a820-homebrew/releases/tag/v0.2.0"
+  },
+  {
+   "key": "release:manuaguirre9/nw-a820-homebrew:v0.2.1",
+   "type": "release",
+   "date": "2026-10-14",
+   "slug": "walkman-nw-a820-homebrew",
+   "tag": "v0.2.1",
+   "url": "https://github.com/manuaguirre9/nw-a820-homebrew/releases/tag/v0.2.1"
+  },
+  {
+   "key": "release:vacuula/vacuula:v1.0.0",
+   "type": "release",
+   "date": "2026-10-14",
+   "slug": "vacuula-neato",
+   "tag": "v1.0.0",
+   "url": "https://github.com/vacuula/vacuula/releases/tag/v1.0.0"
+  },
+  {
+   "key": "release:Aquaspaces/maxwell-peq:v0.1.0",
+   "type": "release",
+   "date": "2026-10-13",
+   "slug": "audeze-maxwell-parametric-eq",
+   "tag": "v0.1.0",
+   "url": "https://github.com/Aquaspaces/maxwell-peq/releases/tag/v0.1.0"
+  },
+  {
+   "key": "release:gh123man/opensnek:v1.4.0",
+   "type": "release",
+   "date": "2026-10-13",
+   "slug": "opensnek",
+   "tag": "v1.4.0",
+   "url": "https://github.com/gh123man/OpenSnek/releases/tag/v1.4.0"
+  },
+  {
+   "key": "release:OpenStrap/edge:v0.11.3",
+   "type": "release",
+   "date": "2026-10-13",
+   "slug": "openstrap-edge-whoop",
+   "tag": "v0.11.3",
+   "url": "https://github.com/OpenStrap/edge/releases/tag/v0.11.3"
+  },
+  {
+   "key": "release:EffectiveEquivalent/FreeDSP-Studio:v0.6.3",
+   "type": "release",
+   "date": "2026-10-12",
+   "slug": "freedsp-studio",
+   "tag": "v0.6.3",
+   "url": "https://github.com/EffectiveEquivalent/FreeDSP-Studio/releases/tag/v0.6.3"
+  },
+  {
+   "key": "release:EffectiveEquivalent/FreeDSP-Studio:v0.7.0",
+   "type": "release",
+   "date": "2026-10-12",
+   "slug": "freedsp-studio",
+   "tag": "v0.7.0",
+   "url": "https://github.com/EffectiveEquivalent/FreeDSP-Studio/releases/tag/v0.7.0"
+  },
+  {
+   "key": "release:pybricks/pybricks-micropython:v4.1.0",
+   "type": "release",
+   "date": "2026-10-12",
+   "slug": "pybricks",
+   "tag": "v4.1.0",
+   "url": "https://github.com/pybricks/pybricks-micropython/releases/tag/v4.1.0"
+  },
+  {
+   "key": "release:mertemr/chsmartbulb:v0.2.0",
+   "type": "release",
+   "date": "2026-10-11",
+   "slug": "chsmartbulb",
+   "tag": "v0.2.0",
+   "url": "https://github.com/mertemr/chsmartbulb/releases/tag/v0.2.0"
+  },
+  {
+   "key": "release:KrzysztofHajdamowicz/felicity-battery-modbus:v1.0.0",
+   "type": "release",
+   "date": "2026-10-10",
+   "slug": "felicity-battery-modbus",
+   "tag": "v1.0.0",
+   "url": "https://github.com/KrzysztofHajdamowicz/felicity-battery-modbus/releases/tag/v1.0.0"
+  },
+  {
+   "key": "release:mertemr/chsmartbulb:v0.1.0",
+   "type": "release",
+   "date": "2026-10-10",
+   "slug": "chsmartbulb",
+   "tag": "v0.1.0",
+   "url": "https://github.com/mertemr/chsmartbulb/releases/tag/v0.1.0"
+  },
+  {
+   "key": "release:Python-roborock/local_roborock_server:v1.2.1",
+   "type": "release",
+   "date": "2026-10-08",
+   "slug": "roborock-local-server",
+   "tag": "v1.2.1",
+   "url": "https://github.com/Python-roborock/local_roborock_server/releases/tag/v1.2.1"
+  },
+  {
+   "key": "release:themactep/thingino-firmware:firmware-2026-10-04",
+   "type": "release",
+   "date": "2026-10-04",
+   "slug": "thingino",
+   "tag": "firmware-2026-10-04",
+   "url": "https://github.com/themactep/thingino-firmware/releases/tag/firmware-2026-10-04"
+  },
+  {
+   "key": "release:TimStewartJ/lululemon-mirror-repurpose:v2.2.0",
+   "type": "release",
+   "date": "2026-10-01",
+   "slug": "lululemon-mirror-repurpose",
+   "tag": "v2.2.0",
+   "url": "https://github.com/TimStewartJ/lululemon-mirror-repurpose/releases/tag/v2.2.0"
+  },
+  {
+   "key": "release:ramirezjhulian7/motorola-q11-freedom:v1.0.0",
+   "type": "release",
+   "date": "2026-09-28",
+   "slug": "q11-freedom",
+   "tag": "v1.0.0",
+   "url": "https://github.com/ramirezjhulian7/motorola-q11-freedom/releases/tag/v1.0.0"
+  },
+  {
+   "key": "release:crosspoint-reader/crosspoint-reader:1.6.5",
+   "type": "release",
+   "date": "2026-09-27",
+   "slug": "crosspoint-reader",
+   "tag": "1.6.5",
+   "url": "https://github.com/crosspoint-reader/crosspoint-reader/releases/tag/1.6.5"
+  },
+  {
+   "key": "release:Python-roborock/local_roborock_server:v1.2.0",
+   "type": "release",
+   "date": "2026-09-27",
+   "slug": "roborock-local-server",
+   "tag": "v1.2.0",
+   "url": "https://github.com/Python-roborock/local_roborock_server/releases/tag/v1.2.0"
+  },
+  {
+   "key": "release:OpenStrap/edge:v0.10.0",
+   "type": "release",
+   "date": "2026-09-25",
+   "slug": "openstrap-edge-whoop",
+   "tag": "v0.10.0",
+   "url": "https://github.com/OpenStrap/edge/releases/tag/v0.10.0"
+  },
+  {
+   "key": "release:TimStewartJ/lululemon-mirror-repurpose:v2.1.0",
+   "type": "release",
+   "date": "2026-09-21",
+   "slug": "lululemon-mirror-repurpose",
+   "tag": "v2.1.0",
+   "url": "https://github.com/TimStewartJ/lululemon-mirror-repurpose/releases/tag/v2.1.0"
+  },
+  {
+   "key": "release:Python-roborock/local_roborock_server:v1.1.0",
+   "type": "release",
+   "date": "2026-09-18",
+   "slug": "roborock-local-server",
+   "tag": "v1.1.0",
+   "url": "https://github.com/Python-roborock/local_roborock_server/releases/tag/v1.1.0"
+  },
+  {
+   "key": "release:KonradIT/osmosis:v1.4.5",
+   "type": "release",
+   "date": "2026-09-17",
+   "slug": "osmosis-dji-osmo",
+   "tag": "v1.4.5",
+   "url": "https://github.com/KonradIT/osmosis/releases/tag/v1.4.5"
+  },
+  {
+   "key": "release:themactep/thingino-firmware:firmware-2026-09-14",
+   "type": "release",
+   "date": "2026-09-14",
+   "slug": "thingino",
+   "tag": "firmware-2026-09-14",
+   "url": "https://github.com/themactep/thingino-firmware/releases/tag/firmware-2026-09-14"
+  },
+  {
+   "key": "release:tronbyt/server:v2.4.0",
+   "type": "release",
+   "date": "2026-09-13",
+   "slug": "tronbyt-tidbyt",
+   "tag": "v2.4.0",
+   "url": "https://github.com/tronbyt/server/releases/tag/v2.4.0"
+  },
+  {
+   "key": "release:wlcrs/huawei_solar:2.1.5",
+   "type": "release",
+   "date": "2026-09-09",
+   "slug": "huawei-solar-modbus",
+   "tag": "2.1.5",
+   "url": "https://github.com/wlcrs/huawei_solar/releases/tag/2.1.5"
+  },
+  {
+   "key": "release:keranm/strideApp:v0.7.0",
+   "type": "release",
+   "date": "2026-09-08",
+   "slug": "stride-nordictrack-without-ifit",
+   "tag": "v0.7.0",
+   "url": "https://github.com/keranm/strideApp/releases/tag/v0.7.0"
+  },
+  {
+   "key": "release:keranm/strideApp:v0.8.0",
+   "type": "release",
+   "date": "2026-09-08",
+   "slug": "stride-nordictrack-without-ifit",
+   "tag": "v0.8.0",
+   "url": "https://github.com/keranm/strideApp/releases/tag/v0.8.0"
+  },
+  {
+   "key": "release:KonradIT/osmosis:v1.4.4",
+   "type": "release",
+   "date": "2026-09-07",
+   "slug": "osmosis-dji-osmo",
+   "tag": "v1.4.4",
+   "url": "https://github.com/KonradIT/osmosis/releases/tag/v1.4.4"
+  },
+  {
+   "key": "release:crosspoint-reader/crosspoint-reader:1.6.0",
+   "type": "release",
+   "date": "2026-09-05",
+   "slug": "crosspoint-reader",
+   "tag": "1.6.0",
+   "url": "https://github.com/crosspoint-reader/crosspoint-reader/releases/tag/1.6.0"
+  },
+  {
+   "key": "release:wlcrs/huawei_solar:2.1.4",
+   "type": "release",
+   "date": "2026-09-05",
+   "slug": "huawei-solar-modbus",
+   "tag": "2.1.4",
+   "url": "https://github.com/wlcrs/huawei_solar/releases/tag/2.1.4"
+  },
+  {
+   "key": "release:tronbyt/server:v2.3.7",
+   "type": "release",
+   "date": "2026-09-02",
+   "slug": "tronbyt-tidbyt",
+   "tag": "v2.3.7",
+   "url": "https://github.com/tronbyt/server/releases/tag/v2.3.7"
+  },
+  {
+   "key": "release:tejofjord/openv7:v1.0.3",
+   "type": "release",
+   "date": "2026-08-30",
+   "slug": "openv7-numark",
+   "tag": "v1.0.3",
+   "url": "https://github.com/tejofjord/openv7/releases/tag/v1.0.3"
+  },
+  {
+   "key": "release:OpenStrap/edge:v0.9.29",
+   "type": "release",
+   "date": "2026-08-29",
+   "slug": "openstrap-edge-whoop",
+   "tag": "v0.9.29",
+   "url": "https://github.com/OpenStrap/edge/releases/tag/v0.9.29"
+  },
+  {
+   "key": "release:jarkkosyrjala/bosch-compress-local:v0.3.0",
+   "type": "release",
+   "date": "2026-08-28",
+   "slug": "bosch-compress-local",
+   "tag": "v0.3.0",
+   "url": "https://github.com/jarkkosyrjala/bosch-compress-local/releases/tag/v0.3.0"
+  },
+  {
+   "key": "release:wlcrs/huawei_solar:2.1.3",
+   "type": "release",
+   "date": "2026-08-28",
+   "slug": "huawei-solar-modbus",
+   "tag": "2.1.3",
+   "url": "https://github.com/wlcrs/huawei_solar/releases/tag/2.1.3"
+  },
+  {
+   "key": "release:KonradIT/osmosis:v1.4.3",
+   "type": "release",
+   "date": "2026-08-25",
+   "slug": "osmosis-dji-osmo",
+   "tag": "v1.4.3",
+   "url": "https://github.com/KonradIT/osmosis/releases/tag/v1.4.3"
+  },
+  {
+   "key": "release:toniebox-reverse-engineering/teddycloud:tc_v0.7.0",
+   "type": "release",
+   "date": "2026-08-25",
+   "slug": "teddycloud-toniebox",
+   "tag": "tc_v0.7.0",
+   "url": "https://github.com/toniebox-reverse-engineering/teddycloud/releases/tag/tc_v0.7.0"
+  },
+  {
+   "key": "release:tejofjord/openv7:v1.0.2",
+   "type": "release",
+   "date": "2026-08-24",
+   "slug": "openv7-numark",
+   "tag": "v1.0.2",
+   "url": "https://github.com/tejofjord/openv7/releases/tag/v1.0.2"
+  },
+  {
+   "key": "release:tejofjord/openv7:v1.0.1",
+   "type": "release",
+   "date": "2026-08-23",
+   "slug": "openv7-numark",
+   "tag": "v1.0.1",
+   "url": "https://github.com/tejofjord/openv7/releases/tag/v1.0.1"
+  },
+  {
+   "key": "release:OpenStrap/edge:v0.9.28",
+   "type": "release",
+   "date": "2026-08-22",
+   "slug": "openstrap-edge-whoop",
+   "tag": "v0.9.28",
+   "url": "https://github.com/OpenStrap/edge/releases/tag/v0.9.28"
+  },
+  {
+   "key": "release:KonradIT/osmosis:v1.4.2",
+   "type": "release",
+   "date": "2026-08-21",
+   "slug": "osmosis-dji-osmo",
+   "tag": "v1.4.2",
+   "url": "https://github.com/KonradIT/osmosis/releases/tag/v1.4.2"
+  },
+  {
+   "key": "release:tejofjord/openv7:v1.0.0",
+   "type": "release",
+   "date": "2026-08-21",
+   "slug": "openv7-numark",
+   "tag": "v1.0.0",
+   "url": "https://github.com/tejofjord/openv7/releases/tag/v1.0.0"
+  },
+  {
+   "key": "release:OpenStrap/edge:v0.9.27",
+   "type": "release",
+   "date": "2026-08-19",
+   "slug": "openstrap-edge-whoop",
+   "tag": "v0.9.27",
+   "url": "https://github.com/OpenStrap/edge/releases/tag/v0.9.27"
+  },
+  {
+   "key": "release:renjfk/OpenNeato:v0.15",
+   "type": "release",
+   "date": "2026-08-11",
+   "slug": "openneato",
+   "tag": "v0.15",
+   "url": "https://github.com/renjfk/OpenNeato/releases/tag/v0.15"
+  },
+  {
+   "key": "release:wlcrs/huawei_solar:2.1.2",
+   "type": "release",
+   "date": "2026-08-11",
+   "slug": "huawei-solar-modbus",
+   "tag": "2.1.2",
+   "url": "https://github.com/wlcrs/huawei_solar/releases/tag/2.1.2"
+  }
+ ]
+}

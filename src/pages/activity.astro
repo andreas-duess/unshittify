@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import ActivityList from '../components/ActivityList.astro';
+import Subscribe from '../components/Subscribe.astro';
+import { ACTIVITY_UPDATED } from '../lib/activity';
+---
+<Base
+  title="What's happening: new releases, star milestones and new entries | unshittify"
+  description="Activity across every project on unshittify: new releases of the listed repos, GitHub star milestones, new entries and repos that were archived. Updated each time the site is published.">
+<article class="wrap legal">
+  <p class="prompt"><a href="/" class="dim">~</a><span class="acc">/</span>activity</p>
+  <h1 class="detail-h">What's happening</h1>
+  <p class="note">New releases, star milestones and new entries across the log. Updated {ACTIVITY_UPDATED}. <a href="/activity.xml">rss</a></p>
+  <div class="legal-body feed-page">
+    <p>Pulled from GitHub each time the site is published. Pre-releases are left out, and several releases of one project on one day show as one line. A new release means the builder shipped something, not that we checked it.</p>
+    <ActivityList />
+  </div>
+  <Subscribe />
+</article>
+</Base>

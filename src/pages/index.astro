@@ -8,6 +8,7 @@ import SubmitForm from '../components/SubmitForm.astro';
 import RepairBot from '../components/RepairBot.astro';
 import Subscribe from '../components/Subscribe.astro';
 import { repoInfo } from '../lib/stars';
+import ActivityList from '../components/ActivityList.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
 
@@ -118,10 +119,18 @@ const jsonld = [
   <Subscribe />
 </section>
 
+<section id="activity" class="wrap">
+  <div class="sec-head">
+    <h2><span class="acc">02</span> // what's happening</h2>
+    <p class="note">New releases, star milestones and new entries, pulled from GitHub on each update. <a href="/activity/">all activity</a> · <a href="/activity.xml">rss</a></p>
+  </div>
+  <ActivityList limit={10} onePerProject names={3} />
+  <p class="more-link"><a href="/activity/">all activity →</a></p>
+</section>
 
 <section id="about" class="wrap">
   <div class="sec-head">
-    <h2><span class="acc">02</span> // about</h2>
+    <h2><span class="acc">03</span> // about</h2>
     <p class="note">Useful things should stay useful.</p>
   </div>
   <div class="cols">
@@ -159,7 +168,7 @@ const jsonld = [
 
 <section id="submit" class="wrap">
   <div class="sec-head">
-    <h2><span class="acc">03</span> // submit</h2>
+    <h2><span class="acc">04</span> // submit</h2>
     <p class="note">Made something useful again?</p>
   </div>
   <div class="prose submit-intro">
