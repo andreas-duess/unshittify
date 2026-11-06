@@ -19,16 +19,19 @@ The body is the write-up. The log shows its first paragraph; the project page sh
 
 Categories, evidence labels, snapshot date and the submit address: `src/lib/meta.ts`.
 
-## GitHub stars
+## GitHub data (stars, activity feed)
 
-`repo: "owner/name"` in an entry's frontmatter names its own GitHub repo. Leave it out when there is no single repo.
-`node scripts/github.mjs` (token from `GITHUB_TOKEN` or `gh auth token`) writes three files in `src/data/`:
+The build knows nothing about GitHub. `repo: "owner/name"` in an entry's frontmatter names its own GitHub repo (leave it out when there is no single repo); the repo and the entry's first-commit date (`added`) go out in `/projects.json`.
 
-- `stars.json`: current stars, archived flag and last push per repo. Shown on each row, in each entry's fields, in the "most starred" list and in projects.json/csv.
-- `stars-history.json`: one snapshot of star counts per day.
-- `activity.json`: the activity feed (homepage section 02, `/activity/`, `/activity.xml`). Events: new entries (date the file first landed in git), releases of listed repos (last 90 days, no pre-releases), star milestones (100, 250, 500, 1k, 2.5k, 5k, 10k, ...; crossed between two daily snapshots) and repos that became archived. New events merge into the old ones, so nothing drops off.
+The worker does the rest (`worker/github.ts`):
 
-`deploy.sh` runs it before every build; if GitHub fails it keeps the old files. Commit all three so the history builds up.
+- **Hourly cron** (`triggers` in `wrangler.jsonc`): fetches stars, archived flag, last push and recent releases for every repo, works out activity events (new entries, releases from the last 90 days without pre-releases, star milestones between daily snapshots, newly archived repos) and stores them in KV (`GH` binding, keys `state` and `history`).
+- **Page views** (`run_worker_first`): fills the empty slots the build leaves: `.stars` on each row, the "github" field, the "most starred" group (the build ships every row with a repo; the worker keeps the top ten), and the activity lists on `/` and `/activity/`.
+- **Routes**: `/activity.xml` (RSS) and `/stars.json` (raw numbers).
+
+If KV is empty the pages still work; the slots stay hidden. Secret `GITHUB_TOKEN`: a fine-grained token with public repositories read-only. Set it with `scripts/set-github-token.sh`. Without it the cron skips and the last stored numbers stay up.
+
+Local test of the cron: `npx wrangler dev --test-scheduled`, then `curl -X POST "localhost:8787/cdn-cgi/local/explorer/api/local/scheduled?worker=unshittify" -H 'content-type: application/json' -d '{"cron":"17 * * * *"}'`.
 
 ## Hosting
 
