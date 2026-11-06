@@ -1,19 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
-import ActivityList from '../components/ActivityList.astro';
 import Subscribe from '../components/Subscribe.astro';
-import { ACTIVITY_UPDATED } from '../lib/activity';
 ---
 <Base
   title="What's happening: new releases, star milestones and new entries | unshittify"
-  description="Activity across every project on unshittify: new releases of the listed repos, GitHub star milestones, new entries and repos that were archived. Updated each time the site is published.">
+  description="Activity across every project on unshittify: new releases of the listed repos, GitHub star milestones, new entries and repos that were archived. Checked on GitHub every hour.">
 <article class="wrap legal">
   <p class="prompt"><a href="/" class="dim">~</a><span class="acc">/</span>activity</p>
   <h1 class="detail-h">What's happening</h1>
-  <p class="note">New releases, star milestones and new entries across the log. Updated {ACTIVITY_UPDATED}. <a href="/activity.xml">rss</a></p>
+  <p class="note">New releases, star milestones and new entries across the log. Updated <span data-activity-updated>hourly</span>. <a href="/activity.xml">rss</a></p>
   <div class="legal-body feed-page">
-    <p>We pull this list from GitHub whenever the site updates. We skip pre-releases, and if a project ships three versions in one day, you'll see one line. A release only tells you the builder shipped something. We haven't tried it.</p>
-    <ActivityList />
+    <p>We check GitHub every hour. We skip pre-releases, and if a project ships three versions in one day, you'll see one line. A release only tells you the builder shipped something. We haven't tried it.</p>
+    <div data-activity="full"><p class="dim">Activity is loading from GitHub. Check back in a few minutes.</p></div>
   </div>
   <Subscribe />
 </article>

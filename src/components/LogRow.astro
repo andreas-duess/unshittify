@@ -3,22 +3,23 @@
 // first paragraph and the fields. `anchor` puts the entry's slug on the row as
 // an id, so old /#slug links still land on it; only one copy of each entry
 // gets it (the category sections), never the "latest" copy.
+// Star counts are not in the build: the worker fills the empty .stars slot
+// from live GitHub data (worker/github.ts). `top` marks the copy in the
+// "most starred" group, which the worker trims to the top ten.
 import type { CollectionEntry } from 'astro:content';
 import ProjectFields from './ProjectFields.astro';
 import EvidenceTag from './EvidenceTag.astro';
 import { pad } from '../lib/meta';
-import { repoInfo, fmtStars } from '../lib/stars';
 
-interface Props { p: CollectionEntry<'projects'>; anchor?: boolean; more?: boolean }
-const { p, anchor = false, more = false } = Astro.props;
+interface Props { p: CollectionEntry<'projects'>; anchor?: boolean; more?: boolean; top?: boolean }
+const { p, anchor = false, more = false, top = false } = Astro.props;
 const d = p.data;
-const gh = repoInfo(d.repo);
 ---
-<li data-cat={d.category} id={anchor ? p.id : undefined} class={more ? 'more' : undefined}>
+<li data-cat={d.category} id={anchor ? p.id : undefined} class={more ? 'more' : undefined} data-top={top ? d.repo : undefined}>
   <details>
     <summary>
       <span class="id">{pad(d.id)}</span>
-      <span class="name"><b>{d.title}{gh && <span class="stars" title={`${gh.stars.toLocaleString('en-US')} GitHub stars`}>★ {fmtStars(gh.stars)}</span>}</b><i>{d.device}</i></span>
+      <span class="name"><b>{d.title}{d.repo && <span class="stars" data-repo={d.repo} hidden></span>}</b><i>{d.device}</i></span>
       <span class="ai">{d.ai}</span>
       <EvidenceTag kind={d.evidence} />
       <a class="src" href={d.links[0].url} rel="noopener">{d.links[0].label}<span aria-hidden="true"> ↗</span></a>

@@ -7,8 +7,13 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/api/*"]
+    // /api/* plus every page or feed with live GitHub data (worker/github.ts)
+    "run_worker_first": ["/api/*", "/", "/p/*", "/activity/", "/activity.xml", "/stars.json"]
   },
+  // Hourly GitHub refresh: stars, releases, activity feed. Stored in KV.
+  // Secret: GITHUB_TOKEN (fine-grained, public repositories read-only).
+  "triggers": { "crons": ["17 * * * *"] },
+  "kv_namespaces": [{ "binding": "GH", "id": "d5c152eda2d04d4086b9c740e2d390ff" }],
   "send_email": [
     { "name": "SUBMISSIONS", "destination_address": "andreas@duess.com" }
   ],
@@ -31,6 +36,8 @@
     "preview": {
       "workers_dev": true,
       "routes": [],
+      "triggers": { "crons": ["47 * * * *"] },
+      "kv_namespaces": [{ "binding": "GH", "id": "b5dec854ca9e452fbb3a99a1fb15b8ec" }],
       "ratelimits": [
         { "name": "SUBMIT_LIMITER", "namespace_id": "1002", "simple": { "limit": 3, "period": 60 } },
         { "name": "GLOBAL_LIMITER", "namespace_id": "1004", "simple": { "limit": 15, "period": 60 } }

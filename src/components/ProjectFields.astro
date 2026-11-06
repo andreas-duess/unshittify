@@ -1,15 +1,13 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { repoInfo, STARS_FETCHED } from '../lib/stars';
 interface Props { p: CollectionEntry<'projects'>['data'] }
 const { p } = Astro.props;
-const gh = repoInfo(p.repo);
 ---
 <dl>
   <dt>ai</dt><dd>{p.aiRole}</dd>
   <dt>caveats</dt><dd>{p.caveats}</dd>
   <dt>evidence</dt><dd>{p.evidenceNote}</dd>
-  {gh && <><dt>github</dt><dd>{gh.stars.toLocaleString('en-US')} stars, last commit {gh.pushed}{gh.archived && ', archived (no longer maintained)'}. <span class="dim">Counted {STARS_FETCHED}. Stars show interest, not safety.</span></dd></>}
+  {p.repo && <><dt data-gh-dt={p.repo} hidden>github</dt><dd data-gh={p.repo} hidden></dd></>}
 </dl>
 <p class="links">
   <a class="btn src-btn" href={p.links[0].url} rel="noopener">open {p.links[0].label} ↗</a>

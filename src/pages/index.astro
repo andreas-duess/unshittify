@@ -7,8 +7,6 @@ import { CATEGORIES, CATEGORY_PAGES, EVIDENCE, SITE, MAINTAINER } from '../lib/m
 import SubmitForm from '../components/SubmitForm.astro';
 import RepairBot from '../components/RepairBot.astro';
 import Subscribe from '../components/Subscribe.astro';
-import { repoInfo } from '../lib/stars';
-import ActivityList from '../components/ActivityList.astro';
 
 const projects = (await getCollection('projects', (p) => !p.data.draft)).sort((a, b) => b.data.id - a.data.id);
 
@@ -21,10 +19,8 @@ const groups = (Object.keys(CATEGORIES) as (keyof typeof CATEGORIES)[])
   .map((k) => ({ key: k, items: projects.filter((p) => p.data.category === k) }))
   .filter((g) => g.items.length)
   .sort((a, b) => b.items.length - a.items.length);
-const topStars = projects
-  .filter((p) => repoInfo(p.data.repo))
-  .sort((a, b) => repoInfo(b.data.repo)!.stars - repoInfo(a.data.repo)!.stars)
-  .slice(0, 10);
+// Every entry with a repo; the worker keeps the ten with the most stars.
+const withRepo = projects.filter((p) => p.data.repo);
 const weekAgo =Date.now() - 7 * 24 * 3600 * 1000;
 const newThisWeek = projects.filter((p) => p.data.reviewed.getTime() >= weekAgo).length;
 const jsonld = [
@@ -90,11 +86,11 @@ const jsonld = [
       </ol>
     </div>
 
-    {topStars.length > 0 && (
-      <div class="group latest" data-group="top">
+    {withRepo.length > 0 && (
+      <div class="group latest topstars" data-group="top" data-pending hidden>
         <h3 class="ghead"><span><span class="acc">//</span> most starred on github</span><span class="leader" aria-hidden="true"></span><span class="gnote">stars show interest, not safety</span></h3>
         <ol class="log">
-          {topStars.map((p) => <LogRow p={p} />)}
+          {withRepo.map((p) => <LogRow p={p} top />)}
         </ol>
       </div>
     )}
@@ -122,9 +118,9 @@ const jsonld = [
 <section id="activity" class="wrap">
   <div class="sec-head">
     <h2><span class="acc">02</span> // what's happening</h2>
-    <p class="note">New releases, star milestones and new entries, pulled from GitHub on each update. <a href="/activity/">all activity</a> · <a href="/activity.xml">rss</a></p>
+    <p class="note">New releases, star milestones and new entries, checked on GitHub every hour. <a href="/activity/">all activity</a> · <a href="/activity.xml">rss</a></p>
   </div>
-  <ActivityList limit={10} onePerProject names={3} />
+  <div data-activity="home"><p class="dim">Activity is loading from GitHub. Check back in a few minutes.</p></div>
   <p class="more-link"><a href="/activity/">all activity →</a></p>
 </section>
 
@@ -197,6 +193,7 @@ const jsonld = [
     root.classList.toggle('filtering', filtering);
     let total = 0;
     for (const g of groups) {
+      if (g.hasAttribute('data-pending')) continue; // star data never arrived
       const latest = g.classList.contains('latest'); // "latest" and "most starred": duplicates, hidden while filtering
       let n = 0;
       for (const r of g.querySelectorAll<HTMLLIElement>('.log > li')) {

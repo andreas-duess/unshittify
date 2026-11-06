@@ -1,8 +1,10 @@
 // Cloudflare Worker in front of the static site.
-// Static files are served by the assets layer; only /api/* reaches this code
-// (see run_worker_first in wrangler.jsonc).
+// Static files are served by the assets layer. This code sees /api/*, plus the
+// pages and feeds that carry live GitHub data (see run_worker_first in
+// wrangler.jsonc and worker/github.ts). An hourly cron refreshes that data.
+import { refresh, fill, activityXml, starsJson, type GhEnv } from './github';
 
-interface Env {
+interface Env extends GhEnv {
   ASSETS: Fetcher;
   SUBMISSIONS: SendEmail;
   FROM_ADDRESS: string;
@@ -42,7 +44,13 @@ export default {
     if (url.pathname === '/api/subscribe') return subscribe(req, env);
     if (url.pathname === '/api/confirm') return confirm(req, env);
     if (url.pathname.startsWith('/api/')) return json({ error: 'not found' }, 404);
-    return env.ASSETS.fetch(req);
+    if (url.pathname === '/activity.xml') return activityXml(env);
+    if (url.pathname === '/stars.json') return starsJson(env);
+    // Pages with GitHub slots (see run_worker_first): fill them on the way out.
+    return fill(await env.ASSETS.fetch(req), env);
+  },
+  async scheduled(_event: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
+    ctx.waitUntil(refresh(env).then((m) => console.log(`github refresh: ${m}`), (e) => console.error(`github refresh failed: ${e}`)));
   },
 } satisfies ExportedHandler<Env>;
 

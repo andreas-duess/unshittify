@@ -353,6 +353,8 @@ h3 { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacin
 .latest .ghead { color: var(--fg); }
 .ghead .gnote { font-weight: 400; color: var(--dim); text-transform: none; }
 @media (max-width: 560px) { .ghead .gnote, .group[data-group="top"] .ghead .leader { display: none; } }
+/* The worker keeps the top ten rows and numbers them with `order`. */
+.topstars .log { display: flex; flex-direction: column; }
 .stars { font-weight: 400; font-size: 12px; color: var(--dim); margin-left: 8px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 /* Activity feed: homepage section and /activity/. */
