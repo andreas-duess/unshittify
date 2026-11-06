@@ -12,7 +12,7 @@ import { ACTIVITY_UPDATED } from '../lib/activity';
   <h1 class="detail-h">What's happening</h1>
   <p class="note">New releases, star milestones and new entries across the log. Updated {ACTIVITY_UPDATED}. <a href="/activity.xml">rss</a></p>
   <div class="legal-body feed-page">
-    <p>Pulled from GitHub each time the site is published. Pre-releases are left out, and several releases of one project on one day show as one line. A new release means the builder shipped something, not that we checked it.</p>
+    <p>We pull this list from GitHub whenever the site updates. We skip pre-releases, and if a project ships three versions in one day, you'll see one line. A release only tells you the builder shipped something. We haven't tried it.</p>
     <ActivityList />
   </div>
   <Subscribe />
