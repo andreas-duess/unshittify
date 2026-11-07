@@ -2,7 +2,7 @@
 
 A log of people reclaiming hardware with AI-assisted development and open source.
 
-Astro 5, static output. JetBrains Mono, self-hosted. No client JS beyond search and filter. No cookies, no analytics.
+Astro 5, static output. JetBrains Mono, self-hosted. Client JS: search and filter, plus Google Analytics 4 (`G-BNFZF5QMMS`, set in `src/lib/meta.ts`, loaded in `src/layouts/Base.astro`) behind a consent banner; the privacy page (`src/pages/privacy.astro`) explains it.
 
 ## Run
 
