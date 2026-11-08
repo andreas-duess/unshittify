@@ -15,3 +15,5 @@ submittedBy: unshittify
 ---
 
 Mertol Kasanan reverse-engineered his printer's Bluetooth protocol after existing libraries didn't match his variant. Basic image output works.
+
+For printers that match the common protocol, [rbaron's catprinter](/p/catprinter-python/) is a ready-made driver.
