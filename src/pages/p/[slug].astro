@@ -19,7 +19,7 @@ const d = p.data;
 const { Content } = await render(p);
 const reviewed = d.reviewed.toISOString().slice(0, 10);
 const summary = (p.body ?? '').trim().split(/\n\s*\n/)[0];
-const url = `${SITE}/p/${p.id}`;
+const url = `${SITE}/p/${p.id}/`;
 const cat = CATEGORY_PAGES[d.category];
 const description = `${summary} AI: ${d.aiRole.split('. ')[0]}. Caveats: ${d.caveats.split('. ')[0]}.`.slice(0, 300);
 
@@ -34,7 +34,8 @@ const jsonld = [
     inLanguage: 'en',
     author: MAINTAINER,
     publisher: { '@type': 'Organization', name: 'unshittify', url: SITE },
-    about: { '@type': 'Product', name: d.device },
+    // Thing, not Product: Google treats a Product as a shopping item and flags missing offers/reviews.
+    about: { '@type': 'Thing', name: d.device },
     isBasedOn: d.links.map((l) => l.url),
     keywords: [d.title, d.device, d.ai, CATEGORIES[d.category], 'right to repair', 'enshittification'].join(', '),
   },
@@ -42,7 +43,7 @@ const jsonld = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'unshittify', item: SITE },
+      { '@type': 'ListItem', position: 1, name: 'unshittify', item: `${SITE}/` },
       { '@type': 'ListItem', position: 2, name: cat.h1, item: `${SITE}/c/${cat.slug}/` },
       { '@type': 'ListItem', position: 3, name: d.title, item: url },
     ],

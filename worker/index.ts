@@ -1,7 +1,7 @@
 // Cloudflare Worker in front of the static site.
-// Static files are served by the assets layer. This code sees /api/*, plus the
-// pages and feeds that carry live GitHub data (see run_worker_first in
-// wrangler.jsonc and worker/github.ts). An hourly cron refreshes that data.
+// Static files are served by the assets layer. This code sees every request except
+// /_astro/* and /fonts/* (run_worker_first in wrangler.jsonc): it redirects to the
+// canonical address, handles /api/*, and fills live GitHub data into pages (worker/github.ts). An hourly cron refreshes that data.
 import { refresh, fill, activityXml, starsJson, type GhEnv } from './github';
 
 interface Env extends GhEnv {
@@ -39,6 +39,16 @@ const MAX = 4000;
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
+    // One address per page for search engines: https, no www, trailing slash. 301, not the assets layer's 307.
+    if (url.hostname.endsWith('unshittify.dev')) {
+      const bare = !url.pathname.endsWith('/') && !url.pathname.split('/').pop()!.includes('.') && !url.pathname.startsWith('/api/');
+      if (url.hostname !== 'unshittify.dev' || url.protocol === 'http:' || bare) {
+        url.protocol = 'https:';
+        url.hostname = 'unshittify.dev';
+        if (bare) url.pathname += '/';
+        return Response.redirect(url.toString(), 301);
+      }
+    }
     if (url.pathname === '/api/submit') return submit(req, env);
     if (url.pathname === '/api/geo') return geo(req);
     if (url.pathname === '/api/subscribe') return subscribe(req, env);

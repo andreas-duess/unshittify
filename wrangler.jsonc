@@ -7,8 +7,9 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    // /api/* plus every page or feed with live GitHub data (worker/github.ts)
-    "run_worker_first": ["/api/*", "/", "/p/*", "/activity/", "/activity.xml", "/stars.json"]
+    // Everything but hashed build files and fonts: the worker redirects www, http and
+    // missing trailing slashes, handles /api/*, and fills live GitHub data (worker/github.ts)
+    "run_worker_first": ["/*", "!/_astro/*", "!/fonts/*"]
   },
   // Hourly GitHub refresh: stars, releases, activity feed. Stored in KV.
   // Secret: GITHUB_TOKEN (fine-grained, public repositories read-only).
