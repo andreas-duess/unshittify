@@ -50,8 +50,8 @@ export const CATEGORY_PAGES: Record<keyof typeof CATEGORIES, { slug: string; h1:
   audio: {
     slug: 'audio-and-wearables',
     h1: 'Audio and wearables',
-    title: 'Audio and wearable revivals: speakers, players and watches',
-    intro: 'Speakers, kids\' audio players and sports watches whose official software no longer fits or no longer exists. These projects keep them working.',
+    title: 'Audio and wearable revivals: speakers, players, watches and instruments',
+    intro: 'Speakers, kids\' audio players and sports watches whose official software no longer fits or no longer exists, and synths, samplers, drum machines and amps whose maker stopped updating them. These projects keep them working.',
   },
   computer: {
     slug: 'computers',
