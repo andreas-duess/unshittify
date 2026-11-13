@@ -54,3 +54,7 @@ Shape decided, not built:
 - **Auth:** GitHub OAuth first (the audience has accounts). Member handle fills `submittedBy`.
 - **Flow:** member submits a build through a form, it lands in D1 as `pending`, editor approves, approval writes the markdown file (commit via GitHub API) and the site rebuilds.
 - **Member-only:** a `visibility` field on entries if some content goes behind login.
+
+## Licence
+
+The code is under the MIT licence (`LICENSE`). The entries are published as data under CC BY 4.0 in [unshittify-data](https://github.com/andreas-duess/unshittify-data).
