@@ -7,12 +7,12 @@ ai: "claude"
 evidence: public
 aiRole: "Heavy AI pair-programming with Claude for the protocol reverse engineering, the NUT plumbing and Bluetooth debugging, per the creator."
 caveats: "The encrypted Bluetooth protocol is reverse engineered, so a firmware update could break it. DELTA 3 only. The handshake needs your EcoFlow user ID once, used locally. Use at your own risk."
-evidenceNote: "Public project + creator account."
-repo: "alanstrok/ecoflow2nut-pibridge"
+evidenceNote: "Public project + creator account. The repo moved from alanstrok to n0de0ne on GitHub."
+repo: "n0de0ne/ecoflow2nut-pibridge"
 links:
-  - { label: "repo", url: "https://github.com/alanstrok/ecoflow2nut-pibridge" }
+  - { label: "repo", url: "https://github.com/n0de0ne/ecoflow2nut-pibridge" }
   - { label: "creator post", url: "https://www.reddit.com/r/homelab/comments/1tyij86/" }
-reviewed: 2026-10-28
+reviewed: 2026-11-14
 submittedBy: unshittify
 ---
 
