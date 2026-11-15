@@ -13,7 +13,7 @@ repo: "timotaysci/HomeDash"
 links:
   - { label: "repo", url: "https://github.com/timotaysci/HomeDash" }
   - { label: "builder's write-up", url: "https://timothyjohnsonsci.com/writing/2026-11-06-photo-frame-wall-display" }
-reviewed: 2026-11-15
+reviewed: 2026-11-14
 submittedBy: unshittify
 ---
 
